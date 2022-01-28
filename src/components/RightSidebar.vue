@@ -89,7 +89,7 @@
 
                         </div>
                     </div>
-                    <div class="flex items-center justify-between pt-5 overflow-x-auto">
+                    <div class="flex items-center justify-between pt-5 ">
                         <table class="w-full">
                             <thead>
                                 <tr>

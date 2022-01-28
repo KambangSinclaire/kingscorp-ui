@@ -1,13 +1,22 @@
 
+import store from '@/store'
+import { getFromStorage } from '@/utils/storage.util'
 import axios from 'axios'
+const userCredentials = getFromStorage('user')
 
 const requestInterceptor = async () => {
 try {
+    let isUser = store.getters.getUsers
+    // if(isUser.)
+    if(!isUser) {
+        isUser = userCredentials
+    }
+
    return axios.interceptors.request.use((config) => {
         config.headers = {
             'Content-Type':"application/json",
-            'Authorization':"Bearer token",
-            "x-api-key":"",
+            'Authorization':"Bearer "+userCredentials['refresh_token'],
+            "x-api-key":userCredentials['x_api_key'],
         }
         return config
     })

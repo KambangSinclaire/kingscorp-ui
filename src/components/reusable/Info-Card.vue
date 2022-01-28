@@ -3,7 +3,7 @@
         <div class="flex justify-between align-center">
           
           <div class="">
-            <router-link to="/statistics">
+            <router-link to="dashboard/statistics">
             <div
               class="whitespace-no-wrap inline-flex items-center justify-center text-white  border border-transparent text-sm w-8 h-8 font-bold rounded-full  "
               :class="setup?.bgColor"
