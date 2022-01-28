@@ -152,12 +152,17 @@
           <form >
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Name</label
+                <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{'col-span-6 sm:col-span-3': inputType == 'number' , 'col-span-6':inputType == 'text', 'hidden':inputType == 'file'}">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -172,67 +177,24 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="Product Name"
-                    v-model="clearedDefaultInputValues[formatInputs.normal?.name]"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
-                </div>
 
-                <div class="grid grid-cols-6 gap-6">
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Quantity</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      v-model="clearedDefaultInputValues[formatInputs.normal?.quantity]"
-                      placeholder="e.g: 20"
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Unit Price</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      v-model="clearedDefaultInputValues[formatInputs.normal['unit cost']]"
-                      placeholder="e.g: 200"
-                    />
                   </div>
                 </div>
 
-                <div class="grid grid-cols-6 gap-6">
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >stock</label
+                  <div class="grid grid-cols-6 gap-6" >
+                  <div class="col-span-6 sm:col-span-3 "   
+                  v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{ 'hidden':inputType !== 'file', 'hidden':inputType === 'textarea' }">
+                    <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                      >{{inputName}}</label
                     >
                     <select
                       class="
@@ -250,44 +212,26 @@
                         focus:border-indigo-500
                         sm:text-sm
                       "
-                      v-model="clearedDefaultInputValues[formatInputs.specialInputs['stock']]"
+                       v-model="formatInputs.specialInputs[inputName]"
                     >
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
+                      <option selected>{{ inputName }}</option>
+                      <option
+                          v-for="(data, index) of relations[inputName]"
+                          :value="data.id"
+                          :key="index"
+                          >
+                          {{ data?.name }}
+                      </option>
                     </select>
                   </div>
 
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Category</label
-                    >
-                    <select
-                      class="
-                        mt-1
-                        block
-                        w-full
-                        py-2
-                        px-3
-                        border border-gray-300
-                        bg-white
-                        rounded-md
-                        shadow-sm
-                        focus:outline-none
-                        focus:ring-indigo-500
-                        focus:border-indigo-500
-                        sm:text-sm
-                      "
-                       v-model="clearedDefaultInputValues[formatInputs.specialInputs['category']]"
-                    >
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
-                    </select>
                   </div>
-                </div>
-
-                <div>
+             
+                 
+                <div   v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                   :class="{'hidden': inputType !== 'file'}"
+                  >
                   <p class="block text-sm font-medium text-gray-700">Photo</p>
 
                   <div
@@ -304,19 +248,18 @@
                         bg-gray-100
                       "
                     >
-               
                       <img v-bind:src="previewImage"  alt="" class="w-full h-full ">
                     </div>
                     <input
-                      type="file"
                       @input="pickFile"
-                      id="image"
                       class="hidden"
+                      type="file"
+                      id="img"
                       
                     />
 
                     <label
-                      for="image"
+                      for="img"
                       class="
                         ml-5
                         cursor-pointer
@@ -337,15 +280,17 @@
                         focus:ring-indigo-500
                       "
                     >
-                      Photo
+                       Photo
                     </label>
                   </div>
                 </div>
 
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
+                <div   v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
                       rows="3"
@@ -360,9 +305,9 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                       v-model="clearedDefaultInputValues[inputs?.describe]"
+                       v-model="formatInputs.specialInputs[inputName]"
                       placeholder="Describe Your Product"
                     ></textarea>
                   </div>
@@ -426,12 +371,17 @@
           <form >
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Name</label
+                 <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{'col-span-6 sm:col-span-3': inputType == 'number' , 'col-span-6':inputType == 'text', 'hidden':inputType == 'file'}">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -446,70 +396,23 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="Service Name"
-                    v-model="clearedDefaultInputValues[input?.name]"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
-                </div>
 
-                <div class="grid grid-cols-6 gap-6">
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Category</label
-                    >
-                    <input
-                      type="text"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      v-model="clearedDefaultInputValues[input?.category]"
-                      placeholder="e.g: 20"
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Cost Per Hour</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      v-model="clearedDefaultInputValues[input?.cost_per_hour]"
-                      placeholder="e.g: 200"
-                    />
                   </div>
                 </div>
 
-
-           
-
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
+                <div   v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
                       rows="3"
@@ -524,16 +427,17 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                      v-model="clearedDefaultInputValues[input?.description]"
-                      placeholder="Describe your Service"
+                       v-model="formatInputs.specialInputs[inputName]"
+                      placeholder="Describe Your Product"
                     ></textarea>
                   </div>
                   <p class="mt-2 text-sm text-gray-500">
-                    Brief description for your service.
+                    Brief description for your product.
                   </p>
                 </div>
+
               </div>
 
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -557,6 +461,7 @@
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -588,12 +493,17 @@
           <form action="#" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Name</label
+                 <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{'col-span-6 sm:col-span-3 lg:col-span-2': inputType == 'number' , 'col-span-6':inputType == 'text', 'hidden':inputType == 'file', 'hidden':inputType == 'text' && inputName == 'items' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -608,38 +518,26 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="Sale Name"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
-                </div>
 
-                  <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Client/Customer Name</label
+                  </div>
+                </div>
+   
+
+                <div   v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{ 'hidden': inputName !== 'items'  }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
-                  <input
-                    type="text"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="Client or Custormer Name"
-                  />
-                </div>
-
-                   <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Items
-                  </label>
+        
                   <div class="mt-1">
                     <textarea
                       rows="2"
@@ -656,6 +554,7 @@
                         rounded-md
                         p-2
                       "
+                         v-model="clearedDefaultInputValues[inputName]"
                       placeholder="Enter Item Name Then Press Enter Key To Add An Item"
                     ></textarea>
                   </div>
@@ -664,63 +563,13 @@
                   </small>
                 </div>
 
-                <div class="grid grid-cols-6 gap-6">
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Total Amount </label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="e.g: 20000"
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Amount Recieved</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="e.g: 200"
-                    />
-                  </div>
-                </div>
-
-
-           
-
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
+             
+                <div   v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
                       rows="3"
@@ -735,14 +584,15 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                      placeholder="Describe your sales"
+                       v-model="formatInputs.specialInputs[inputName]"
+                      placeholder="Describe Your Product"
                     ></textarea>
                   </div>
-                  <small class="mt-2 text-sm text-gray-500">
-                    Brief Note About Your Sales.
-                  </small>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Brief description for your product.
+                  </p>
                 </div>
               </div>
 
@@ -753,20 +603,21 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-16
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -795,15 +646,22 @@
           </div>
         </div>
         <div class="mt-6 md:mt-0 md:col-span-1">
-          <form action="#" method="POST">
+          <form >
             <div class="shadow sm:rounded-md sm:overflow-hidden">
-              <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >User Name</label
+               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                 <div class="grid grid-cols-6 gap-4"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName"
+                  class="col-span-6 sm:col-span-3 lg:col-span-3" 
+                  :class="{'hidden':inputName === 'items'}"
+                  >
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -818,38 +676,26 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="User Name"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
-                </div>
 
-                  <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Client/Customer Name</label
+                  </div>
+                </div>
+   
+
+                <div   v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{ 'hidden': inputName !== 'items'  }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
-                  <input
-                    type="text"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="Client or Custormer Name"
-                  />
-                </div>
-
-                   <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Items
-                  </label>
+        
                   <div class="mt-1">
                     <textarea
                       rows="2"
@@ -866,6 +712,7 @@
                         rounded-md
                         p-2
                       "
+                         v-model="clearedDefaultInputValues[inputName]"
                       placeholder="Enter Item Name Then Press Enter Key To Add An Item"
                     ></textarea>
                   </div>
@@ -874,90 +721,16 @@
                   </small>
                 </div>
 
-                <div class="grid grid-cols-6 gap-2">
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Total Amount </label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="e.g: 20000"
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Issue Date</label
-                    >
-                    <input
-                      type="date"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder=""
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Due Date</label
-                    >
-                    <input
-                      type="date"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder=""
-                    />
-                  </div>
-                </div>
-
-
-           
-
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
+             
+                <div   v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
-                      rows="2"
+                      rows="3"
                       class="
                         focus:ring-blue-600
                         resize-none
@@ -969,14 +742,15 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                      placeholder="Describe your Invoice"
+                       v-model="formatInputs.specialInputs[inputName]"
+                      placeholder="Describe Your Invoice"
                     ></textarea>
                   </div>
-                  <small class="mt-2 text-sm text-gray-500">
-                    Brief Note About Your Invoice.
-                  </small>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Brief description for your Invoice.
+                  </p>
                 </div>
               </div>
 
@@ -987,20 +761,21 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-16
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -1033,9 +808,12 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
               <div class="grid grid-cols-6 gap-4">
-              <div class="col-span-6 sm:col-span-3">
-                <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                <input  type="text"
+              <div class="col-span-6 sm:col-span-3"
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName"
+                  :class="{ 'hidden':inputType === 'file',   }">
+                <label :for="inputName" class="block text-sm font-medium text-gray-700 capitalize">{{inputName}}</label>
+                <input  
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -1050,156 +828,21 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="First Name">
-              </div>
-
-              <div class="col-span-6 sm:col-span-3">
-                <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                <input type="text"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="Last Name">
+                      :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
+                    >
               </div>
               </div>
+            
 
-
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Email</label
+               <div   v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                   :class="{'hidden': inputType !== 'file'}"
                   >
-                  <input
-                    type="email"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="User Name"
-                  />
-                </div>
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Status</label
-                  >
-                  <input
-                    type="email"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="Personel Status"
-                  />
-                </div>
-
-                  <div class="grid grid-cols-6 gap-4">
-
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >name</label
-                    >
-                    <input  type="text"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="Name">
-                    
-                    
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                <label class="block text-sm font-medium text-gray-700">Role</label>
-                <input  type="text"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="Personel Role">
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Group</label
-                    >
-                    <select
-                      class="
-                        mt-1
-                        block
-                        w-full
-                        py-2
-                        px-3
-                        border border-gray-300
-                        bg-white
-                        rounded-md
-                        shadow-sm
-                        focus:outline-none
-                        focus:ring-indigo-500
-                        focus:border-indigo-500
-                        sm:text-sm
-                      "
-                    >
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
-                    </select>
-                  </div>
-
-                  </div>
-
-                 
-
-                <div>
                   <p class="block text-sm font-medium text-gray-700">Photo</p>
 
                   <div
@@ -1216,18 +859,18 @@
                         bg-gray-100
                       "
                     >
-               
-                      <img v-bind:src="previewImage" alt="" class="w-full h-full ">
+                      <img v-bind:src="previewImage"  alt="" class="w-full h-full ">
                     </div>
                     <input
-                      type="file"
                       @input="pickFile"
-                      id="image"
                       class="hidden"
+                      type="file"
+                      id="img"
+                      
                     />
 
                     <label
-                      for="image"
+                      for="img"
                       class="
                         ml-5
                         cursor-pointer
@@ -1248,18 +891,20 @@
                         focus:ring-indigo-500
                       "
                     >
-                      Photo
+                       Photo
                     </label>
                   </div>
                 </div>
                 
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
+              <div   v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
-                      rows="2"
+                      rows="3"
                       class="
                         focus:ring-blue-600
                         resize-none
@@ -1271,16 +916,16 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                      placeholder="Describe This Personel"
+                       v-model="formatInputs.specialInputs[inputName]"
+                      placeholder="Describe Your Product"
                     ></textarea>
                   </div>
-                  <small class="mt-2 text-sm text-gray-500">
-                    Brief Note This Personel.
-                  </small>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Brief description for your personnel.
+                  </p>
                 </div>
-
               </div>
 
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -1290,20 +935,21 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-16
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -1335,12 +981,17 @@
           <form action="#" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Category Name</label
+                 <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{'col-span-6 sm:col-span-3': inputType == 'number' , 'col-span-6':inputType == 'text', 'hidden':inputType == 'file'}">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -1355,97 +1006,26 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="Category Name"
-                  />
-                </div>
-
-                  <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >type</label
-                  >
-                  <input
-                    type="text"
-                    class="
-                      mt-1
-                      focus:ring-blue-600
-                      border
-                      focus:border-blue-600
-                      block
-                      w-full
-                      shadow-sm
-                      sm:text-sm
-                      border-gray-300
-                      rounded-md
-                      border-gray-300
-                      p-2
-                    "
-                    placeholder="Category Type"
-                  />
-                </div>
-
-
-                <div class="grid grid-cols-6 gap-2">
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Threshold</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="e.g: 20000"
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Discount</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="eg: 30"
-                    />
-                  </div>
-
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
                   
+                  />
+
+                  </div>
                 </div>
 
-
-           
-
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
+                <div  v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
-                      rows="2"
+                      rows="3"
                       class="
                         focus:ring-blue-600
                         resize-none
@@ -1457,14 +1037,15 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                      placeholder="Describe This Category"
+                       v-model="formatInputs.specialInputs[inputName]"
+                      placeholder="Describe Your Product"
                     ></textarea>
                   </div>
-                  <small class="mt-2 text-sm text-gray-500">
-                    Brief Note About This Category.
-                  </small>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Brief description for your product.
+                  </p>
                 </div>
               </div>
 
@@ -1475,20 +1056,21 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-16
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -1517,15 +1099,20 @@
           </div>
         </div>
         <div class="mt-6 md:mt-0 md:col-span-1">
-          <form action="#" method="POST">
+                <form action="#" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Stock Name</label
+                 <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{ 'col-span-6':inputType == 'text','hidden': inputType !== 'text'}">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -1540,16 +1127,29 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="Stock Name"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
+
+                  </div>
                 </div>
 
-                  <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >User Name</label
+                   <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  class="col-span-6 sm:col-span-3 lg:col-span-2"
+                  :class="{'hidden': inputType !== 'number' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -1564,17 +1164,65 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="User Name"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
+
+                  </div>
                 </div>
 
-                 <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Products
-                  </label>
+                 <div class="grid grid-cols-6 gap-6" >
+                  <div class="col-span-6 sm:col-span-6 "   
+                  v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{ 'hidden':inputType !== 'file', 'hidden':inputType === 'textarea' }">
+                    <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                      >{{inputName}}</label
+                    >
+                    <select
+                      class="
+                        mt-1
+                        block
+                        w-full
+                        py-2
+                        px-3
+                        border border-gray-300
+                        bg-white
+                        rounded-md
+                        shadow-sm
+                        focus:outline-none
+                        focus:ring-indigo-500
+                        focus:border-indigo-500
+                        sm:text-sm
+                      "
+                       v-model="formatInputs.specialInputs[inputName]"
+                    >
+                      <option selected>{{ inputName }}</option>
+                      <option
+                          v-for="(data, index) of relations[inputName]"
+                          :value="data.id"
+                          :key="index"
+                          >
+                          {{ data?.name }}
+                      </option>
+                    </select>
+                  </div>
+
+                  </div>
+
+                <div  v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
-                      rows="2"
+                      rows="3"
                       class="
                         focus:ring-blue-600
                         resize-none
@@ -1586,115 +1234,15 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                      placeholder="Select Products"
+                       v-model="formatInputs.specialInputs[inputName]"
+                      placeholder="Describe Your Product"
                     ></textarea>
                   </div>
-                
-                </div>
-
-
-                <div class="grid grid-cols-6 gap-2">
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Estimated Amount</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="e.g: 20000"
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Actual Amount</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="eg: 30"
-                    />
-                  </div>
-
-                    <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Estimated Profit</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="eg: 3000"
-                    />
-                  </div>    
-                </div>
-
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
-                  <div class="mt-1">
-                    <textarea
-                      rows="2"
-                      class="
-                        focus:ring-blue-600
-                        resize-none
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        p-2
-                      "
-                      placeholder="Describe This Stock"
-                    ></textarea>
-                  </div>
-                  <small class="mt-2 text-sm text-gray-500">
-                    Brief Note About This Stock.
-                  </small>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Brief description for your product.
+                  </p>
                 </div>
               </div>
 
@@ -1705,20 +1253,21 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-16
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -1747,15 +1296,20 @@
           </div>
         </div>
         <div class="mt-6 md:mt-0 md:col-span-1">
-          <form action="#" method="POST">
+                   <form action="#" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >User Name</label
+                 <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  :class="{ 'col-span-6':inputType == 'text','hidden': inputType !== 'text'}">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -1770,16 +1324,29 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="User Name"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
+
+                  </div>
                 </div>
 
-                  <div class="w-full">
-                  <label class="block text-sm font-medium text-gray-700"
-                    >Client Name</label
+                   <div class="grid grid-cols-6 gap-6"  >
+                  <div   
+                  v-for="(inputType, inputName) of formatInputs.normalInputs"
+                  :key="inputName" 
+                  class="col-span-6 sm:col-span-3 lg:col-span-2"
+                  :class="{'hidden': inputType === 'text' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                    :for="inputName"
+                    >{{inputName}}</label
                   >
                   <input
-                    type="text"
+                    
                     class="
                       mt-1
                       focus:ring-blue-600
@@ -1794,17 +1361,65 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="Client Name"
+                       :type="inputType"
+                       v-model="clearedDefaultInputValues[inputName]"
+                      :placeholder="inputName"
+                      :id="inputName"
+                      @input="valueChanged"
+                  
                   />
+
+                  </div>
                 </div>
 
-                 <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Items
-                  </label>
+                 <div class="grid grid-cols-6 gap-6" >
+                  <div class="col-span-6 sm:col-span-6 "   
+                  v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{ 'hidden':inputType !== 'file', 'hidden':inputType === 'textarea' }">
+                    <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                      >{{inputName}}</label
+                    >
+                    <select
+                      class="
+                        mt-1
+                        block
+                        w-full
+                        py-2
+                        px-3
+                        border border-gray-300
+                        bg-white
+                        rounded-md
+                        shadow-sm
+                        focus:outline-none
+                        focus:ring-indigo-500
+                        focus:border-indigo-500
+                        sm:text-sm
+                      "
+                       v-model="formatInputs.specialInputs[inputName]"
+                    >
+                      <option selected>{{ inputName }}</option>
+                      <option
+                          v-for="(data, index) of relations[inputName]"
+                          :value="data.id"
+                          :key="index"
+                          >
+                          {{ data?.name }}
+                      </option>
+                    </select>
+                  </div>
+
+                  </div>
+
+                <div  v-for="(inputType, inputName) of formatInputs.specialInputs"
+                  :key="inputName" :class="{'hidden': inputType !== 'textarea' }">
+                  <label class="block text-sm font-medium text-gray-700 capitalize"
+                     :for="inputName"
+                    >{{inputName}}</label
+                  >
                   <div class="mt-1">
                     <textarea
-                      rows="2"
+                      rows="3"
                       class="
                         focus:ring-blue-600
                         resize-none
@@ -1816,93 +1431,15 @@
                         sm:text-sm
                         border-gray-300
                         rounded-md
-                        p-2
+                        p-2 lg:col-span-2
                       "
-                      placeholder="Select Items"
+                       v-model="formatInputs.specialInputs[inputName]"
+                      placeholder="Describe Your Product"
                     ></textarea>
                   </div>
-                
-                </div>
-
-
-                <div class="grid grid-cols-6 gap-2">
-                  <div class="col-span-6 sm:col-span-3 ">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Amount</label
-                    >
-                    <input
-                      type="number"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="e.g: 20000"
-                    />
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Due Date</label
-                    >
-                    <input
-                      type="date"
-                      class="
-                        mt-1
-                        focus:ring-blue-600
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        border-gray-300
-                        p-2
-                      "
-                      placeholder="eg: 30"
-                    />
-                  </div>
-
-                   
-                </div>
-
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">
-                    Description
-                  </label>
-                  <div class="mt-1">
-                    <textarea
-                      rows="2"
-                      class="
-                        focus:ring-blue-600
-                        resize-none
-                        border
-                        focus:border-blue-600
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                        p-2
-                      "
-                      placeholder="Describe This Credit"
-                    ></textarea>
-                  </div>
-                  <small class="mt-2 text-sm text-gray-500">
-                    Brief Note About This Credit .
-                  </small>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Brief description for your product.
+                  </p>
                 </div>
               </div>
 
@@ -1913,20 +1450,21 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-16
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -1997,10 +1535,16 @@ import { AppActionEvents } from "../../events/app.events";
         ...this.clearedDefaultInputValues,
         ...this.formatInputs.specialInputs,
       };
-  console.log(payload);
-      // this.$store.dispatch(this.setup?.actions?.add, payload);
-      // this.$store.dispatch(this.setup?.actions?.list);
-      // this.closeForm();
+      if(payload.hasOwnProperty('image url')){
+        payload['image url']=btoa(this.previewImage)
+      }
+       if(payload.hasOwnProperty('profile image')){
+        payload['profile image']=btoa(this.previewImage)
+      }
+      
+      this.$store.dispatch(this.setup?.actions?.add, payload);
+      this.$store.dispatch(this.setup?.actions?.list);
+      this.closeForm();
     },
     pickFile(payload) {
       let input = payload?.target?.files
@@ -2020,7 +1564,6 @@ import { AppActionEvents } from "../../events/app.events";
     for (const [key, value] of Object.entries(relationalInputs)) {
       relations.push(`${key}`);
       this.$store.dispatch(AppActionEvents[key].retrieve, { relations });
-      console.log(relations);
     }
   },
 })
