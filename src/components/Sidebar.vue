@@ -155,10 +155,9 @@
         <ul class="w-full">
           <li class="w-full">
 			    	<a class="flex items-center w-full h-8 px-2 mt-2 rounded hover:bg-gray-200 hover:text-gray-500" href="#">
-					<small><i class="fas fa-caret-right"></i></small>
-					<small class="ml-2 text-sm font-medium">Dasboard</small>
-				</a>
-
+					    <small><i class="fas fa-caret-right"></i></small>
+					    <small class="ml-2 text-sm font-medium">Dasboard</small>
+				    </a>
           </li>
         </ul>
 				
@@ -170,6 +169,68 @@
 					<small><i class="fas fa-caret-right"></i></small>
 					<small class="ml-2 text-sm font-medium">Statistics</small>
 				</a>
+
+       <ul class="menu w-full p-2   rounded-box">
+      <li  >
+        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
+      </svg>
+          Level 1
+        
+    </a>
+  </li> 
+  <li >
+    <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
+      </svg>
+          Level 1
+        
+    </a> 
+    <ul class="menu">
+      <li  >
+        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
+          </svg>
+              Level 2
+            
+        </a>
+      </li> 
+      <li >
+        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
+          </svg>
+              Level 2
+            
+        </a > 
+        <ul class="menu">
+          <li >
+            <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
+              </svg>
+                  Level 3
+                
+            </a>
+          </li>
+        </ul>
+      </li> 
+      <li  >
+        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
+          </svg>
+              Level 2
+            
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
 			</div>
 			
 		</div>
@@ -215,6 +276,8 @@ export default class Sidebar extends Vue {
 </script>
 
 <style scoped lang="scss">
+@import '../assets/styles/daysui.scss';
+
 .sidebar {
   border-right: 1px solid #8080802e;
   cursor: w-resize;

@@ -294,9 +294,7 @@
 
       </div>
     </div>
-    <div class="" v-if="this.isError">
-    <Alert :messageType="'ERROR'" :messageContent="this.errorMessage" :action="this.isError" />
-    </div>
+    <Alert :messageType="'ERROR'" :messageContent="this.errorMessage" v-if="this.isError" @dismiss="this.isError = !this.isError" />
   </div>
 </template>
 
@@ -311,8 +309,14 @@ import {  User, } from "@/interfaces/user.interface";
 @Options({
   methods: {
     loginUser() {
-      if (this.login.username !== "" && this.login.password !== "") {
-        // this.$store.dispatch(AppActionEvents.user.add, this.register);
+      if (!this.login.username.trim()  || !this.login.password.trim() ) {
+        // this.$router.push("/explore/dashboard");
+        this.errorMessage = "invalid username or password"
+      }
+      if(!!this.errorMessage){
+        this.isError = true
+      }else{
+         // this.$store.dispatch(AppActionEvents.user.add, this.register);
         this.$store.dispatch(AppActionEvents.location.retrieve)
         let userLocation = !this.$store.getters.getLocation?this.$store.getters.getLocation : getFromStorage('location')
         // console.log(this.register, userLocation);
@@ -323,11 +327,6 @@ import {  User, } from "@/interfaces/user.interface";
           last_login: new Date(Date.now())
         }
         this.$store.dispatch(AppActionEvents.user.login, data);
-        // this.$router.push("/explore/dashboard");
-      } else {
-        this.errorMessage = "Invalid User"
-        // alert("Please login");
-        
       }
     },
     isActionMutation(){
