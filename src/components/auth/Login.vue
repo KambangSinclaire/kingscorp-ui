@@ -113,7 +113,7 @@
           </div>
 
           <div class="input-container">
-            <button  @click.prevent="login"
+            <button  @click.prevent="loginUser"
               class="w-full text-center font-bold px-2 py-2 bg-blue-600 text-wihte my-4 shadow-3xl border-none rounded-md"
             >
               Login
@@ -310,7 +310,7 @@ import {  User, } from "@/interfaces/user.interface";
 
 @Options({
   methods: {
-    login() {
+    loginUser() {
       if (this.login.username !== "" && this.login.password !== "") {
         // this.$store.dispatch(AppActionEvents.user.add, this.register);
         this.$store.dispatch(AppActionEvents.location.retrieve)
@@ -323,7 +323,7 @@ import {  User, } from "@/interfaces/user.interface";
           last_login: new Date(Date.now())
         }
         this.$store.dispatch(AppActionEvents.user.login, data);
-        this.$router.push("/explore/dashboard");
+        // this.$router.push("/explore/dashboard");
       } else {
         this.errorMessage = "Invalid User"
         // alert("Please login");
@@ -357,7 +357,12 @@ import {  User, } from "@/interfaces/user.interface";
       }else{
         // this.$store.dispatch(AppActionEvents.user.add, this.register);
         this.$store.dispatch(AppActionEvents.location.retrieve)
-        let userLocation = !this.$store.getters.getLocation?this.$store.getters.getLocation : getFromStorage('location')
+        let userLocation ;
+        if(!this.$store.getters.getLocation && !getFromStorage('location')){
+          userLocation=""
+        }else{
+          userLocation = getFromStorage('location')
+        }
         // console.log(this.register, userLocation);
         let data:User = {
           username:this.register.username,
@@ -377,6 +382,7 @@ import {  User, } from "@/interfaces/user.interface";
     
   },
   mounted() {
+     this.$store.dispatch(AppActionEvents.location.retrieve)
     // check if already logged in
     // if (this.$store.getters.isLoggedIn) {
     //   this.$router.push("/explore/dashboard");
