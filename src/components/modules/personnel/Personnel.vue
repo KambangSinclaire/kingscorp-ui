@@ -76,7 +76,7 @@ export default class Personnel extends Vue {
         name: "text",
         group:"text",
         password:"password",
-        "profile image":"file",
+        "profile_image":"file",
 
       },
       entity: "personnel",

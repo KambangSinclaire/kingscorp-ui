@@ -35,7 +35,7 @@ export default class Service extends Vue {
         name: "text",
         category: "text",
         description: "textarea",
-        "cost per hour": "number",
+        "cost_per_hour": "number",
       },
       entity: "Service",
       actions: {
