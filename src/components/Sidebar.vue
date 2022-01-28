@@ -152,85 +152,33 @@
                 placeholder="search"
               />
             </div>
-        <ul class="w-full">
-          <li class="w-full">
-			    	<a class="flex items-center w-full h-8 px-2 mt-2 rounded hover:bg-gray-200 hover:text-gray-500" href="#">
-					    <small><i class="fas fa-caret-right"></i></small>
-					    <small class="ml-2 text-sm font-medium">Dasboard</small>
-				    </a>
-          </li>
-        </ul>
-				
-			<a class="flex items-center w-full h-8 px-2 mt-2 rounded hover:bg-gray-200 hover:text-gray-500" href="#">
-					<small><i class="fas fa-caret-right"></i></small>
-					<small class="ml-2 text-sm font-medium">Pages</small>
-				</a>
-			<a class="flex items-center w-full h-8 px-2 mt-2 rounded hover:bg-gray-200 hover:text-gray-500" href="#">
-					<small><i class="fas fa-caret-right"></i></small>
-					<small class="ml-2 text-sm font-medium">Statistics</small>
-				</a>
 
-       <ul class="menu w-full p-2   rounded-box">
-      <li  >
-        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
-      </svg>
-          Level 1
-        
-    </a>
-  </li> 
-  <li >
-    <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
-      </svg>
-          Level 1
-        
-    </a> 
-    <ul class="menu">
-      <li  >
-        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
-          </svg>
-              Level 2
-            
-        </a>
-      </li> 
-      <li >
-        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
-          </svg>
-              Level 2
-            
-        </a > 
-        <ul class="menu">
-          <li >
-            <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
-              </svg>
-                  Level 3
-                
-            </a>
-          </li>
+   <ul>
+  <li class="folder">
+    <button>Dashboard</button>
+    <ul>
+      <li class="folder"><button>Dashboard.Home</button>
+        <ul>
+          <li><button>Dashboard.Profile</button></li>
+          <li><button>Dashboard.Others</button></li>
         </ul>
-      </li> 
-      <li  >
-        <a  class="flex items-center w-full   mt-2 rounded hover:bg-gray-200 hover:text-gray-500">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 mr-2 stroke-current">          
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>                
-          </svg>
-              Level 2
-            
-        </a>
+      </li>
+      <li class="folder"><button>TaglineContent.Container</button>
+        <ul>
+          <li><button>TaglineContent.Header</button></li>
+          <li><button>TaglineContent.Paragraph</button></li>
+        </ul>
+      </li>
+      <li class="folder"><button>TaglineContent.Container</button>
+        <ul>
+          <li><button>TaglineContent.Header</button></li>
+          <li><button>TaglineContent.Paragraph</button></li>
+        </ul>
       </li>
     </ul>
   </li>
 </ul>
-
+	
 			</div>
 			
 		</div>
@@ -276,8 +224,48 @@ export default class Sidebar extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/styles/daysui.scss';
 
+li {
+  font-size: 1rem;
+  position: relative;
+  border-left: 1px solid #bbb;
+  padding: .5rem 1rem 0rem;
+  list-style: none;
+  &:before {
+    position: absolute;
+    left: 0px;
+    width: .5rem;
+    height: 1px;
+    content: "";
+    background-color: #bbb;
+    top: 1.5rem;
+  }
+  
+  &.folder {
+    list-style: inside url("data:image/svg+xml,%3C!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In --%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 18 14' style='enable-background:new 0 0 20 14;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill-rule:evenodd;clip-rule:evenodd;%3D%0A%3C/style%3E%3Cdefs%3E%3C/defs%3E%3Cpath class='st0' d='M0,14V0h7l1,2H2L0,14z M18,3l-2,11H1L3,3H18z'/%3E%3C/svg%3E%0A");
+    &::marker{
+    background: blue;
+    color: blue;
+  }
+
+  }
+// 1e40af
+  
+}
+
+button {
+  border: 0 none;
+  background-color: transparent;
+  text-align: left;
+  width: 90%; /* i hate this */
+  padding: .5rem;
+  
+  &:hover, &:focus {
+    background-color: #eaeaea;
+    border-radius: .25rem;
+    outline: 0;
+  }
+}
 .sidebar {
   border-right: 1px solid #8080802e;
   cursor: w-resize;
