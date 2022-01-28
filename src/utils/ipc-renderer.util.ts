@@ -27,6 +27,7 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
 
     if (!navigator.onLine) {
         console.log("offline running...", isOnline);
+        // setToStorage()
         const response: ResponsePayload = await ElectronUI.ipcRenderer.invoke(actionEvent, payload);
         console.log("response data...", response);
         if (response.status === ResponseStatus.OK) {
