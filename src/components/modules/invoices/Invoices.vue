@@ -41,14 +41,14 @@ export default class Invoice extends Vue {
         "Expiry date",
       ],
       inputs: {
-        "total amount": "number",
+        "total_amount": "number",
         items: "text",
         status: "text",
         description: "textarea",
-        "expected date": "date",
+        "expected_date": "date",
         user: "text",
         client: "text",
-        "Expiry date": "date",
+        "expiry_date": "date",
       },
       entity: "Invoice",
       actions: {

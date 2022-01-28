@@ -38,7 +38,7 @@ const actions = {
     },
     editCredit(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.credit.edit, payload).then((data) => {
-            ctx.commit('setCredit', data);
+            ctx.commit('setCredits', data);
         });
     },
     deleteCredit(ctx: any, payload: any) {

@@ -1535,11 +1535,11 @@ import { AppActionEvents } from "../../events/app.events";
         ...this.clearedDefaultInputValues,
         ...this.formatInputs.specialInputs,
       };
-      if(payload.hasOwnProperty('image url')){
-        payload['image url']=btoa(this.previewImage)
+      if(payload.hasOwnProperty('image_url')){
+        payload['image_url']=btoa(this.previewImage)
       }
-       if(payload.hasOwnProperty('profile image')){
-        payload['profile image']=btoa(this.previewImage)
+       if(payload.hasOwnProperty('profile_image')){
+        payload['profile_image']=btoa(this.previewImage)
       }
       
       this.$store.dispatch(this.setup?.actions?.add, payload);

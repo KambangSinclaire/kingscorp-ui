@@ -40,11 +40,11 @@ export default class Inventory extends Vue {
         "Name",
       ],
       inputs: {
-        "estimated budget": "number",
+        "estimated_budget": "number",
         products: "select",
         status: "text",
         description: "textarea",
-        "actual budget": "number",
+        "actual_budget": "number",
         user: "text",
         name: "text",
       },
