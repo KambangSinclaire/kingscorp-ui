@@ -49,32 +49,32 @@
   </section>
 
    -->
+    <div>
 
-  <div class="header-container   w-full">
-    <div class="">
-      <div x-data="{ mobileMenuOpen: false }" class="relative bg-gray-100">
-        <div
-          class="flex justify-between items-center p-1  sm:px-2 md:justify-start md:space-x-10"
-        >
-          <div class="">
-            <a   class="whitespace-no-wrap inline-flex items-center justify-center  border border-transparent text-sm w-8 h-8 bg-gray-100 font-medium rounded-full shadow ">S</a>
+   <nav class="bg-gray-100 border-gray-200 pl-6 pr-2 sm:px-4 py-1 rounded dark:bg-gray-800">
+  <div class="w-full flex flex-wrap justify-between items-center mx-auto">
+  <a href="#" class="flex pl-4 w-24 h-12 ">
+    <img src="@/assets/logo/logo4-removebg-preview.png" style="transform:scale(2.5);" alt="">
+  </a>
+  <div class="flex md:order-2">
+      <div class="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0" >
+        <a class="whitespace-no-wrap text-sm border px-4 border-blue-200 rounded leading-6 font-medium text-blue-500 bg-blue-100 hover:text-blue-600">
+              Online
+        </a>
+        <span class="inline-flex rounded-full shadow-sm">
+              <a class="whitespace-no-wrap inline-flex items-center justify-center  border border-transparent text-sm w-8 h-8 bg-blue-500 text-white font-medium rounded-full " >
+                S
+              </a>
+            </span>
           </div>
-
-          <div class="-mr-2 -my-2 md:hidden">
-            <button
-              @click="mobileMenuOpen = true"
-              type="button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
-            >
-            
-              <i class="fas fa-bars h-6 w-6"></i>
-            </button>
-          </div>
-          <nav class="hidden md:flex ">
-            <div
-              x-description="Flyout menu, show/hide based on flyout menu state."
-              @click="flyoutMenuOpen = false"
-              x-data="{ flyoutMenuOpen: true }"
+      <button data-collapse-toggle="mobile-menu-4" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-4" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </button>
+  </div>
+  <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
+          <div
               class="relative flex"
             >
               <button
@@ -153,37 +153,15 @@
                 <span><small>keyboard Settings</small></span> 
                
               </button>
-            </div>
-
-
-        
-          </nav>
-
-          <div
-            class="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0"
-          >
-            <a
-              
-              class="whitespace-no-wrap text-sm border px-4 border-blue-200 rounded leading-6 font-medium text-blue-500 bg-blue-100 hover:text-blue-600"
-            >
-              Online
-            </a>
-            <span class="inline-flex rounded-full shadow-sm">
-              <a
-                
-                class="whitespace-no-wrap inline-flex items-center justify-center  border border-transparent text-sm w-8 h-8 bg-blue-500 text-white font-medium rounded-full "
-              >
-                S
-              </a>
-            </span>
           </div>
-        </div>
-
-      
-      </div>
-    </div>
+  </div>
+  </div>
+</nav>
   </div>
 
+ 
+
+  
 </template>
 
 <script lang="ts">

@@ -131,20 +131,25 @@
     class="w-full h-screen fixed top-0 p-6 left-0 bg-gray-100 overflow-y-auto"
   >
     <!-- product -->
-    <div class="w-full" v-if="setup?.entity === 'Product' ">
-      <div class="md:grid md:grid-cols-2 md:gap-6">
-        <div class="md:col-span-1">
-          <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+    <div class="w-full h-full" v-if="setup?.entity === 'Product' ">
+      <div class="md:grid  md:grid-cols-2 md:gap-6">
+        <div class="md:col-span-1 ">
+             <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+          <div class="px-4 sm:px-0 h-full  ">
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6" > Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Carefully Fill In The Product With All It's Required Data. You May
               Want To Update Later.
-              {{ setup }}
+              {{ setup }} {{formatInputs}}
             </p>
           </div>
         </div>
         <div class="mt-6 md:mt-0 md:col-span-1">
-          <form action="#" method="POST">
+          <form >
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div class="w-full">
@@ -168,6 +173,7 @@
                       p-2
                     "
                     placeholder="Product Name"
+                    v-model="clearedDefaultInputValues[formatInputs.normal?.name]"
                   />
                 </div>
 
@@ -192,6 +198,7 @@
                         border-gray-300
                         p-2
                       "
+                      v-model="clearedDefaultInputValues[formatInputs.normal?.quantity]"
                       placeholder="e.g: 20"
                     />
                   </div>
@@ -216,6 +223,7 @@
                         border-gray-300
                         p-2
                       "
+                      v-model="clearedDefaultInputValues[formatInputs.normal['unit cost']]"
                       placeholder="e.g: 200"
                     />
                   </div>
@@ -242,6 +250,7 @@
                         focus:border-indigo-500
                         sm:text-sm
                       "
+                      v-model="clearedDefaultInputValues[formatInputs.specialInputs['stock']]"
                     >
                       <option>United States</option>
                       <option>Canada</option>
@@ -269,6 +278,7 @@
                         focus:border-indigo-500
                         sm:text-sm
                       "
+                       v-model="clearedDefaultInputValues[formatInputs.specialInputs['category']]"
                     >
                       <option>United States</option>
                       <option>Canada</option>
@@ -295,13 +305,14 @@
                       "
                     >
                
-                      <img v-bind:src="previewImage" alt="" class="w-full h-full ">
+                      <img v-bind:src="previewImage"  alt="" class="w-full h-full ">
                     </div>
                     <input
                       type="file"
                       @input="pickFile"
                       id="image"
                       class="hidden"
+                      
                     />
 
                     <label
@@ -351,7 +362,8 @@
                         rounded-md
                         p-2
                       "
-                      placeholder="you@example.com"
+                       v-model="clearedDefaultInputValues[inputs?.describe]"
+                      placeholder="Describe Your Product"
                     ></textarea>
                   </div>
                   <p class="mt-2 text-sm text-gray-500">
@@ -367,20 +379,21 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-16
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2
                     focus:ring-blue-500
                   "
+                  @click.prevent="saveData"
                 >
                   Save
                 </button>
@@ -395,8 +408,13 @@
     <div class="w-full"  v-if="setup?.entity === 'Service' ">
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
+          <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6"> Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Add The Service You Wish To Manage. You May
               Want To Update Later.
@@ -405,7 +423,7 @@
           </div>
         </div>
         <div class="mt-6 md:mt-0 md:col-span-1">
-          <form action="#" method="POST">
+          <form >
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div class="w-full">
@@ -428,7 +446,8 @@
                       border-gray-300
                       p-2
                     "
-                    placeholder="Product Name"
+                    placeholder="Service Name"
+                    v-model="clearedDefaultInputValues[input?.name]"
                   />
                 </div>
 
@@ -453,6 +472,7 @@
                         border-gray-300
                         p-2
                       "
+                      v-model="clearedDefaultInputValues[input?.category]"
                       placeholder="e.g: 20"
                     />
                   </div>
@@ -477,6 +497,7 @@
                         border-gray-300
                         p-2
                       "
+                      v-model="clearedDefaultInputValues[input?.cost_per_hour]"
                       placeholder="e.g: 200"
                     />
                   </div>
@@ -505,6 +526,7 @@
                         rounded-md
                         p-2
                       "
+                      v-model="clearedDefaultInputValues[input?.description]"
                       placeholder="Describe your Service"
                     ></textarea>
                   </div>
@@ -521,14 +543,14 @@
                     inline-flex
                     justify-center
                     py-2
-                    px-4
+                    px-10
                     border border-transparent
                     shadow-sm
                     text-sm
                     font-medium
                     rounded-md
                     text-white
-                    bg-blue-600
+                    bg-blue-800
                     hover:bg-blue-700
                     focus:outline-none
                     focus:ring-2
@@ -549,8 +571,13 @@
     <div class="w-full"  v-if="setup?.entity === 'Sale' " >
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
+          <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6"> Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Record Sales Perfomed To Other Merchants. Trust Us We Keep This information Secured. You May Update Later.
               {{ setup }}
@@ -754,8 +781,13 @@
     <div class="w-full" v-if="setup?.entity === 'Invoice' "   >
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
+             <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6"> Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Record Invoice Perfomed To Other Merchants. Trust Us We Keep This information Secured. You May Update Later.
               {{ setup }}
@@ -983,8 +1015,13 @@
     <div class="w-full"  v-if="setup?.entity === 'personnel' " >
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
+             <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6"> Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Record Invoice Perfomed To Other Merchants. Trust Us We Keep This information Secured. You May Update Later.
               {{ setup }}
@@ -1281,8 +1318,13 @@
      <div class="w-full"  v-if="setup?.entity === 'Category' "  >
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
+             <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6"> Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Record Invoice Perfomed To Other Merchants. Trust Us We Keep This information Secured. You May Update Later.
               {{ setup }}
@@ -1461,8 +1503,13 @@
      <div class="w-full"  v-if="setup?.entity === 'Stock' "  >
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
+             <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6"> Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Record Invoice Perfomed To Other Merchants. Trust Us We Keep This information Secured. You May Update Later.
               {{ setup }}
@@ -1686,8 +1733,13 @@
     <div class="w-full" v-if="setup?.entity === 'Credit' "   >
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
+             <button @click.prevent="closeForm" class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium leading-6 text-gray-900"> Add new {{ setup?.entity }}</h3>
+            <h3 class="text-4xl  font-extrabold leading-6 text-gray-900 mt-24 mb-6"> Add new {{ setup?.entity }}</h3>
             <p class="mt-1 text-sm text-gray-600">
               Record Invoice Perfomed To Other Merchants. Trust Us We Keep This information Secured. You May Update Later.
               {{ setup }}
@@ -1945,10 +1997,10 @@ import { AppActionEvents } from "../../events/app.events";
         ...this.clearedDefaultInputValues,
         ...this.formatInputs.specialInputs,
       };
-
-      this.$store.dispatch(this.setup?.actions?.add, payload);
-      this.$store.dispatch(this.setup?.actions?.list);
-      this.closeForm();
+  console.log(payload);
+      // this.$store.dispatch(this.setup?.actions?.add, payload);
+      // this.$store.dispatch(this.setup?.actions?.list);
+      // this.closeForm();
     },
     pickFile(payload) {
       let input = payload?.target?.files
@@ -1968,6 +2020,7 @@ import { AppActionEvents } from "../../events/app.events";
     for (const [key, value] of Object.entries(relationalInputs)) {
       relations.push(`${key}`);
       this.$store.dispatch(AppActionEvents[key].retrieve, { relations });
+      console.log(relations);
     }
   },
 })

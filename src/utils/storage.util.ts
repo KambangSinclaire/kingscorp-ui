@@ -12,9 +12,11 @@ export const getFromStorage = (storeName:string) => {
     else{
         try {
            element = localStorage.getItem(storeName)
-           element = atob(JSON.parse(element))
+           element = JSON.parse(atob(element))
            return element
         } catch (error) {
+            console.log(error);
+            
             return false
         }
     }

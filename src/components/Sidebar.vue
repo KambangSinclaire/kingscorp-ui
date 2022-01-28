@@ -134,10 +134,10 @@
   </section> -->
 
 
-	<div class="flex flex-col items-center h-full  w-full  overflow-hidden text-gray-400 bg-gray-100 ">
+	<div class="flex flex-col items-start h-full  w-full  overflow-hidden text-gray-400 bg-gray-100 ">
 	
 		<div class="w-full px-1">
-			<div class="flex flex-col items-center w-full bg-gray-100 ">
+			<div class="flex flex-col items-start w-full bg-gray-100 ">
 				 <div class="mt-1 relative rounded-full ">
               <div
                 class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
@@ -152,10 +152,15 @@
                 placeholder="search"
               />
             </div>
-				<a class="flex items-center w-full h-8 px-2 mt-2 rounded hover:bg-gray-200 hover:text-gray-500" href="#">
+        <ul class="w-full">
+          <li class="w-full">
+			    	<a class="flex items-center w-full h-8 px-2 mt-2 rounded hover:bg-gray-200 hover:text-gray-500" href="#">
 					<small><i class="fas fa-caret-right"></i></small>
 					<small class="ml-2 text-sm font-medium">Dasboard</small>
 				</a>
+
+          </li>
+        </ul>
 				
 			<a class="flex items-center w-full h-8 px-2 mt-2 rounded hover:bg-gray-200 hover:text-gray-500" href="#">
 					<small><i class="fas fa-caret-right"></i></small>

@@ -66,8 +66,17 @@
       </div>
 
     </div> -->
-<div class="p-4">
-  <h1 class="font-bold capitalize text-2xl">{{ options.entity }}</h1>
+<div class="p-4 flex items-center ">
+
+  <router-link to="/explore/dashboard">
+  <button  class="w-10 h-10 px-2 flex justify-center items-center shadow-lg rounded-lg text-gray-800 mr-2">
+   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+  </svg>
+  </button>
+  </router-link>
+
+  <h1 class="font-bold capitalize text-2xl mt-2">{{ options.entity }}</h1>
 </div>
 
 <div class="w-full px-4 h-screen">
@@ -104,8 +113,10 @@
   </div>
   <div class="w-1/2 p-2 flex justify-end items-end">
   
-    <button type="button" @click="addNewForm" class="text-white shadow-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          <i class="fas fa-plus-circle " aria-hidden="true"></i>
+    <button type="button" @click="addNewForm" class="text-white flex justify-center items-center  shadow-lg bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white mr-1 mb-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+        </svg>
           Add New {{ options.entity }}
     </button>  
   </div>

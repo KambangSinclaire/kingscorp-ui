@@ -15,7 +15,7 @@ import { setToStorage } from "@/utils/storage.util";
  const state = {
      locations: <any>[]
  };
- 
+
  const mutations = {
      setLocation(state: any, payload: any) {
          return state.locations.push(payload);
@@ -24,18 +24,18 @@ import { setToStorage } from "@/utils/storage.util";
          setToStorage(payload, 'location')
          return state.locations = [payload];
      },
-    
  };
 
  const actions = {
-     getLocations(ctx: any) {
+     getLocation(ctx: any) {
          IPC.ipcRequestTrigger(AppActionEvents.location.retrieve).then((data) => {
              ctx.commit('setLocations', data);
          });
      },  
  };
+
  const getters = {
-     getLocations(state: any) {
+     getLocation(state: any) {
          return state.locations;
      }
  };

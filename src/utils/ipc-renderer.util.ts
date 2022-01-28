@@ -59,36 +59,26 @@ const webAPICaller = async (endpoint: string, method: string, payload: any) => {
     let apiResponse: ResponsePayload | any;
 
     if (method == "POST") {
-        apiResponse = await axios.post(endpoint, payload, {
-            headers: {
-                'Content-Type': "application/json"
-            }
-        })
+        await requestInterceptor()
+        apiResponse = await axios.post(endpoint, payload, {})
+        // console.log(apiResponse, actionEvent);
+        
     }
 
     if (method == "GET") {
         await requestInterceptor()
-        apiResponse = await axios.get(endpoint, {
-
-        })
+        apiResponse = await axios.get(endpoint, {})
     }
 
     if (method == "PUT") {
-        apiResponse = await axios.put(endpoint, payload, {
-            headers: {
-                'Content-Type': "application/json"
-            }
-        })
+        await requestInterceptor()
+        apiResponse = await axios.put(endpoint, payload, {})
     }
 
     if (method == "DELETE") {
-        apiResponse = await axios.delete(endpoint, {
-            headers: {
-                'Content-Type': "application/json"
-            }
-        })
+        await requestInterceptor()
+        apiResponse = await axios.delete(endpoint, {})
     }
-
 
     return apiResponse.data;
 }

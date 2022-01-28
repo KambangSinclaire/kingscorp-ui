@@ -26,68 +26,59 @@
               >
             </div>
 
-            <div class="signin-link ml-6 px-3 rounded-2xl shadow-2xl py-2">
+            <div class="signin-link ml-6 px-3 rounded-2xl shadow-2xl py-2" v-if="this.actionType.register">
               <p class="text-gray-800">Already Have An Account?</p>
-              <router-link to="" class="text-yellow-500 font-bold">Sign Up</router-link>
-              <!-- <a href="" class="text-yellow-500 font-bold">Sign In</a> -->
+              <a @click.prevent="isActionMutation" class="text-yellow-500 font-bold">Login</a>
+            </div>
+             <div class="signin-link ml-6 px-3 rounded-2xl shadow-2xl py-2" v-if="this.actionType.login">
+              <p class="text-gray-800">Don't Have An Account?</p>
+              <a  @click.prevent="isActionMutation" class="text-yellow-500 font-bold">Create Account</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex">
+      <div class="flex overflow-hidden">
 
-      <div
-        class=" hidden w-full h-full rounded-3xl lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
+      <div :class="{ 'hidden':this.actionType.register}"
+        class=" login-container w-full h-full rounded-3xl lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
       >
         <div class="md:hidden lg:hidden relative w-full -top-10 px-4 rounded-2xl shadow-2xl py-2">
-              <p class="text-gray-800">Already Have An Account?</p>
-              <router-link to="" class="text-yellow-500 font-bold">Sign Up</router-link>
-              <!-- <a href="" class="text-yellow-500 font-bold">Sign In</a> -->
+              <p class="text-gray-800">Don't Have An Account?</p>
+              <a @click.prevent="isActionMutation" class="text-yellow-500 font-bold">Create Account</a>
             </div>
         <form autocomplete="false" class="px-4   sm:w-full ">
           <h1 class="text-2xl font-bold mb-8">Login</h1>
+          <!-- username -->
           <div class="input-container my-4">
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700"
+              <label for="username" class="block text-sm font-medium text-gray-700"
                 >UserName</label
               >
               <div class="mt-1 relative rounded-md shadow-sm">
                 <div
                   class="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 text-gray-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+
                 </div>
                 <input
-              
                   type="text"
-                  id="username"
                   class="py-2 px-4 border-gray-300 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
                   autocomplete="false"
                   placeholder="kambangsincalire"
-                            
+                  v-model="this.login.username"
                 />
-          
               </div>
             </div>
           </div>
 
+          <!-- password -->
           <div class="input-container">
             <div>
               <label
-                for="password"
+                for="password-login"
                 class="block text-sm font-medium text-gray-700"
                 >Password</label
               >
@@ -112,24 +103,24 @@
                 </div>
                 <input
                   type="password"
-                  id="password"
+                  id="password-login"
                   class="py-2 px-4 border-gray-300 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
                   placeholder="..............."
-                         
+                  v-model="this.login.password"
                 />
               </div>
             </div>
           </div>
 
           <div class="input-container">
-            <button
+            <button  @click.prevent="login"
               class="w-full text-center font-bold px-2 py-2 bg-blue-600 text-wihte my-4 shadow-3xl border-none rounded-md"
             >
-              Sign In
+              Login
             </button>
           </div>
         </form>
-
+<!-- 
         <div class="w-full  py-6 px-4 flex flex-col items-center justify-center  overflow-hidden text-center relative">
           <div class="line w-full h-0.5 bg-gray-300 "></div>
           <div
@@ -148,16 +139,15 @@
               alt=""
             /><span> <small>Continue With Google</small></span>
           </button>
-        </div>
+        </div> -->
       </div>
 
-       <div
-        class=" w-full  h-full rounded-3xl lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
+       <div :class="{ 'hidden':this.actionType.login}"
+        class="register-container w-full  h-full rounded-3xl lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
       >
         <div class="md:hidden  lg:hidden relative w-full -top-10 px-4 rounded-2xl shadow-2xl py-2">
               <p class="text-gray-800">Already Have An Account?</p>
-              <router-link to="" class="text-yellow-500 font-bold">Login</router-link>
-              <!-- <a href="" class="text-yellow-500 font-bold">Sign In</a> -->
+              <a @click.prevent="isActionMutation" class="text-yellow-500 font-bold">Login</a>
             </div>
         <form autocomplete="false" class="px-4   sm:w-full ">
           <h1 class="text-2xl font-bold mb-8">Create Account</h1>
@@ -305,7 +295,7 @@
       </div>
     </div>
     <div class="" v-if="this.isError">
-    <Alert :messageType="'error'" :messageContent="this.errorMessage" />
+    <Alert :messageType="'ERROR'" :messageContent="this.errorMessage" :action="this.isError" />
     </div>
   </div>
 </template>
@@ -315,18 +305,35 @@ import { Options, Vue } from "vue-class-component";
 import IPC from "../../utils/ipc-renderer.util";
 import { AppActionEvents } from "../../events/app.events";
 import Alert from "../reusable/Alerts.vue";
+import { getFromStorage } from "@/utils/storage.util";
+import {  User, } from "@/interfaces/user.interface";
 
 @Options({
   methods: {
-    // login() {
-    //   if (this.user.username !== "" && this.user.password !== "") {
-    //     this.$store.dispatch(AppActionEvents.user.login, this.user);
-    //     this.$router.push("/explore/dashboard");
-    //   } else {
-    //     // alert("Please login");
+    login() {
+      if (this.login.username !== "" && this.login.password !== "") {
+        // this.$store.dispatch(AppActionEvents.user.add, this.register);
+        this.$store.dispatch(AppActionEvents.location.retrieve)
+        let userLocation = !this.$store.getters.getLocation?this.$store.getters.getLocation : getFromStorage('location')
+        // console.log(this.register, userLocation);
+        let data:any = {
+          username:this.login.username,
+          password:this.login.password,
+          last_login_location:userLocation,
+          last_login: new Date(Date.now())
+        }
+        this.$store.dispatch(AppActionEvents.user.login, data);
+        this.$router.push("/explore/dashboard");
+      } else {
+        this.errorMessage = "Invalid User"
+        // alert("Please login");
         
-    //   }
-    // },
+      }
+    },
+    isActionMutation(){
+      this.actionType['login'] = !this.actionType.login;
+      this.actionType['register'] = !this.actionType.register 
+    },
     createUser() {
       switch (false) {
         case /^(?=.{4,20}$)(?:[a-zA-Z\d]+(?:(?:\.|-|_)[a-zA-Z\d])*)+$/.test(this.register.username):
@@ -350,15 +357,30 @@ import Alert from "../reusable/Alerts.vue";
       }else{
         // this.$store.dispatch(AppActionEvents.user.add, this.register);
         this.$store.dispatch(AppActionEvents.location.retrieve)
+        let userLocation = !this.$store.getters.getLocation?this.$store.getters.getLocation : getFromStorage('location')
+        // console.log(this.register, userLocation);
+        let data:User = {
+          username:this.register.username,
+          email:this.register.email,
+          password:this.register.password,
+          phone_number:this.register.phone_number,
+          last_login_location:userLocation.toString(),
+          last_login: new Date(Date.now())
+        }
+         this.$store.dispatch(AppActionEvents.user.add, data)
+        
+        // this.$router.push("/explore/dashboard");
       }
       
-    }
+    },
+
+    
   },
   mounted() {
     // check if already logged in
     // if (this.$store.getters.isLoggedIn) {
     //   this.$router.push("/explore/dashboard");
-    // }
+    // }  
   },
   components:{
     Alert
@@ -376,17 +398,21 @@ export default class Login extends Vue {
       register:{
         username:"", email:"", password:"", phone_number:""
       },
-      signIn:{
+      login:{
         username:"", password:""
       },
       errorMessage : "",
-      isError:false
+      isError:false,
+      actionType:{login:true, register:false}
     };
   }
 }
 </script>
 
 <style lang="scss" scoped>
+a{
+  cursor:pointer;
+}
 .card-container {
   width: 800px;
   height: 500px;
@@ -508,6 +534,35 @@ right: -50px;
   transform: translateX(50%);
 left: 35%;
 }
+}
+
+.login-container{
+  animation: login 1s ease 0s 1 normal forwards;
+}
+
+.register-container{
+  animation: register 1s ease 0s 1 normal forwards;
+}
+
+@keyframes register {
+  0% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes login {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>
 

@@ -30,7 +30,7 @@ import Credits from "../components/modules/credits/Credits.vue";
 import Invoices from "../components/modules/invoices/Invoices.vue";
 import Profile from "../components/auth/Profile.vue";
 import Charts from "../components/reusable/statistics/Charts.vue";
-
+import Default from '../components/Default.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -42,81 +42,91 @@ const routes: Array<RouteRecordRaw> = [
     path: "/explore/dashboard",
     name: "Explore",
     component: Welcome,
+    children:[
+      {
+        path:"",
+        name:'Defualt',
+        component:Default
+      },
+      {
+        path: "products",
+        name: "Products",
+        component: Product
+      },
+      {
+        path: "credits",
+        name: "Credits",
+        component: Credits,
+      },
+      {
+        path: "sales",
+        name: "Sales",
+        component: Sales,
+      },
+      {
+        path: "invoice",
+        name: "Invoice",
+        component: Invoices,
+      },
+      {
+        path: "personnel",
+        name: "Personnel",
+        component: Personnel,
+      },
+      {
+        path: "notification",
+        name: "Notification",
+        component: Notifications,
+      },
+      {
+        path: "stock",
+        name: "Stock",
+        component: Stock,
+      },
+      {
+        path: "inventory",
+        name: "Inventory",
+        component: Inventory,
+      },
+      {
+        path: "recent-activity",
+        name: "About",
+        component: About
+      },
+      {
+        path: "profile",
+        name: "Profile",
+        component: Profile
+      },
+      {
+        path: "statistics",
+        name: "Statistics",
+        component: Charts
+      },
+      {
+        path: "categories",
+        component: Category
+      },
+      {
+        path: "service",
+        name: "Service",
+        component: Service
+      },
+     
+    ]
   },
   {
     path: "/login",
     name: "Login",
     component: Login,
   },
-  {
-    path: "/products",
-    name: "Products",
-    component: Product
-  },
-  {
-    path: "/credits",
-    name: "Credits",
-    component: Credits,
-  },
-  {
-    path: "/sales",
-    name: "Sales",
-    component: Sales,
-  },
-  {
-    path: "/invoice",
-    name: "Invoice",
-    component: Invoices,
-  },
-  {
-    path: "/personnel",
-    name: "Personnel",
-    component: Personnel,
-  },
-  {
-    path: "/notification",
-    name: "Notification",
-    component: Notifications,
-  },
-  {
-    path: "/stock",
-    name: "Stock",
-    component: Stock,
-  },
-  {
-    path: "/inventory",
-    name: "Inventory",
-    component: Inventory,
-  },
-  {
-    path: "/recent-activity",
-    name: "About",
-    component: About
-  },
+ 
   {
     path: "/logout",
     name: "Logout",
     component: Welcome
   },
-  {
-    path: "/service",
-    name: "Service",
-    component: Service
-  },
-  {
-    path: "/profile",
-    name: "Profile",
-    component: Profile
-  },
-  {
-    path: "/statistics",
-    name: "Statistics",
-    component: Charts
-  },
-  {
-    path: "/categories",
-    component: Category
-  },
+ 
   {
     path: "/settings",
     name: "Settings",
@@ -144,22 +154,6 @@ const routes: Array<RouteRecordRaw> = [
       }
     ]
   }
-  // {
-  //   path: "/",
-  //   name: "Home",
-  //   component: Home,
-  // },
-
-  // LAZY LOADING -> GREAT FOR WEB APPS
-  // {
-  //   path: "/about",
-  //   name: "About",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  // },
 ];
 
 const router = createRouter({

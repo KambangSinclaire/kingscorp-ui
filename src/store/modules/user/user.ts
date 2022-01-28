@@ -9,6 +9,7 @@
  */
 
 import { AppActionEvents } from "@/events/app.events";
+import router from "@/router";
 import IPC from "@/utils/ipc-renderer.util";
 import { setToStorage } from "@/utils/storage.util";
 
@@ -17,10 +18,15 @@ const state = {
 };
 const mutations = {
     setUser(state: any, payload: any) {
+        console.log('this is state',payload);
+        
         return state.users.push(payload);
     },
     setUsers(state: any, payload: any | Iterable<any>) {
-        setToStorage(payload?.data, 'user')
+        
+        // setToStorage(payload?.data, 'user')
+        console.log(payload);
+        
         return state.users = [...payload?.data];
     },
     deleteUser(state: any, payload: any) {
@@ -31,7 +37,14 @@ const mutations = {
 const actions = {
     appRegister(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.add, payload).then((data) => {
-            ctx.commit('setUser', data);
+            console.log(data);
+            if(data?.status === 200){
+                setToStorage(data?.data, 'user')
+                ctx.commit('setUser', data);
+                router.push('/explore/dashboard')
+            }else{
+                alert('')
+            }
         });
     },
     getUsers(ctx: any) {
