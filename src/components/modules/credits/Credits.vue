@@ -43,7 +43,7 @@ export default class Credits extends Vue {
         items: "select",
         client: "text",
         description: "textarea",
-        "expiry date": "date",
+        "expiry_date": "date",
         "user": "text",
       },
       entity: "Credit",

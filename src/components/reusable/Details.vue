@@ -136,4 +136,5 @@ export default class Details extends Vue {
 </script>
 
 <style lang="scss" scoped>
+
 </style>
