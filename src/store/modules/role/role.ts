@@ -37,17 +37,17 @@ const actions = {
         });
     },
     editRole(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.role.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.role.edit+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setRole', data);
         });
     },
     deleteRole(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.role.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.role.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deleteRole', data);
         });
     },
     getSingleRole(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.role.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.role.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setRole', data);
         });
     }

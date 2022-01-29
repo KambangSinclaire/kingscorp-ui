@@ -1,5 +1,4 @@
 import { getFromStorage } from "@/utils/storage.util";
-import { Router } from "vue-router";
 
  class AuthGuard {
     checkIfLogged(to:any, from:any, next:any){

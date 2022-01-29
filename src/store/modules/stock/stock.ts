@@ -37,17 +37,17 @@ const actions = {
         });
     },
     editStock(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.stock.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.stock.edit+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setStock', data);
         });
     },
     deleteStock(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.stock.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.stock.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deleteStock', data);
         });
     },
     getSingleStock(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.stock.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.stock.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setStock', data);
         });
     }

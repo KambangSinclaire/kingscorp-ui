@@ -46,12 +46,12 @@ const actions = {
         });
     },
     deleteCategory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.category.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.category.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deleteCategory', data);
         });
     },
     getSingleCategory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.category.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.category.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setCategory', data);
         });
     }
