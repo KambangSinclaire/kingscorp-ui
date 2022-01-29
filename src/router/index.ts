@@ -31,6 +31,7 @@ import Invoices from "../components/modules/invoices/Invoices.vue";
 import Profile from "../components/auth/Profile.vue";
 import Charts from "../components/reusable/statistics/Charts.vue";
 import Default from '../components/Default.vue'
+import authGuard from "@/guards/auth.guard";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -42,6 +43,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/explore/dashboard",
     name: "Explore",
     component: Welcome,
+    beforeEnter:authGuard.checkIfLogged,
     children:[
       {
         path:"",
@@ -124,13 +126,15 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/logout",
     name: "Logout",
-    component: Welcome
+    component: Login,
+    beforeEnter: () => alert('welcome back :) ')
   },
  
   {
     path: "/settings",
     name: "Settings",
     component: Settings,
+    
     children: [
       {
         path: "",
