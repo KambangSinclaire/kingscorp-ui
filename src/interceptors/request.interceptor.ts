@@ -7,7 +7,7 @@ const userCredentials = getFromStorage('user')
 const requestInterceptor = async () => {
 try {
     let isUser = store.getters.getUsers
-    // if(isUser.)
+
     if(!isUser) {
         isUser = userCredentials
     }
