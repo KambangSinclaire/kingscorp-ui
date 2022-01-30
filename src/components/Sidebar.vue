@@ -136,11 +136,11 @@
 
 	<div class="flex flex-col items-start h-full  w-full  overflow-hidden text-gray-400 bg-gray-100 ">
 	
-		<div class="w-full px-1">
+		<div class="w-full ">
 			<div class="flex flex-col items-start w-full bg-gray-100 ">
-				 <div class="mt-1 relative rounded-full ">
+				 <div class="mt-1 relative rounded-full w-full ">
               <div
-                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                class="absolute w-full inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
               >
                 <span class="text-gray-300 sm:text-sm">
                   <i class="fas fa-search"></i>
@@ -151,7 +151,7 @@
                 class=" block w-full pl-10 pr-12 py-2 mt-1 sm:text-sm border-gray-300 rounded-md"
                 placeholder="search"
               />
-            </div>
+          </div>
 
    <ul>
   <li class="folder">
@@ -243,11 +243,6 @@ li {
   
   &.folder {
     list-style: inside url("data:image/svg+xml,%3C!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In --%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='16px' height='16px' viewBox='0 0 18 14' style='enable-background:new 0 0 20 14;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill-rule:evenodd;clip-rule:evenodd;%3D%0A%3C/style%3E%3Cdefs%3E%3C/defs%3E%3Cpath class='st0' d='M0,14V0h7l1,2H2L0,14z M18,3l-2,11H1L3,3H18z'/%3E%3C/svg%3E%0A");
-    &::marker{
-    background: blue;
-    color: blue;
-  }
-
   }
 // 1e40af
   

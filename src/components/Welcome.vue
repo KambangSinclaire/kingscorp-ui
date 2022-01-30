@@ -72,25 +72,24 @@
       <InfoCard :setup="cardSetup[1]" />
     </div> -->
   <div class="home h-full overflow-hidden">
-    <Navbar/>
+    <Navbar @toogleSideBar="this.toogleSideBar = !this.toogleSideBar" @toogleRightBar="this.toogleRightBar = !this.toogleRightBar" />
     <div class="overflow-hidden ">
-      <div class=" h-full w-full grid grid-cols-12 ">
+      <div class=" h-full w-full flex">
 
-        <div class="bg-yellow-400 col-span-2">
+        <div class="left"  :class="{'slideIn': this.toogleSideBar}">
            <Sidebar/>
         </div>
       <!-- <div class="left-side-nav">
       </div> -->
-      <div class="rounded-lg col-span-8 overflow-x-hidden  bg-white">
+      <div class="center overflow-x-hidden p-4  bg-gray-100">
         <!-- <Tabs/> -->
-        <div class=" rounded-lg overflow-x-hidden ">
+        <div class=" rounded-lg bg-white overflow-x-hidden ">
         <!-- <Main /> -->
          <router-view />
-      
         </div>
       </div>
 
-      <div class="bg-blue-100 col-span-2">
+      <div class="right"  :class="{'slideOut': this.toogleRightBar}">
         <RightSidebar/>
       </div>
       <!-- <div class="right-side-nav">
@@ -121,26 +120,73 @@ import RightSidebar from './RightSidebar.vue'
   },
 })
 export default class Welcome extends Vue {
-
+data(){
+  return {
+    toogleSideBar:false,
+    toogleRightBar:false
+  }
+}
 }
 </script>
 
 <style scoped lang="scss">
 
-// h3 {
-//   margin: 40px 0 0;
-// }
-// ul {
-//   list-style-type: none;
-//   padding: 0;
-// }
-// li {
-//   display: inline-block;
-//   margin: 0 10px;
-// }
-// a {
-//   color: #42b983;
-// }
+.left, .right{
+  width: 20%;
+}
+.center{
+  width: 60%;
+}
 
+@media screen and (max-width:1350px) {
+  .right{
+    width: 0;
+  }.center{
+    width:auto;
+  }
+  
+}
  
+@media screen and (max-width:960px) {
+  .right, .left{
+    width: 0;
+  }.center{
+    width:auto;
+  }
+  
+}
+
+.slideIn{
+  width:250px;
+  max-width:100%;
+  animation: slideIn 1s ease 0s 1 normal forwards;
+}
+.slideOut{
+   width:250px;
+  max-width:100%;
+  animation: slideOut 1s ease 0s 1 normal forwards;
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 </style>

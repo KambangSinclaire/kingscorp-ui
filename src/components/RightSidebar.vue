@@ -1,5 +1,5 @@
 <template>
-<section class="flex items-center justify-center  h-full ">
+<section class="flex items-center flex-col justify-center  h-full ">
 
 	<!-- Component Start -->
 	<!-- <div class="flex flex-col items-center w-16 h-full overflow-hidden text-gray-400 bg-gray-900 rounded">
@@ -65,256 +65,7 @@
              <div class="hour rounded bg-blue-300 text-sm text-center py-1 px-2"><small class="text-center text-white text-sm">PM</small></div>
         </div>
 	
-		<div class="w-full">
-			<div class="flex flex-col items-center w-full border-gray-700">
-			
-        <div class="">
-            <div class=" w-full text-sm">
-                <div class="md:p-1  dark:bg-gray-800 bg-gray-200 ">
-                    <div class="w-full flex items-center justify-between ">
-                        <span  tabindex="0" class="focus:outline-none  text-sm font-bold dark:text-gray-100 text-gray-800">October 2020</span>
-                        <div class="flex items-center">
-                            <button aria-label="calendar backward" class="focus:text-gray-400 hover:text-gray-400 text-gray-800 dark:text-gray-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <polyline points="15 6 9 12 15 18" />
-                            </svg>
-                        </button>
-                        <button aria-label="calendar forward" class="focus:text-gray-400 hover:text-gray-400 ml-3 text-gray-800 dark:text-gray-100"> 
-                              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler  icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <polyline points="9 6 15 12 9 18" />
-                            </svg>
-                        </button>
-
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between pt-5 ">
-                        <table class="w-full">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div class="w-full flex justify-center">
-                                            <small class="text-sm font-medium text-gray-800 dark:text-gray-100">Mo</small>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="w-full flex justify-center">
-                                            <p class="text-sm font-medium text-center text-gray-800 dark:text-gray-100">Tu</p>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="w-full flex justify-center">
-                                            <p class="text-sm font-medium text-center text-gray-800 dark:text-gray-100">We</p>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="w-full flex justify-center">
-                                            <small class="text-sm font-medium text-center text-gray-800 dark:text-gray-100">Th</small>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="w-full flex justify-center">
-                                            <small class="text-sm font-medium text-center text-gray-800 dark:text-gray-100">Fr</small>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="w-full flex justify-center">
-                                            <small class="text-sm font-medium text-center text-gray-800 dark:text-gray-100">Sa</small>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="w-full flex justify-center">
-                                            <small class="text-sm font-medium text-center text-gray-800 dark:text-gray-100">Su</small>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pt-6">
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center"></div>
-                                    </td>
-                                    <td class="pt-6">
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center"></div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center"></div>
-                                    </td>
-                                    <td class="pt-6">
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">1</p>
-                                        </div>
-                                    </td>
-                                    <td class="pt-6">
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">2</p>
-                                        </div>
-                                    </td>
-                                    <td class="pt-6">
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">3</p>
-                                        </div>
-                                    </td>
-                                    <td class="pt-6">
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">4</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">5</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">6</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">7</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="w-full h-full">
-                                            <div class="flex items-center justify-center w-full rounded-full cursor-pointer">
-                                                <a  role="link" tabindex="0" class="focus:outline-none  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-500 hover:bg-indigo-500 text-sm w-8 h-8 flex items-center justify-center font-medium text-white bg-indigo-700 rounded-full">8</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">9</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">10</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">11</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">12</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">13</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">14</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">15</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">16</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">17</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">18</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">19</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">20</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">21</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">22</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">23</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">24</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100">25</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">26</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">27</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">28</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">29</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="px-3 py-1 cursor-pointer flex w-full justify-center">
-                                            <p class="text-sm text-gray-500 dark:text-gray-100 font-medium">30</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-              
-            </div>
-        </div>
-    
-			</div>
-			
-		</div>
-	
-    <div class="container">
+    <div class="w-full">
         <!-- component -->
 <div class="w-full cursor-pointer border b-gray-400 rounded flex flex-col justify-center items-center text-center p-6 bg-white">
   <div class="text-md font-bold flex flex-col text-gray-900"><span class="uppercase">Today</span> <span class="font-normal text-gray-700 text-sm">July 29</span></div>
@@ -375,33 +126,68 @@
   </div>
 </div>
     </div>
+	<!-- Component End  -->
+<div class="calendar">
+  <div class="calendar__opts bg-blue-800 text-white">
+     <h1 class="text-2xl font-extrabold capitalize text-center">
+         January
+     <span>16</span>    
+    </h1>
+  </div>
 
-    <!-- component -->
-<div class="container mx-auto max-w-sm w-full flex flex-col space-y-4 justify-center items-center">
-  <div class="bg-white w-full flex items-center p-1 rounded-xl shadow border">
-    <div class="flex items-center space-x-4">
-      <img src="https://avatars2.githubusercontent.com/u/1490347?s=460&u=39d7a6b9bc030244e2c509119e5f64eabb2b1727&v=4" alt="My profile" class="w-10 h-10 rounded-full">
+  <div class="calendar__body">
+    <div class="calendar__days">
+      <div>M</div>
+      <div>T</div>
+      <div>W</div>
+      <div>T</div>
+      <div>F</div>
+      <div>S</div>
+      <div>S</div>
     </div>
-    <div class="flex-grow p-3">
-      <div class="font-semibold text-sm text-gray-700">
-        <small class="text-sm text-gray-500">Antério Vieira da Silva Lima</small>
-      </div>
-      <div class="text-sm text-gray-500">
-        <small class="text-sm text-gray-500">You: Thanks, sounds good! . 8hr</small>
-      </div>
-    </div>
-    <div class="p-2">
-      <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-4 h-4 rounded-full order-1">
+
+    <div class="calendar__dates">
+      <div class="calendar__date calendar__date--grey"><span>27</span></div>
+      <div class="calendar__date calendar__date--grey"><span>28</span></div>
+      <div class="calendar__date calendar__date--grey"><span>29</span></div>
+      <div class="calendar__date calendar__date--grey"><span>30</span></div>
+      <div class="calendar__date"><span>1</span></div>
+      <div class="calendar__date"><span>2</span></div>
+      <div class="calendar__date"><span>3</span></div>
+      <div class="calendar__date"><span>4</span></div>
+      <div class="calendar__date"><span>5</span></div>
+      <div class="calendar__date"><span>6</span></div>
+      <div class="calendar__date"><span>7</span></div>
+      <div class="calendar__date"><span>8</span></div>
+      <div class="calendar__date"><span>9</span></div>
+      <div class="calendar__date"><span>10</span></div>
+      <div class="calendar__date"><span>11</span></div>
+      <div class="calendar__date"><span>12</span></div>
+      <div class="calendar__date"><span>13</span></div>
+      <div class="calendar__date"><span>14</span></div>
+      <div class="calendar__date"><span>15</span></div>
+      <div class="calendar__date calendar__date--selected calendar__date--first-date calendar__date--range-start"><span>16</span></div>
+      <div class="calendar__date calendar__date--selected calendar__date--last-date"><span>17</span></div>
+      <div class="calendar__date calendar__date--selected calendar__date--first-date"><span>18</span></div>
+      <div class="calendar__date calendar__date--selected"><span>19</span></div>
+      <div class="calendar__date calendar__date--selected"><span>20</span></div>
+      <div class="calendar__date calendar__date--selected calendar__date--last-date calendar__date--range-end"><span>21</span></div>
+      <div class="calendar__date"><span>22</span></div>
+      <div class="calendar__date"><span>23</span></div>
+      <div class="calendar__date"><span>24</span></div>
+      <div class="calendar__date"><span>25</span></div>
+      <div class="calendar__date"><span>26</span></div>
+      <div class="calendar__date"><span>27</span></div>
+      <div class="calendar__date"><span>28</span></div>
+      <div class="calendar__date"><span>29</span></div>
+      <div class="calendar__date"><span>30</span></div>
+      <div class="calendar__date"><span>31</span></div>
     </div>
   </div>
-  
- 
-  <!-- component -->
 
 </div>
-	</div>
-	<!-- Component End  -->
 
+	</div>
 	
 
 
@@ -409,6 +195,237 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
-export default class RightSidebar extends Vue {}
+import { Vue, Options } from "vue-class-component";
+
+@Options({
+
+})
+export default class RightSidebar extends Vue {
+  data () {
+    return {
+      toogleRighBar:false
+    }
+  }
+}
 </script>
+
+<style lang="scss" scoped>
+.calendar {
+  --side-padding: 10px; // padding to be applied to the side of the calendar
+  --border-radius: 10px; // border-radius of the main calendar shell
+  --accent-br: 15px; // border-radius for accents under dates on hover
+
+  width: 100%;
+
+ 
+
+  &__opts,
+  &__buttons {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+  }
+
+  &__opts {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    padding: 20px var(--side-padding);
+  }
+
+  &__body {
+    background-image: linear-gradient(to bottom, #f3f4f6, #fff);
+  }
+
+  &__days {
+    background-color: #fff;
+    padding: 0 var(--side-padding) 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    & > div {
+      text-align: center;
+      font: {
+        weight: 700;
+        size: 1.02rem;
+      }
+      color: #c5c8ca;
+    }
+  }
+
+  &__dates {
+    padding: 10px var(--side-padding);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__date {
+    --height: calc(400px / 6 - var(--side-padding));
+
+    text-align: center;
+    height: var(--height);
+    line-height: var(--height);
+    font: {
+      weight: 600;
+      size: 1.02rem;
+    }
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0);
+      width: 100%;
+      height: calc(var(--height) * 0.9);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: var(--accent-br);
+      transition: background-color 0.3s ease;
+    }
+
+    &:not(.calendar__date--selected):not(.calendar__date--grey):hover::before {
+      background-color: #ededed;
+    }
+
+    &--grey {
+      color: #c5c8ca;
+      cursor: not-allowed;
+    }
+
+    &--selected {
+      color: #ff374b;
+
+      &::before {
+        background-color: #ffeaec;
+        border-radius: 0px;
+      }
+    }
+
+    &--first-date {
+      &::before {
+        border-top-left-radius: var(--accent-br);
+        border-bottom-left-radius: var(--accent-br);
+      }
+    }
+
+    &--last-date {
+      &::before {
+        border-top-right-radius: var(--accent-br);
+        border-bottom-right-radius: var(--accent-br);
+      }
+    }
+
+    &--range-start {
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 3px;
+        border-radius: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ff374b;
+        width: 10px;
+        height: 4px;
+      }
+    }
+
+    &--range-end {
+      color: #fff;
+
+      &::before {
+        box-shadow: 0 15px 20px -3px rgba(255, 55, 75, 0.35);
+        background-color: #ff374b;
+        border-radius: var(--accent-br);
+        z-index: 1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: calc(var(--height) * 0.9);
+        background-color: #ffeaec;
+        width: 50px;
+        top: 50%;
+        right: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__buttons {
+    padding: 10px var(--side-padding) 20px;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  &__button {
+    cursor: pointer;
+
+    &--grey {
+      background-color: #f3f4f6;
+    }
+
+    &--primary {
+      background-color: #1752ff;
+      color: #fff;
+      transition: box-shadow 0.3s cubic-bezier(0.21, 0.68, 0.09, 0.27),
+        transform 0.2s linear;
+
+      &:hover {
+        box-shadow: 0 20px 30px -13px rgba(23, 82, 255, 0.45);
+        transform: translateY(-3px);
+      }
+
+      &:active {
+        box-shadow: 0 10px 10px -6px rgba(23, 82, 255, 0.45);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-color: #eaedf2;
+  height: 100vh;
+  font: {
+    family: "Nunito", sans-serif;
+    size: 14px;
+  }
+  margin: 3vmin;
+}
+
+select,
+button {
+  font: {
+    family: inherit;
+    weight: 700;
+    size: 1.02rem;
+  }
+  border-radius: 20px;
+  outline: none;
+  border: 0;
+  padding: 15px 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select {
+  background: {
+    image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='960px' height='560px' viewBox='0 0 960 560' enable-background='new 0 0 960 560' xml:space='preserve'%3E%3Cg id='Rounded_Rectangle_33_copy_4_1_'%3E%3Cpath d='M480,344.181L268.869,131.889c-15.756-15.859-41.3-15.859-57.054,0c-15.754,15.857-15.754,41.57,0,57.431l237.632,238.937 c8.395,8.451,19.562,12.254,30.553,11.698c10.993,0.556,22.159-3.247,30.555-11.698l237.631-238.937 c15.756-15.86,15.756-41.571,0-57.431s-41.299-15.859-57.051,0L480,344.181z'/%3E%3C/g%3E%3C/svg%3E");
+    size: 24px;
+    repeat: no-repeat;
+    position: calc(100% - var(--side-padding)) center;
+  }
+}
+
+</style>

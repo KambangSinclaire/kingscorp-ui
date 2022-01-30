@@ -37,17 +37,17 @@ const actions = {
         });
     },
     editInvoice(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.invoice.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.invoice.edit+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setInvoice', data);
         });
     },
     deleteInvoice(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.invoice.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.invoice.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deleteInvoice', data);
         });
     },
     getSingleInvoice(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.invoice.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.invoice.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setInvoice', data);
         });
     }

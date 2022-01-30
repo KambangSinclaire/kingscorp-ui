@@ -37,17 +37,17 @@ const actions = {
         });
     },
     editPreference(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.preference.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.preference.edit+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setPreference', data);
         });
     },
     deletePreference(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.preference.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.preference.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deletePreference', data);
         });
     },
     getSinglePreference(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.preference.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.preference.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setPreference', data);
         });
     }

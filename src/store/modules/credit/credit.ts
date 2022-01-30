@@ -37,17 +37,17 @@ const actions = {
         });
     },
     editCredit(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.credit.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.credit.edit+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setCredits', data);
         });
     },
     deleteCredit(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.credit.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.credit.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deleteCredit', data);
         });
     },
     getSingleCredit(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.credit.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.credit.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setCredit', data);
         });
     }

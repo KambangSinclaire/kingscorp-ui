@@ -67,8 +67,7 @@
 
     </div> -->
     <div class="p-4 flex items-center">
-      <router-link to="/explore/dashboard">
-        <button
+        <button @click="$router.back()"
           class="
             w-10
             h-10
@@ -97,9 +96,9 @@
             />
           </svg>
         </button>
-      </router-link>
+      
 
-      <h1 class="font-bold capitalize text-2xl mt-2">{{ options.entity }}</h1>
+      <h1 class="font-bold capitalize text-2xl mt-2">{{ options?.entity }}</h1>
     </div>
 
     <div class="w-full px-4 h-screen">
@@ -181,7 +180,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              Add New {{ options.entity }}
+              Add New {{ options?.entity }}
             </button>
           </div>
         </div>
@@ -428,10 +427,10 @@
       v-if="openAddForm"
       @closeForm="openAddForm = !openAddForm"
       :setup="{
-        inputs: options.inputs,
-        entity: options.entity,
-        actions: options.actions,
-        relations: options.relations,
+        inputs: options?.inputs,
+        entity: options?.entity,
+        actions: options?.actions,
+        relations: options?.relations,
       }"
     />
     <Delete
@@ -484,7 +483,7 @@ import Edit from "./Edit.vue";
   },
   computed: {
     formatedTitles() {
-      const payloadDatas = Object.keys(this.options.inputs);
+      const payloadDatas = Object.keys(this.options.inputs ?? {});
       console.log("these are true ", payloadDatas);
       if (this.options.actions && !this.listingTitles.includes("Action")) {
         this.listingTitles.push("Action");

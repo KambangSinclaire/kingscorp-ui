@@ -37,17 +37,17 @@ const actions = {
         });
     },
     editInventory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.inventory.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.inventory.edit+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setInventory', data);
         });
     },
     deleteInventory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.inventory.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.inventory.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deleteInventory', data);
         });
     },
     getSingleInventory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.inventory.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.inventory.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setInventory', data);
         });
     }

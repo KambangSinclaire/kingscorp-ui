@@ -42,17 +42,17 @@ const actions = {
         });
     },
     editService(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.service.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.service.edit+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setService', data);
         });
     },
     deleteService(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.service.delete, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.service.delete+`/${payload.id}`, payload).then((data) => {
             ctx.commit('deleteService', data);
         });
     },
     getSingleService(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.service.retrieveSingle, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.service.retrieveSingle+`/${payload.id}`, payload).then((data) => {
             ctx.commit('setService', data);
         });
     }
