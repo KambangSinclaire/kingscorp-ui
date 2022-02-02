@@ -51,7 +51,7 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
     try {
         return await webAPICaller(endpoint, method, payload)
     } catch (error) {
-        console.log(error);
+        console.log("error ",error);
         return []
     }
 }
