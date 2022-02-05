@@ -10,6 +10,7 @@
 
 import { AppActionEvents } from "@/events/app.events";
 import IPC from "@/utils/ipc-renderer.util";
+import { setToStorage } from "@/utils/storage.util";
 
 const state = {
     Roles: <any>[]
@@ -19,7 +20,12 @@ const mutations = {
         return state.Roles.push(payload);
     },
     setRoles(state: any, payload: any | Iterable<any>) {
-        return state.Roles = [...payload?.data];
+        if(!!payload?.data){
+            setToStorage(payload?.data?.refresh_token, 'refresh_token')
+            return state.Roles = [...payload?.data];
+        }else{
+            console.log('empty payload No network :) ');
+        }
     },
     deleteRole(state: any, payload: any) {
         return state.Roles.filter((data: any) => data.id !== payload.id);
@@ -28,6 +34,7 @@ const mutations = {
 const actions = {
     addRole(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.role.add, payload).then((data) => {
+
             ctx.commit('setRole', data);
         });
     },

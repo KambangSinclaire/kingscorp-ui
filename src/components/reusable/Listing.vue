@@ -1,71 +1,6 @@
 <template>
   <section class="parent-container relative">
-    <!-- <div
-      class="list-container w-full bg-white"
-      :class="{
-        'bg-gray-500':
-          openAddForm || openDeleteForm || openEditForm || openDetailsForm,
-      }"
-    >
-      <div class="search-action-btns flex justify-around py-4 align-center mb-4">
-        <button class="add-btn app-btn " @click="addNewForm">
-          <i class="fas fa-plus-circle" aria-hidden="true"></i>
-          New {{ options.entity }}
-        </button>
-        <div class="search_form w-1/2  ">
-          <input
-            type="text"
-            class="form-control text-center"
-            :placeholder="'Filter ' + options.entity ?? '...' + '...'"
-          />
-        </div> 
-      
-        <button @click="toggleSideAction" class="h-10 w-10 text-center pl-2 shadow rounded-full hover:shadow">
-          <i class="add-item text-sm text-center">
-            <img
-              src="@/assets/feather_icons/more-vertical.svg"
-              alt=""
-              srcset=""
-            />
-          </i>
-
-        </button>
-       
-        <div
-          v-if="showMoreActions"
-          class="
-            dropdown-list
-            bg-gray-200
-            rounded
-            p-4
-            flex flex-col
-            absolute
-            right-4
-            top-56
-          "
-        >
-          <span
-            class="
-              dropdown-item
-              cursor-pointer
-              p-4
-              hover:bg-gray-800 hover:text-white
-            "
-            v-for="(listItem, index) in dropdownDetails"
-            :key="index"
-          >
-            <router-link :to="listItem.url ?? '/'">
-              <span>
-                <img :src="listItem.icon" :alt="listItem.title" />
-                <i>{{ listItem.title ?? "not updated" }}</i>
-              </span>
-            </router-link>
-          </span>
-          <hr />
-        </div>
-      </div>
-
-    </div> -->
+  
     <div class="p-4 flex items-center">
         <button @click="$router.back()"
           class="
@@ -102,7 +37,7 @@
     </div>
 
     <div class="w-full px-4 h-screen">
-      <div class="shadow-lg rounded-lg py-4">
+      <div class="shadow-lg overflow-hidden rounded-lg py-4">
         <div class="w-full flex justify-between p-2 items-center">
           <div class="w-1/2 px-2 py-2">
             <div class="mt-1 relative rounded-full">
@@ -159,8 +94,8 @@
                 font-medium
                 rounded-lg
                 text-sm
-                px-5
-                py-2.5
+                px-6
+                py-2
                 text-center
                 inline-flex
                 items-center
@@ -201,7 +136,6 @@
               >
                 <div
                   class="
-                    shadow
                     overflow-hidden
                     border-b border-gray-200
                     sm:rounded-lg
@@ -215,7 +149,7 @@
                           :key="index"
                           scope="col"
                           class="
-                            px-6
+                            px-4
                             py-4
                             text-left text-xs
                             font-semibold
@@ -235,6 +169,7 @@
                           :key="index2"
                           class="px-6 py-4 text-left capitalize border"
                         >
+                    
                           {{
                             (typeof data[entry] === "string" &&
                               !data[entry].trim().endsWith(".svg")) ||
@@ -242,7 +177,8 @@
                               ? data[entry]
                               : ""
                           }}
-
+                          
+                          
                           {{
                             typeof data[entry] === "object"
                               ? data[entry]?.name
@@ -317,111 +253,6 @@
       </div>
     </div>
 
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <!-- <div class="flex flex-col">
-      <div class=" overflow-x-auto sm:-mx-6 lg:-mx-8 px-8">
-        <div class="inline-block py-2 min-w-full sm:px-6 px-8">
-          <div
-            class="
-              shadow
-              overflow-hidden
-              border-b border-gray-200
-              rounded-lg
-            "
-          >
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-100 dark:bg-gray-700">
-                <tr>
-                  <th
-                    v-for="(title, index) in listingTitles"
-                    :key="index"
-                    scope="col"
-                    class="
-                      px-6
-                      py-3
-                      text-xs
-                      font-extrabold
-                      text-black
-                      uppercase
-                      tracking-wider
-                      text-center
-                    "
-                  >
-                    {{ title !== "Action" ? title : "" }}
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="(data, index) of listData" :key="index">
-                  <td
-                    v-for="(entry, index2) in formatedTitles"
-                    :key="index2"
-                    class="px-6 py-4 text-center"
-                  >
-                    
-                    {{
-                      (typeof data[entry] === "string" &&
-                        !data[entry].trim().endsWith(".svg")) ||
-                      typeof data[entry] === "number"
-                        ? data[entry]
-                        : ""
-                    }}
-                  
-                    {{
-                      typeof data[entry] === "object" ? data[entry]?.name : ""
-                    }}
-
-                    <img
-                      v-if="
-                        typeof data[entry] === 'string' &&
-                        data[entry].trim().endsWith('.svg')
-                      "
-                      :src="data[entry]"
-                      alt="image here"
-                    />
-
-                    <p
-                      class="
-                        action-items
-                        flex
-                        text-center
-                        relative
-                        left-4
-                        w-1/6
-                      "
-                      v-if="options.actionBtns && entry == 'action'"
-                    >
-                      <span @click="detailsForm(data)">
-                        <i
-                          class="far fa-eye mx-2 cursor-pointer text-yellow-600"
-                        ></i>
-                      </span>
-                      <span @click="editForm(data)">
-                        <i
-                          class="far fa-edit mx-2 cursor-pointer text-green-500"
-                        ></i>
-                      </span>
-                      <span @click="deleteForm(data)">
-                        <i
-                          class="
-                            far
-                            fa-trash-alt
-                            mx-2
-                            cursor-pointer
-                            text-red-500
-                          "
-                        ></i>
-                      </span>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- This example requires Tailwind CSS v2.0+ -->
 
     <Add
       v-if="openAddForm"
@@ -486,10 +317,12 @@ import Edit from "./Edit.vue";
       const payloadDatas = Object.keys(this.options.inputs ?? {});
       console.log("these are true ", payloadDatas);
       if (this.options.actions && !this.listingTitles.includes("Action")) {
-        this.listingTitles.push("Action");
+        this.listingTitles.push("Action")
         payloadDatas.push("Action");
+        // payloadDatas = this.listingTitles.map((data)=> data.toLowerCase())
       }
-      return payloadDatas.map((title) => title.toLowerCase());
+      console.log('this is data', payloadDatas);
+      return payloadDatas;
     },
     dropdownDetails() {
       return this.$store.getters.getDropDowns;

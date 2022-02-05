@@ -15,7 +15,7 @@ try {
    return axios.interceptors.request.use((config) => {
         config.headers = {
             'Content-Type':"application/json",
-            'Authorization':!userCredentials?'':"Bearer "+userCredentials['refresh_token'],
+            'Authorization':!userCredentials?'':"Bearer "+userCredentials['refresh_token'] ?? "",
             "x-api-key":!userCredentials?'':userCredentials['x_api_key'],
         }
         return config
