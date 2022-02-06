@@ -22,6 +22,7 @@ import personnel from "./modules/personnel/personnel";
 import category from "./modules/category/category";
 import user from "./modules/user/user";
 import location from './modules/location/location'
+import toasts from "./modules/toasts/toast";
 
 export default createStore({
   state: {
@@ -78,6 +79,7 @@ export default createStore({
     credit,
     category,
     user,
-    location
+    location,
+    toasts
   },
 });

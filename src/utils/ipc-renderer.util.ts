@@ -14,6 +14,7 @@ import { ResponsePayload } from "@/interfaces/response.interface";
 import ElectronUI from "./electron.util";
 import axios from "axios";
 import requestInterceptor from '../interceptors/request.interceptor'
+import responseInterceptor from "@/interceptors/response.interceptor";
 
 // const ipcResponseHandler = (actionEvent: string, handler: any) => {
 //     ElectronUI.ipcRenderer.on(actionEvent + "-response", handler);
@@ -61,23 +62,25 @@ const webAPICaller = async (endpoint: string, method: string, payload: any) => {
 
     if (method == "POST") {
         await requestInterceptor()
-        apiResponse = await axios.post(endpoint, payload, {})
-        // console.log(apiResponse, actionEvent);
-        
+        await responseInterceptor()
+        apiResponse = await axios.post(endpoint, payload, { })
     }
 
     if (method == "GET") {
         await requestInterceptor()
+        await responseInterceptor()
         apiResponse = await axios.get(endpoint, {})
     }
 
     if (method == "PUT") {
         await requestInterceptor()
+        await responseInterceptor()
         apiResponse = await axios.put(endpoint, payload, {})
     }
 
     if (method == "DELETE") {
         await requestInterceptor()
+        await responseInterceptor()
         apiResponse = await axios.delete(endpoint, {})
     }
 

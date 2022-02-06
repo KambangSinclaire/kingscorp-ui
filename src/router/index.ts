@@ -66,27 +66,27 @@ const routes: Array<RouteRecordRaw> = [
         component: Sales,
       },
       {
-        path: "invoice",
+        path: "invoices",
         name: "Invoice",
         component: Invoices,
       },
       {
-        path: "personnel",
+        path: "personnels",
         name: "Personnel",
         component: Personnel,
       },
       {
-        path: "notification",
+        path: "notifications",
         name: "Notification",
         component: Notifications,
       },
       {
-        path: "stock",
+        path: "stocks",
         name: "Stock",
         component: Stock,
       },
       {
-        path: "inventory",
+        path: "inventorys",
         name: "Inventory",
         component: Inventory,
       },
@@ -110,7 +110,7 @@ const routes: Array<RouteRecordRaw> = [
         component: Category
       },
       {
-        path: "service",
+        path: "services",
         name: "Service",
         component: Service
       },
@@ -138,7 +138,7 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: "",
-        name: "Roles",
+        name: "roles",
         component: Roles
       },
       {

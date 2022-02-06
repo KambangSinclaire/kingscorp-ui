@@ -1,3 +1,5 @@
+
+
 <script>
 import { Bar } from 'vue3-chart-v2'
 
