@@ -37,12 +37,12 @@ const actions = {
         });
     },
     editSale(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.sale.edit+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.sale.edit+`/${payload}`, payload).then((data) => {
             ctx.commit('setSale', data);
         });
     },
     deleteSale(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.sale.delete+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.sale.delete+`/${payload}`, payload).then((data) => {
             ctx.commit('deleteSale', data);
         });
     },

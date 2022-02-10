@@ -32,7 +32,7 @@ const getters = {
 }
 const actions = {
     editPersonnel(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.personnel.edit+`/${payload.id}`, payload).then((result) => {
+        IPC.ipcRequestTrigger(AppActionEvents.personnel.edit+`/${payload}`, payload).then((result) => {
             ctx.commit('setPersonnel', result);
         })
     },
@@ -47,7 +47,7 @@ const actions = {
         })
     },
     deletePersonnel(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.personnel.delete+`/${payload.id}`, payload).then((result) => {
+        IPC.ipcRequestTrigger(AppActionEvents.personnel.delete+`/${payload}`, payload).then((result) => {
             ctx.commit('setPersonnel', result);
         })
     },

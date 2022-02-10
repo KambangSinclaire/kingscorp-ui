@@ -1,7 +1,7 @@
 <template>
   <Listing
     :listData="sales"
-    :options="{ actionBtns: true, inputs, entity, actions }"
+    :options="{ actionBtns, inputs, entity, actions }"
     :listingTitles="titles"
   />
 </template>
@@ -43,14 +43,15 @@ export default class Sales extends Vue {
       inputs: {
         name: "text",
         items: "text",
-        description: "textarea",
         user: "text",
+        description: "textarea",
         amount:"number",
         received:"number",
         balance:"number",
         status:"text"
       },
       entity: "Sale",
+      actionBtns:true,
       actions: {
         add: AppActionEvents.sale.add,
         edit: AppActionEvents.sale.edit,

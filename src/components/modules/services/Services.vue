@@ -34,8 +34,8 @@ export default class Service extends Vue {
       inputs: {
         name: "text",
         category: "text",
-        description: "textarea",
         "cost_per_hour": "number",
+        description: "textarea",
       },
       entity: "Service",
       actions: {
