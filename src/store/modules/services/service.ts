@@ -21,7 +21,7 @@ const mutations = {
         return state.Services.push(payload);
     },
     setServices(state: any, payload: any | Iterable<any>) {   
-        console.log( 'this is data payload',payload?.data);             
+        console.log( 'this is data payload',payload);             
         return state.Services = [...payload?.data];
     },
     deleteService(state: any, payload: any) {
@@ -42,17 +42,19 @@ const actions = {
         });
     },
     editService(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.service.edit+`/${payload.id}`, payload).then((data) => {
+        console.log('this is edit service payload', payload);
+        
+        IPC.ipcRequestTrigger(AppActionEvents.service.edit+`/${payload.id}`, payload?.data).then((data) => {
             ctx.commit('setService', data);
         });
     },
     deleteService(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.service.delete+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.service.delete+`/${payload}`, payload).then((data) => {
             ctx.commit('deleteService', data);
         });
     },
     getSingleService(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.service.retrieveSingle+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.service.retrieveSingle+`/${payload}`, payload).then((data) => {
             ctx.commit('setService', data);
         });
     }

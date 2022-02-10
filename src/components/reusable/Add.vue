@@ -128,7 +128,7 @@
   </div> -->
 
   <div
-    class="w-full h-screen fixed top-0 p-6 left-0 bg-gray-100 overflow-y-auto"
+    class="w-full h-screen fixed top-0 p-6 left-0 bg-gray-100 overflow-y-auto z-50" 
   >
    
 
@@ -146,7 +146,7 @@
             <p class="mt-1 text-sm text-gray-600">
               Carefully Fill In The Product With All It's Required Data. You May
               Want To Update Later.
-          
+
             </p>
           </div>
         </div>
@@ -177,7 +177,6 @@
                       sm:text-sm
                       border-gray-300
                       rounded-md
-                      border-gray-300
                       p-2
                     "
                        :type="inputType"
@@ -199,6 +198,7 @@
                      :for="inputName"
                       >{{inputName}}</label
                     >
+
                     <select
                       class="
                         mt-1
@@ -398,6 +398,7 @@ import { AppActionEvents } from "../../events/app.events";
           results[key] = this.$store.getters[`get${relationalInputs[key]}`];
         }
       }
+      console.log(specialInputs, this.setup);
       return results;
     },
   },
@@ -413,15 +414,16 @@ import { AppActionEvents } from "../../events/app.events";
       };
       if(payload.hasOwnProperty('image_url')){
         // payload['image_url']=btoa(this.previewImage)
-        payload['image_url']=''
+        payload['image_url']='rerajkdljakd'
       }
        if(payload.hasOwnProperty('profile_image')){
-         payload['profile_image']=''
+         payload['profile_image']='asdfkal;kdl;fk'
         // payload['profile_image']=btoa(this.previewImage)
       }
       
       this.$store.dispatch(this.setup?.actions?.add, payload);
       this.$store.dispatch(this.setup?.actions?.list);
+      console.log(payload);
       this.closeForm();
     },
     pickFile(payload) {

@@ -4,6 +4,7 @@
     :options="{ actionBtns: true, inputs, entity, actions }"
     :listingTitles="titles"
   />
+
 </template>
 
 <script>
@@ -14,6 +15,7 @@ import { AppActionEvents } from "../../events/app.events";
   computed: {
     groups() {
       const groups = this.$store.getters.getGroups;
+      console.log(groups);
       return groups;
     },
   },

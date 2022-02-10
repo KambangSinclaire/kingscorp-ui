@@ -203,7 +203,7 @@
                               left-4
                               w-1/6
                             "
-                            v-if="options.actionBtns && entry == 'action'"
+                            v-if="options?.actionBtns && entry == 'action'"
                           >
                             <span @click="detailsForm(data)">
                               <i
@@ -314,12 +314,13 @@ import Edit from "./Edit.vue";
   },
   computed: {
     formatedTitles() {
-      const payloadDatas = Object.keys(this.options.inputs ?? {});
-      console.log("these are true ", payloadDatas);
-      if (this.options.actions && !this.listingTitles.includes("Action")) {
+      let payloadDatas = Object.keys(this.options.inputs ?? {});
+      console.log("these are true ", this.options);
+      if (this.options.actionBtns && !this.listingTitles.includes("Action")) {
         this.listingTitles.push("Action")
         payloadDatas.push("Action");
-        // payloadDatas = this.listingTitles.map((data)=> data.toLowerCase())
+        console.log('this is listing titles', this.listingTitles);
+        payloadDatas = this.listingTitles.map((data)=> data.toLowerCase())
       }
       console.log('this is data', payloadDatas);
       return payloadDatas;

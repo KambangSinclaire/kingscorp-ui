@@ -66,47 +66,7 @@
     </div>
     <section data-section-id="4" data-category="ta-content" data-component-id="eb4ba9ec_02_awz" class="py-8 ">
               <div class="container px-4 mx-auto">
-                <div class="flex flex-wrap -m-4">
-                  <div class="w-full lg:w-1/3 p-4">
-                    <div class="bg-white shadow rounded overflow-hidden">
-                      <div class="pt-6 px-6 mb-10 flex justify-between items-center">
-                        <span class="inline-flex items-center justify-center w-9 h-10 bg-gray-50 rounded">
-                          <img class="h-6" src="artemis-assets/mini-logos/spotify.svg" alt="" data-config-id="logo1">
-                        </span>
-                        <a class="py-1 px-2 bg-blue-50 text-xs text-indigo-500 rounded-full" href="#" data-config-id="label1">Pending</a>
-                      </div>
-                      <div class="px-6 mb-6">
-                        <h4 class="text-xl font-bold" data-config-id="header1">Spotify</h4>
-                        <p class="text-xs text-gray-500" data-config-id="desc1">Example of the team working on a project</p>
-                      </div>
-                      <div class="p-6 bg-lightGray-50">
-                        <div class="flex -mx-2 mb-6">
-                          <div class="w-1/2 px-2">
-                            <p class="mb-2 text-xs font-medium" data-config-id="label1-1">Final Date</p>
-                            <span class="inline-block py-1 px-2 bg-orange-50 rounded-full text-xs text-red-500" data-config-id="label-val1-1">14 March 2021</span>
-                          </div>
-                          <div class="w-1/2 px-2">
-                            <p class="mb-2 text-xs font-medium" data-config-id="label1-2">Budget</p>
-                            <span class="inline-block py-1 px-2 bg-green-50 rounded-full text-xs text-green-500" data-config-id="label-val1-2">$12,500</span>
-                          </div>
-                        </div>
-                        <div class="flex mb-6">
-                          <img class="w-8 h-8 rounded-full object-cover object-right" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" data-config-id="image1-1">
-                          <img class="w-8 h-8 -ml-2 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" data-config-id="image1-2">
-                          <img class="w-8 h-8 -ml-2 rounded-full object-cover object-top" src="https://images.unsplash.com/photo-1528936466093-76ffdfcf7a40?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="" data-config-id="image1-3">
-                          <img class="w-8 h-8 -ml-2 rounded-full object-cover" src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1055&amp;q=80" alt="" data-config-id="image1-4">
-                          <div class="flex items-center justify-center w-8 h-8 -ml-2 rounded-full bg-indigo-50 text-xs text-indigo-500">+3</div>
-                        </div>
-                        <p class="mb-2 text-xs font-medium" data-config-id="note1">During the testing</p>
-                        <div class="relative w-full h-1 mb-3 rounded-full bg-blue-100">
-                          <div class="absolute top-0 left-0 h-full w-1/2 rounded-full bg-purple-500"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
               
-                </div>
-
                 <!-- pagination -->
                 <div class="flex flex-wrap justify-between pt-6">
                   <div class="w-full lg:w-auto mb-4 lg:mb-0 flex items-center">

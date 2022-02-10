@@ -39,14 +39,14 @@ const actions = {
         });
     },
     editCategory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.category.edit+`/${payload.id}`, payload.data).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.category.edit+`/${payload}`, payload.data).then((data) => {
             console.log(data, payload);
             
             ctx.commit('setCategory', data);        
         });
     },
     deleteCategory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.category.delete+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.category.delete+`/${payload}`, payload).then((data) => {
             ctx.commit('deleteCategory', data);
         });
     },

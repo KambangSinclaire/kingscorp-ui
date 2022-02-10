@@ -24,6 +24,8 @@ const mutations = {
         return state.products = [...payload.data];
     },
     deleteProduct(state: any, payload: any) {
+        console.log(payload);
+        
         return state.products.filter((data: any) => data.id !== payload.id);
     },
 };
@@ -44,7 +46,9 @@ const actions = {
         });
     },
     deleteProduct(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.product.delete+`/${payload.id}`, payload).then((data) => {
+        console.log(payload, 'delete products');
+        
+        IPC.ipcRequestTrigger(AppActionEvents.product.delete+`/${payload}`, payload).then((data) => {
             ctx.commit('deleteProduct', data);
         });
     },

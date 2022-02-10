@@ -32,15 +32,15 @@ export default class Role extends Vue {
     return {
       titles: [
         "Name",
-        "Group",
+        "Permissions",
         "User",
         "Description"
       ],
       inputs: {
         name: "text",
-        group: "text",
-        description: "textarea",
+        permissions: "select",
         user: "text",
+        description: "textarea",
       },
       entity: "Role",
       actions: {

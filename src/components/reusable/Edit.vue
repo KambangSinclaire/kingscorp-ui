@@ -237,7 +237,7 @@ import { Options, Vue } from "vue-class-component";
     },
     updateResource() {
       console.log(this.setInputValues);
-      const id = this.setInputValues._id;
+      const id = this.setInputValues.id;
       delete this.setInputValues?.entity;
       delete this.setInputValues?.id;
       const payload = { id, data: this.setInputValues };
