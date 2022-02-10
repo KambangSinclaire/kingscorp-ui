@@ -21,6 +21,7 @@ import router from "./router";
 import store from "./store";
 import './index.scss';
 
+// added some weird info
 library.add(fas,fab,far);
 dom.watch();
 createApp(App)
