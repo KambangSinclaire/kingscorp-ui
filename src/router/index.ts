@@ -114,7 +114,34 @@ const routes: Array<RouteRecordRaw> = [
         name: "Service",
         component: Service
       },
-     
+      {
+        path: "settings",
+        name: "Settings",
+        component: Settings,
+        
+        children: [
+          {
+            path: "",
+            name: "roles",
+            component: Roles
+          },
+          {
+            path: "permissions",
+            name: "Permissions",
+            component: Permissions
+          },
+          {
+            path: "groups",
+            name: "Groups",
+            component: Groups
+          },
+          {
+            path: "preferences",
+            name: "Preferences",
+            component: Preferences
+          }
+        ]
+      }
     ]
   },
   {
@@ -130,34 +157,7 @@ const routes: Array<RouteRecordRaw> = [
     beforeEnter: () => alert('welcome back :) ')
   },
  
-  {
-    path: "/settings",
-    name: "Settings",
-    component: Settings,
-    
-    children: [
-      {
-        path: "",
-        name: "roles",
-        component: Roles
-      },
-      {
-        path: "permissions",
-        name: "Permissions",
-        component: Permissions
-      },
-      {
-        path: "groups",
-        name: "Groups",
-        component: Groups
-      },
-      {
-        path: "preferences",
-        name: "Preferences",
-        component: Preferences
-      }
-    ]
-  }
+  
 ];
 
 const router = createRouter({
