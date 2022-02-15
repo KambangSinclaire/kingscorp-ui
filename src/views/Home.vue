@@ -78,8 +78,8 @@
           <div class="relative flex flex-wrap -mx-4">
             <div class="w-full lg:w-1/2 2xl:w-2/5 px-4 mb-12 mb:mb-0">
               <span class="text-xl lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-200 to-orange-600" data-config-id="label"> <img src="@/assets/logo/logo4-removebg-preview.png"  alt=""> </span>
-              <h2 class="max-w-lg lg:max-w-md 2xl:max-w-none mt-7 mb-12 mb:mb-20 text-6xl lg:text-7xl 2xl:text-8xl text-white font-bold font-heading" data-config-id="header">Get perfect app for your project</h2>
-              <p class="mb-12 lg:mb-24 text-lg text-white opacity-90" data-config-id="desc">Discover how it works and start for free.</p>
+              <h2 class="max-w-lg lg:max-w-md 2xl:max-w-none mt-7 mb-12 mb:mb-20 text-6xl lg:text-7xl 2xl:text-8xl text-white font-bold font-heading" data-config-id="header">Manage Your Business Proccesses</h2>
+              <p class="mb-12 lg:mb-24 text-lg text-white opacity-90" data-config-id="desc">Customer Relation Management, Enterprise Resource Management and Business Intelligence With KingsCorp Ultra..</p>
               <div class="flex flex-wrap items-center">
                 <router-link to="/login">
                 <a class="inline-block mr-14 px-12 py-2 text-lg text-white font-bold bg-blue-500 hover:bg-blue-600 rounded-md transition duration-200" data-config-id="hero-primary-action">Get started</a>

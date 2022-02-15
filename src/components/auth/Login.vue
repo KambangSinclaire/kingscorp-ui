@@ -51,9 +51,9 @@
           <!-- username -->
           <div class="input-container my-4">
             <div>
-              <label for="username" class="block text-sm font-medium text-gray-700"
-                >UserName</label
-              >
+              <label for="username" class="block text-sm font-medium text-gray-700">
+                Email
+              </label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <div
                   class="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none"
@@ -64,7 +64,7 @@
 
                 </div>
                 <input
-                  type="text"
+                  type="email"
                   class="py-2 px-4  border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
                   autocomplete="false"
                   placeholder="kambangsincalire"

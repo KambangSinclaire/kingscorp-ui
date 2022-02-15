@@ -78,7 +78,7 @@
             <nav class="lg:hidden py-2 px-6 border-b border-gray-50">
               <div class="flex items-center justify-between ">
                 <a class="h-10 w-32"  data-config-id="brand">
-                  <img style="transform:scale(2); margin-left:1rem; margin-top:-1rem;" src="@/assets/logo/logo4-removebg-preview.png" alt="" >
+                  <img  src="@/assets/logo/logo4-removebg-preview.png" alt="" >
                 </a>
                 <button @click.prevent="toogleSideBar =! toogleSideBar" class="navbar-burger flex items-center rounded focus:outline-none">
                   <svg class="text-white bg-blue-700 hover:bg-blue-800 block h-8 w-8 p-2 rounded svgButton" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor" data-config-id="auto-svg-1-2">

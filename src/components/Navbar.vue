@@ -167,7 +167,7 @@
   </div> -->
 
  
-<section data-section-id="2" data-category="ta-navbar" data-component-id="ba5bc4e1_01_awz" class="py-2 px-6 bg-white shadow">
+<section data-section-id="2" data-category="ta-navbar" data-component-id="ba5bc4e1_01_awz" class="py-2 px-6 bg-white shadow border-b border-gray-100">
               <nav class="relative">
                 <div class="flex items-center">
                   <div class="flex items-center mr-auto">

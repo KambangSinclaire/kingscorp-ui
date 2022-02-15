@@ -36,49 +36,13 @@
       <h1 class="font-bold capitalize text-2xl mt-2">{{ options?.entity }}</h1>
     </div>
 
-    <div class="w-full px-4 h-screen">
-      <div class="shadow-lg overflow-hidden rounded-lg py-4">
-        <div class="w-full flex justify-between p-2 items-center">
-          <div class="w-1/2 px-2 py-2">
-            <div class="mt-1 relative rounded-full">
-              <div
-                class="
-                  absolute
-                  inset-y-0
-                  left-0
-                  pl-3
-                  flex
-                  items-center
-                  pointer-events-none
-                "
-              >
-                <span class="text-gray-300 sm:text-sm">
-                  <i class="fas fa-search"></i>
-                </span>
-              </div>
-              <input
-                type="text"
-                class="
-                  mt-1
-                  focus:ring-blue-600
-                  border-2
-                  focus:border-blue-600
-                  block
-                  w-1/2
-                  outline-none
-                  shadow-sm
-                  sm:text-sm
-                  border-gray-300
-                  rounded-md
-                  pl-10
-                  pr-4
-                  py-2
-                "
-                placeholder="filter"
-              />
-            </div>
+    <div class="w-full px-4 ">
+      <div class="shadow overflow-hidden rounded-md my-4 ">
+        <!-- <div class="w-full flex justify-between p-3 items-center bg-blue-50">
+          <div class="w-1/2 px-2 justify-end items-end">
+            <h1>Uchenna</h1>
           </div>
-          <div class="w-1/2 p-2 flex justify-end items-end">
+          <div class="w-1/2 flex justify-end items-end">
             <button
               type="button"
               @click="addNewForm"
@@ -92,13 +56,11 @@
                 hover:bg-blue-800
                 focus:ring-4 focus:ring-blue-300
                 font-medium
-                rounded-lg
+                rounded-md
                 text-sm
                 px-6
                 py-2
                 text-center
-                inline-flex
-                items-center
                 mr-2
                 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
               "
@@ -118,9 +80,114 @@
               Add New {{ options?.entity }}
             </button>
           </div>
+        </div> -->
+
+        <div class="w-full flex justify-between p-1 items-center ">
+          <div class="w-1/2 px-2 py-2 flex">
+          <button
+          class="
+            w-8
+            h-8
+            border
+            px-2
+            flex
+            justify-center
+            items-center
+            rounded-md
+            text-gray-400
+            mr-2
+          "
+          :title="'Delete All '+options?.entity + 's'"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+          </button>
+          <button
+          class="
+            w-8
+            h-8
+            border
+            px-2
+            flex
+            justify-center
+            items-center
+            
+            rounded-md
+            text-gray-400
+            mr-2
+          "
+          :title="'Upload All'+options?.entity+ 's'"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+          </button>
+          <button id="addBtn"
+          class="
+            w-8
+            h-8
+            border
+            px-2
+            flex
+            justify-center
+            items-center
+            rounded-md
+            text-gray-400
+            mr-2
+          "
+          :title="'add new '+options?.entity"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+          
+          </button>
+          </div>
+          <div class="w-1/2 px-2 py-2 justify-end items-end">
+            <div class="mt-1 relative flex justify-end items-center rounded-full">
+              <div
+                class="
+                  absolute
+                  inset-y-0
+                  right-0
+                  top-1
+                  pr-3
+                  flex
+                  items-center
+                  pointer-events-none
+                "
+              >
+                <span class="text-gray-300 sm:text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                </span>
+              </div>
+              <input
+                type="text"
+                class="
+                  mt-1
+                  focus:ring-blue-600
+                  border-2
+                  focus:border-blue-600
+                  block
+                  w-full md:w-1/2
+                  outline-none
+                  shadow-sm
+                  sm:text-sm
+                  border-gray-300
+                  rounded-md
+                  px-4
+                  py-2
+                "
+                placeholder="filter"
+              />
+            </div>
+          </div>
         </div>
 
-        <div class="w-full px-4">
+        <div class="w-full ">
           <!-- This example requires Tailwind CSS v2.0+ -->
           <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -138,11 +205,11 @@
                   class="
                     overflow-hidden
                     border-b border-gray-200
-                    sm:rounded-lg
+                    
                   "
                 >
-                  <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-blue-800">
+                  <table class="min-w-full divide-x divide-gray-200">
+                    <thead class="bg-blue-700">
                       <tr>
                         <th
                           v-for="(title, index) in listingTitles"
@@ -156,9 +223,26 @@
                             text-gray-100
                             uppercase
                             tracking-wider
+                            border-r border-t border-b
                           "
                         >
-                          {{ title !== "Action" ? title : "" }}
+                          {{ title }}
+                        </th>
+                        <th
+                          
+                          scope="col"
+                          class="
+                            px-4
+                            py-4
+                            text-left text-xs
+                            font-semibold
+                            text-gray-400
+                            uppercase
+                            tracking-wider
+                            border-t border-b
+                          "
+                        >
+                          
                         </th>
                       </tr>
                     </thead>
@@ -194,7 +278,7 @@
                             alt="image here"
                           />
 
-                          <p
+                          <!-- <p
                             class="
                               action-items
                               flex
@@ -238,9 +322,58 @@
                                 "
                               ></i>
                             </span>
+                          </p> -->
+                        </td>
+                        <td
+                          class="px-6 py-4 text-left capitalize border"
+                        >
+                          <p
+                            class="
+                              action-items
+                              flex
+                              text-center
+                              relative
+                              left-4
+                              w-1/6
+                            "
+                          >
+                            <span @click="detailsForm(data)" :title="'Preview '+options?.entity">
+                              <i
+                                class="
+                                  far
+                                  fa-eye
+                                  mx-2
+                                  cursor-pointer
+                                  text-yellow-600
+                                "
+                              ></i>
+                            </span>
+                            <span @click="editForm(data)" :title="'Edit '+options?.entity">
+                              <i
+                                class="
+                                  far
+                                  fa-edit
+                                  mx-2
+                                  cursor-pointer
+                                  text-green-500
+                                "
+                              ></i>
+                            </span>
+                            <span @click="deleteForm(data)" :title="'Delete '+options?.entity">
+                              <i
+                                class="
+                                  far
+                                  fa-trash-alt
+                                  mx-2
+                                  cursor-pointer
+                                  text-red-500
+                                "
+                              ></i>
+                            </span>
                           </p>
                         </td>
                       </tr>
+                      
 
                       <!-- More people... -->
                     </tbody>
@@ -317,8 +450,8 @@ import Edit from "./Edit.vue";
       let payloadDatas = Object.keys(this.options.inputs ?? {});
       console.log("these are true ", this.options);
       if (this.options.actionBtns && !this.listingTitles.includes("Action")) {
-        this.listingTitles.push("Action")
-        payloadDatas.push("Action");
+        // this.listingTitles.push("Action")
+        // payloadDatas.push("Action");
         console.log('this is listing titles', this.listingTitles);
         payloadDatas = this.listingTitles.map((data)=> data.toLowerCase())
       }
@@ -328,6 +461,7 @@ import Edit from "./Edit.vue";
     dropdownDetails() {
       return this.$store.getters.getDropDowns;
     },
+    
   },
   methods: {
     toggleSideAction() {
@@ -357,6 +491,7 @@ import Edit from "./Edit.vue";
   },
 })
 export default class Listing extends Vue {
+  
   data() {
     return {
       showMoreActions: false,
@@ -371,5 +506,6 @@ export default class Listing extends Vue {
 </script>
 
 <style lang="scss" scoped>
+
 </style>
 

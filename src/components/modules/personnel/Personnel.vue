@@ -56,27 +56,20 @@ export default class Personnel extends Vue {
   data() {
     return {
       titles: [
-        "Firstname",
-        "Lastname",
+        "Username",
         "Email",
         "Role",
-        "Description",
-        "Status",
-        "Name",
-        "Group",
-        "Profile image"
+        // "Name",
+        // "Group",
+        // "Profile image"
       ],
       inputs: {
-        firstname: "text",
-        lastname: "text",
-        status: "text",
-        description: "textarea",
+        username: "text",
         "email": "email",
         role: "text",
-        name: "text",
-        group:"text",
-        password:"password",
-        "profile_image":"file",
+        // group:"text",
+        // password:"password",
+        // "profile_image":"file",
 
       },
       entity: "personnel",

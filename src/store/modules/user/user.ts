@@ -18,15 +18,9 @@ const state = {
 };
 const mutations = {
     setUser(state: any, payload: any) {
-        console.log('this is state',payload);
-        
         return state.users.push(payload);
     },
     setUsers(state: any, payload: any | Iterable<any>) {
-        
-        // setToStorage(payload?.data, 'user')
-        console.log(payload);
-        
         return state.users = [...payload?.data];
     },
     deleteUser(state: any, payload: any) {
@@ -37,13 +31,13 @@ const mutations = {
 const actions = {
     appRegister(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.add, payload).then((data) => {
-            console.log(data);
-            if(data?.status === 200){
+            if(data?.status >= 200 && data?.status < 400){
                 setToStorage(data?.data, 'user')
                 ctx.commit('setUser', data);
                 router.push('/explore/dashboard')
             }else{
-                alert('')
+
+                !data?alert(`Please Ensure Available Internet Connection`):alert(`${data?.message}`)
             }
         });
     },
@@ -69,7 +63,14 @@ const actions = {
     },
     appLogin(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.login, payload).then((data) => {
-            ctx.commit('setUser', data);
+            if(data?.status >= 200 && data?.status < 400){
+                setToStorage(data?.data, 'user')
+                ctx.commit('setUser', data);
+                router.push('/explore/dashboard')
+            }else{
+                !data?.message?alert(`Please Ensure Available Internet Connection`):alert(`${data?.message}`)
+            }
+            
         });
     },
     appLogout(ctx: any, payload: any) {
