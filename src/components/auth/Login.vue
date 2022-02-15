@@ -170,7 +170,7 @@
               
                   type="text"
                  
-                  class="py-2 px-4 border-gray-300 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
+                  class="py-2 px-4 border-gray-300 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm rounded-md"
                   autocomplete="false"
                   placeholder="kambangsincalire"
                   v-model="this.register.username"
@@ -206,7 +206,7 @@
                 <input
                   type="email"
                   id="email"
-                  class="py-2 px-4 border-gray-300 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
+                  class="py-2 px-4 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
                   autocomplete="false"
                   placeholder="example.email@example.org"
                   v-model="this.register.email"
@@ -245,7 +245,7 @@
                 <input
                   type="password"
                   id="password"
-                  class="py-2 px-4 border-gray-300 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
+                  class="py-2 px-4 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
                   placeholder="..............."
                   v-model="this.register.password"       
                 />
@@ -271,7 +271,7 @@
                 <input
                   type="text"
                   id="phone_number"
-                  class="py-2 px-4 border-gray-300 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
+                  class="py-2 px-4 border focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md"
                   placeholder="+************"
                   v-model="this.register.phone_number"
                          
@@ -300,7 +300,6 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import IPC from "../../utils/ipc-renderer.util";
 import { AppActionEvents } from "../../events/app.events";
 import Alert from "../reusable/Alerts.vue";
 import { getFromStorage } from "@/utils/storage.util";

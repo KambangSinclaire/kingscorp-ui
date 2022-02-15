@@ -152,8 +152,6 @@ export default class Welcome extends Vue {
   toaster(){
     let toastService = new AppToastEvents()
    console.log(toastService, toastService)
-   
-  
   }
 data(){
   return {
