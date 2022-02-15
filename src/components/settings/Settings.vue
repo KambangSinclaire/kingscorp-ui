@@ -195,7 +195,7 @@
         </div>
       </section>
       
-      <section data-section-id="3" data-category="ta-content" data-component-id="eb4ba9ec_01_awz" class="py-8"><div class="container px-4 mx-auto">
+      <!-- <section data-section-id="3" data-category="ta-content" data-component-id="eb4ba9ec_01_awz" class="py-8"><div class="container px-4 mx-auto">
           <div class="flex flex-wrap -m-4">
             <div class="w-full md:w-1/2 lg:w-1/4 p-4">
               <div class="p-6 bg-white rounded">
@@ -479,13 +479,7 @@
                       <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-31-1"><path d="M14.833 3.41668H12.333V2.58334C12.333 1.9203 12.0696 1.28442 11.6008 0.815577C11.1319 0.346736 10.496 0.0833435 9.83299 0.0833435H8.16632C7.50328 0.0833435 6.86739 0.346736 6.39855 0.815577C5.92971 1.28442 5.66632 1.9203 5.66632 2.58334V3.41668H3.16632C2.50328 3.41668 1.86739 3.68007 1.39855 4.14891C0.929713 4.61775 0.666321 5.25363 0.666321 5.91668V13.4167C0.666321 14.0797 0.929713 14.7156 1.39855 15.1844C1.86739 15.6533 2.50328 15.9167 3.16632 15.9167H14.833C15.496 15.9167 16.1319 15.6533 16.6008 15.1844C17.0696 14.7156 17.333 14.0797 17.333 13.4167V5.91668C17.333 5.25363 17.0696 4.61775 16.6008 4.14891C16.1319 3.68007 15.496 3.41668 14.833 3.41668ZM7.33299 2.58334C7.33299 2.36233 7.42079 2.15037 7.57707 1.99409C7.73335 1.83781 7.94531 1.75001 8.16632 1.75001H9.83299C10.054 1.75001 10.266 1.83781 10.4222 1.99409C10.5785 2.15037 10.6663 2.36233 10.6663 2.58334V3.41668H7.33299V2.58334ZM15.6663 13.4167C15.6663 13.6377 15.5785 13.8497 15.4222 14.0059C15.266 14.1622 15.054 14.25 14.833 14.25H3.16632C2.94531 14.25 2.73335 14.1622 2.57707 14.0059C2.42079 13.8497 2.33299 13.6377 2.33299 13.4167V9.20834H4.83299V10.0833C4.83299 10.3044 4.92079 10.5163 5.07707 10.6726C5.23335 10.8289 5.44531 10.9167 5.66632 10.9167C5.88733 10.9167 6.0993 10.8289 6.25558 10.6726C6.41186 10.5163 6.49965 10.3044 6.49965 10.0833V9.20834H11.4997V10.0833C11.4997 10.3044 11.5875 10.5163 11.7437 10.6726C11.9 10.8289 12.112 10.9167 12.333 10.9167C12.554 10.9167 12.766 10.8289 12.9222 10.6726C13.0785 10.5163 13.1663 10.3044 13.1663 10.0833V9.20834H15.6663V13.4167ZM15.6663 7.58334H2.33299V5.91668C2.33299 5.69566 2.42079 5.4837 2.57707 5.32742C2.73335 5.17114 2.94531 5.08334 3.16632 5.08334H14.833C15.054 5.08334 15.266 5.17114 15.4222 5.32742C15.5785 5.4837 15.6663 5.69566 15.6663 5.91668V7.58334Z" fill="#C2C9D2"></path></svg></span>
                     <span class="text-xs text-gray-500" data-config-id="url8">Shuffle.dev</span>
                   </div>
-                  <div class="flex items-center justify-between mb-10">
-                    <div class="flex items-center">
-                      <img class="w-8 h-8 rounded-full object-cover object-right" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" data-config-id="image8-1" data-removed="true"><img class="w-8 h-8 -ml-2 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" data-config-id="image8-2" data-removed="true"><img class="w-8 h-8 -ml-2 rounded-full object-cover object-top" src="https://images.unsplash.com/photo-1528936466093-76ffdfcf7a40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="" data-config-id="image8-3" data-removed="true"><div class="inline-flex -ml-2 items-center justify-center w-8 h-8 rounded-full bg-indigo-50 text-xs font-medium text-indigo-500">+3</div>
-                    </div>
-                    <a href="#">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-32-1"><path d="M8.00001 6.66666C7.26363 6.66666 6.66668 7.26362 6.66668 8C6.66668 8.73637 7.26363 9.33333 8.00001 9.33333C8.73639 9.33333 9.33334 8.73637 9.33334 7.99999C9.33334 7.26362 8.73639 6.66666 8.00001 6.66666Z" fill="#E1E4E8"></path><path d="M12.6667 6.66666C11.9303 6.66666 11.3333 7.26362 11.3333 8C11.3333 8.73637 11.9303 9.33333 12.6667 9.33333C13.403 9.33333 14 8.73637 14 7.99999C14 7.26362 13.403 6.66666 12.6667 6.66666Z" fill="#E1E4E8"></path><path d="M3.33332 6.66666C2.59694 6.66666 1.99999 7.26362 1.99999 8C1.99999 8.73637 2.59694 9.33333 3.33332 9.33333C4.0697 9.33333 4.66666 8.73637 4.66666 7.99999C4.66666 7.26362 4.0697 6.66666 3.33332 6.66666Z" fill="#E1E4E8"></path></svg></a>
-                  </div>
+                
                   <div class="relative w-full h-1 mb-3 rounded-full bg-gray-50">
                     <div class="absolute top-0 left-0 h-full w-1/2 rounded-full bg-green-500"></div>
                   </div>
@@ -498,7 +492,9 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
+
+      <router-view />
       </div>
       </div>
     </div>

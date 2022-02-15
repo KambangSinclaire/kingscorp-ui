@@ -128,5 +128,5 @@ export const AppActionEvents = {
         all: "permissions"
     },
     API_BASE_URL: "https://kingscorp-web-api.herokuapp.com/api/v1/app",
-    LOCATION_BASE_URL:'http://ip-api.com/json'
+    LOCATION_BASE_URL:'https://ipapi.co/json'
 }
