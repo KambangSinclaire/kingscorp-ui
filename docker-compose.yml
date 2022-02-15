@@ -4,5 +4,4 @@ services:
     build: .
     ports:
       - "3000:80"
-  nginx: "nginx"
   
