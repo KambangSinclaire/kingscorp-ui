@@ -117,7 +117,7 @@
             text-gray-400
             mr-2
           "
-          :title="'Upload All'+options?.entity+ 's'"
+          :title="'Upload All '+options?.entity+ 's'"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -136,6 +136,7 @@
             text-gray-400
             mr-2
           "
+          @click="addNewForm"
           :title="'add new '+options?.entity"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -209,7 +210,7 @@
                   "
                 >
                   <table class="min-w-full divide-x divide-gray-200">
-                    <thead class="bg-blue-700">
+                    <thead class="bg-gray-100">
                       <tr>
                         <th
                           v-for="(title, index) in listingTitles"
@@ -220,7 +221,7 @@
                             py-4
                             text-left text-xs
                             font-semibold
-                            text-gray-100
+                            text-gray-700
                             uppercase
                             tracking-wider
                             border-r border-t border-b
@@ -236,7 +237,7 @@
                             py-4
                             text-left text-xs
                             font-semibold
-                            text-gray-400
+                            text-gray-700
                             uppercase
                             tracking-wider
                             border-t border-b
@@ -277,64 +278,18 @@
                             :src="data[entry]"
                             alt="image here"
                           />
-
-                          <!-- <p
-                            class="
-                              action-items
-                              flex
-                              text-center
-                              relative
-                              left-4
-                              w-1/6
-                            "
-                            v-if="options?.actionBtns && entry == 'action'"
-                          >
-                            <span @click="detailsForm(data)">
-                              <i
-                                class="
-                                  far
-                                  fa-eye
-                                  mx-2
-                                  cursor-pointer
-                                  text-yellow-600
-                                "
-                              ></i>
-                            </span>
-                            <span @click="editForm(data)">
-                              <i
-                                class="
-                                  far
-                                  fa-edit
-                                  mx-2
-                                  cursor-pointer
-                                  text-green-500
-                                "
-                              ></i>
-                            </span>
-                            <span @click="deleteForm(data)">
-                              <i
-                                class="
-                                  far
-                                  fa-trash-alt
-                                  mx-2
-                                  cursor-pointer
-                                  text-red-500
-                                "
-                              ></i>
-                            </span>
-                          </p> -->
                         </td>
                         <td
-                          class="px-6 py-4 text-left capitalize border"
+                          class="px-6 py-4 text-right capitalize border"
                         >
                           <p
                             class="
                               action-items
                               flex
-                              text-center
+                              text-right
                               relative
-                              left-4
-                              w-1/6
+                              justify-end
+                              
                             "
                           >
                             <span @click="detailsForm(data)" :title="'Preview '+options?.entity">
