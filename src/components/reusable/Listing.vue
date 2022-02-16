@@ -209,7 +209,8 @@
                     
                   "
                 >
-                  <table class="min-w-full divide-x divide-gray-200">
+                  <table class="min-w-full divide-gray-200 relative">
+                    
                     <thead class="bg-gray-100">
                       <tr>
                         <th
@@ -248,7 +249,9 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                      <tr v-for="(data, index) of listData" :key="index">
+                     <SkeletonLoader :dataCol="listingTitles" v-if="this.$store.getters.getLoader"/> 
+                      
+                      <tr v-for="(data, index) of listData" :key="index" :class="{'hidden':this.$store.getters.getLoader}" >
                         <td
                           v-for="(entry, index2) in formatedTitles"
                           :key="index2"
@@ -329,6 +332,7 @@
                         </td>
                       </tr>
                       
+                      
 
                       <!-- More people... -->
                     </tbody>
@@ -378,6 +382,7 @@
         actions: options.actions,
       }"
     />
+   
   </section>
 </template>
 
@@ -387,6 +392,7 @@ import Add from "./Add.vue";
 import Delete from "./Delete.vue";
 import Details from "./Details.vue";
 import Edit from "./Edit.vue";
+import SkeletonLoader from './loaders/skeleton.vue'
 
 @Options({
   components: {
@@ -394,6 +400,7 @@ import Edit from "./Edit.vue";
     Delete,
     Edit,
     Details,
+    SkeletonLoader
   },
   props: {
     listingTitles: Array,

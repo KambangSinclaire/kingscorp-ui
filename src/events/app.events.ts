@@ -127,6 +127,7 @@ export const AppActionEvents = {
         delete: "deletePermission",
         all: "permissions"
     },
+    
     API_BASE_URL: "https://kingscorp-web-api.herokuapp.com/api/v1/app",
     LOCATION_BASE_URL:'https://ipapi.co/json'
 }

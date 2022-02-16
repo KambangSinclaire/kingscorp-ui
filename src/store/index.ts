@@ -23,6 +23,7 @@ import category from "./modules/category/category";
 import user from "./modules/user/user";
 import location from './modules/location/location'
 import toasts from "./modules/toasts/toast";
+import loader from "./modules/loaders/loader";
 
 export default createStore({
   state: {
@@ -80,6 +81,7 @@ export default createStore({
     category,
     user,
     location,
-    toasts
+    toasts,
+    loader
   },
 });

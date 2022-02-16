@@ -18,7 +18,7 @@ import Toast from './toast.vue'
 
 
     setToastEvent(status:number, message:string, type:"ERROR"|"SUCESS"|"INFO"):any{
-
+        
     }
 
     async getData(payload:any){

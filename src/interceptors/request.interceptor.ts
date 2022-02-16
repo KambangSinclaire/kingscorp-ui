@@ -20,11 +20,13 @@ try {
                "x-api-key":!userCredentials?'':userCredentials['x_api_key'],
            }
        }
+       store.dispatch('showLoader')
         
         return config
     })
     
 } catch (error) {
+    store.dispatch('showLoader')
     Promise.reject(error)
 }
 }
