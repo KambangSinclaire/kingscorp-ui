@@ -33,11 +33,11 @@ export default class Product extends Vue {
   data() {
     return {
       titles: [
-        "Name",
-        "Quantity",
-        "Unit_Cost",
+        "name",
+        "quantity",
+        "unit_cost",
         // "Image Url",
-        "Description",
+        "description",
         // "Inventory",
         // "Stock",
         // "Category",

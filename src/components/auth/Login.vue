@@ -2,6 +2,7 @@
   <div
     class="auth-container w-full bg-blue-100 h-screen flex justify-center align-center"
   >
+    <Toast :toast="responseData" @closeToast="this.toast = !this.toast" v-if="this.toast" />
     <div
       class="card-container shadow-2xl rounded bg-white my-auto grid  sm:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4"
     >
@@ -40,8 +41,11 @@
       <div class="flex overflow-hidden">
 
       <div :class="{ 'hidden':this.actionType.register}"
-        class=" login-container w-full h-full rounded-3xl lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
+        class=" login-container w-full h-full rounded-3xl relative lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
       >
+      <div class="absolute right-2 top-5 bg-blue-500 "  v-if="spinner" >
+            <Spinner />
+      </div>
         <div class="md:hidden lg:hidden relative w-full -top-10 px-4 rounded-2xl shadow-2xl py-2">
               <p class="text-gray-800">Don't Have An Account?</p>
               <a @click.prevent="isActionMutation" class="text-yellow-500 font-bold">Create Account</a>
@@ -112,9 +116,9 @@
             </div>
           </div>
 
-          <div class="input-container">
+          <div class="input-container relative">
             <button  @click.prevent="loginUser"
-              class="w-full text-center font-bold px-2 py-2 bg-blue-600 text-wihte my-4 shadow-3xl border-none rounded-md"
+              class="w-full  text-center font-bold px-2 py-2 bg-blue-600 text-wihte my-4 shadow-3xl border-none rounded-md"
             >
               Login
             </button>
@@ -145,11 +149,15 @@
        <div :class="{ 'hidden':this.actionType.login}"
         class="register-container w-full  h-full rounded-3xl lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
       >
+
         <div class="md:hidden  lg:hidden relative w-full -top-10 px-4 rounded-2xl shadow-2xl py-2">
               <p class="text-gray-800">Already Have An Account?</p>
               <a @click.prevent="isActionMutation" class="text-yellow-500 font-bold">Login</a>
             </div>
         <form autocomplete="false" class="px-4   sm:w-full ">
+          <div class="absolute right-2 top-5 bg-blue-500 "  v-if="spinner" >
+            <Spinner />
+      </div>
           <h1 class="text-2xl font-bold mb-8">Create Account</h1>
           <!-- username -->
           <div class="input-container my-4">
@@ -304,10 +312,13 @@ import { AppActionEvents } from "../../events/app.events";
 import Alert from "../reusable/Alerts.vue";
 import { getFromStorage } from "@/utils/storage.util";
 import {  User, } from "@/interfaces/user.interface";
+import Spinner from '@/components/reusable/loaders/spinner.vue'
+import Toast from '@/components/reusable/toast/toast.vue'
 
 @Options({
   methods: {
     loginUser() {
+      this.spinner = !this.spinner
       if (!this.login.username.trim()  || !this.login.password.trim() ) {
         // this.$router.push("/explore/dashboard");
         this.errorMessage = "invalid username or password"
@@ -333,6 +344,7 @@ import {  User, } from "@/interfaces/user.interface";
       this.actionType['register'] = !this.actionType.register 
     },
     createUser() {
+      this.spinner = !this.spinner
       switch (false) {
         case /^(?=.{4,20}$)(?:[a-zA-Z\d]+(?:(?:\.|-|_)[a-zA-Z\d])*)+$/.test(this.register.username):
           this.errorMessage = "User name is badly formated"
@@ -381,13 +393,19 @@ import {  User, } from "@/interfaces/user.interface";
   },
   mounted() {
      this.$store.dispatch(AppActionEvents.location.retrieve)
-    // check if already logged in
-    // if (this.$store.getters.isLoggedIn) {
-    //   this.$router.push("/explore/dashboard");
-    // }  
+  },
+  computed:{
+    responseData(){
+      if(this.$store.getters.getToast){
+        this.toast = true;
+      }
+      return this.$store.getters.getToast
+    },
   },
   components:{
-    Alert
+    Alert,
+    Spinner,
+    Toast
   }
 })
 export default class Login extends Vue {
@@ -407,7 +425,9 @@ export default class Login extends Vue {
       },
       errorMessage : "",
       isError:false,
-      actionType:{login:true, register:false}
+      actionType:{login:true, register:false},
+      toast:true,
+      spinner:false
     };
   }
 }

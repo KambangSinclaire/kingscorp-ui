@@ -12,19 +12,24 @@
  import IPC from "@/utils/ipc-renderer.util";
  
  const state = {
-    loading: false
+    load:{
+        type:"",
+        loading:false
+    }
  };
  const mutations = {
-     showLoader(state:any){
-         return state.loading = true
+     showLoader(state:any, payload:any){
+        return state.load = { type:payload, loading:true }
      },
      hideLoader(){
-        return state.loading = false
+        return state.load = {
+            type:"", loading:false
+        }
      }
  };
  const actions = {
-     showLoader(ctx:any){
-        ctx.commit('showLoader')
+     showLoader(ctx:any, payload:any){
+        ctx.commit('showLoader', payload)
      },
      hideLoader(ctx:any){
         ctx.commit('hideLoader')
@@ -33,7 +38,7 @@
  };
  const getters = {
      getLoader(state: any) {
-         return state.loading;
+         return state.load;
      }
  };
  

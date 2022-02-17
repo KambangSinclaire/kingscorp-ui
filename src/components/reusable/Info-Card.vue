@@ -8,11 +8,16 @@
                         <i :class="setup?.topImage"></i> 
                         </span>
                         </router-link>
-                        <a class="py-1 px-2 bg-blue-50 text-xs text-indigo-500 rounded-full" href="#" data-config-id="label1">+6more</a>
+                        <a class="py-1 px-2 bg-blue-50 text-xs text-indigo-500 rounded-md" href="#" data-config-id="label1">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                          </svg>
+                        </a>
                       </div>
                       <div class="px-6 mb-6">
                         <h4 class="text-xl font-bold" data-config-id="header1">{{setup?.title}}</h4>
-                        <p class="text-xs text-gray-500" data-config-id="desc1">{{ !setup?.description[0]?.description?"No Data. Add Data ":setup?.description[0]?.description }}</p>
+                        <p class="text-xs text-gray-500" data-config-id="desc1">{{"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, voluptatum!".slice(0, 100)+"..."}} 
+                        </p>
                       </div>
                       <div class="p-6 bg-lightGray-50">
                         <div class="flex -mx-2 mb-6">

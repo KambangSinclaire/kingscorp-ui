@@ -1,5 +1,4 @@
 
-import { AppToastEvents } from '@/components/reusable/toast/toast';
 import { ToastInterface } from '@/interfaces/toast.interface';
 import store from '@/store';
 import axios from 'axios'
@@ -8,12 +7,13 @@ import axios from 'axios'
 const responseInterceptor = async () => {
 try {
     return axios.interceptors.response.use((res) => {
+        
         let dataToast:ToastInterface = {
             type: 'ERROR',
             message: '',
             status: 0,
-            
         }
+
         if(res.status == 0){
             dataToast = {
                     type:"ERROR" ,
@@ -22,6 +22,7 @@ try {
                     
             }
         }
+
         if(res.status > 100 && res.status < 400){
             dataToast =  {
                 type:"SUCCESS" ,

@@ -4,6 +4,8 @@ import { getFromStorage } from '@/utils/storage.util'
 import axios from 'axios'
 const userCredentials = getFromStorage('user')
 
+console.log(userCredentials);
+
 const requestInterceptor = async () => {
 try {
     let isUser = store.getters.getUsers
@@ -19,8 +21,12 @@ try {
                'Authorization':!userCredentials?'':"Bearer "+userCredentials['refresh_token'] ?? "",
                "x-api-key":!userCredentials?'':userCredentials['x_api_key'],
            }
+           if(config.url?.includes('app')){
+               store.dispatch('showLoader', "spinner")
+           }
+           
+           store.dispatch('showLoader', "skeleton")
        }
-       store.dispatch('showLoader')
         
         return config
     })
