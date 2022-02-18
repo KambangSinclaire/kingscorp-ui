@@ -36,7 +36,6 @@ const actions = {
                 ctx.commit('setUser', data);
                 router.push('/explore/dashboard')
             }else{
-
                 !data?alert(`Please Ensure Available Internet Connection`):alert(`${data?.message}`)
             }
         });
