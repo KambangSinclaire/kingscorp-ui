@@ -250,13 +250,14 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                      <SkeletonLoader :dataCol="listingTitles" v-if="this.$store.getters.getLoader?.type == 'skeleton' && this.$store.getters.getLoader?.loading"/> 
-                      
-                      <tr v-for="(data, index) of listData" :key="index" :class="{'hidden':this.$store.getters.getLoader}" >
+                       
+                      <tr v-for="(data, index) of listData" :key="index" :class="{'hidden':this.$store.getters.getLoader?.loading}" >
                         <td
                           v-for="(entry, index2) in formatedTitles"
                           :key="index2"
                           class="px-6 py-4 text-left capitalize border"
                         >
+                      
                           {{
                             (typeof data[entry] === "string" &&
                               !data[entry].trim().endsWith(".svg")) ||

@@ -3,9 +3,6 @@ import store from '@/store'
 import { getFromStorage } from '@/utils/storage.util'
 import axios from 'axios'
 
-
-
-
 const requestInterceptor = async () => {
 try {
    return axios.interceptors.request.use((config) => {
