@@ -54,32 +54,5 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
 
-.main-container{
-  display: flex;
-  .left-side-nav, .right-side-nav {
-    width: 40%;
-  }
-   
-}
-  @media screen and (max-width:1030px) {
-    .right-side-nav{
-      width: 0%; display: none;
-    }
-    .left-side-nav{
-      width:60%;
-    }
-    
-  }
-   @media screen and (max-width:800px) {
-    .left-side-nav{
-     width: 0%; display: none;
-    }
-}
 </style>

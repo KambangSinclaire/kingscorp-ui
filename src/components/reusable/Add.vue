@@ -90,7 +90,7 @@
                       "
                        v-model="formatInputs.specialInputs[inputName]"
                     >
-                      <option selected>{{ inputName }}</option>
+                      <!-- <option selected>{{ inputName }}</option> -->
                       <option
                           v-for="(data, index) of relations[inputName]"
                           :value="data.id"
@@ -265,13 +265,15 @@ import { AppActionEvents } from "../../events/app.events";
     relations() {
       const specialInputs = { ...this.formatInputs.specialInputs };
       const relationalInputs = { ...this.setup.relations };
+      console.log(specialInputs);
       let results = {};
       for (const [key, value] of Object.entries(specialInputs)) {
+        console.log(relationalInputs[key]);
         if (relationalInputs[key]) {
           results[key] = this.$store.getters[`get${relationalInputs[key]}`];
         }
       }
-      console.log(specialInputs, this.setup);
+
       return results;
     },
   },

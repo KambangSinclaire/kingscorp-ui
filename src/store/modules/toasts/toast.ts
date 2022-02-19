@@ -8,10 +8,8 @@
  * @description King's is a utility software developed with the management of an enterprise in mind
  */
 
-import { AppToastEvents } from "@/components/reusable/toast/toast";
 import { ToastInterface } from "@/interfaces/toast.interface";
 
-const toastService = new AppToastEvents()
  const state = {
      toasts: <ToastInterface>{}
  };
@@ -27,7 +25,7 @@ const toastService = new AppToastEvents()
 
  const actions = {
      getToast(ctx:any, payload:ToastInterface){
-        ctx.commit('setToasts', payload);
+        ctx.commit('setToast', payload);
      }
  };
 

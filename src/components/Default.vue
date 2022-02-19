@@ -20,7 +20,7 @@
              Create Roles that govern your organization.
              You Can Edit This Latter
             </p>
-            <router-link to="/settings">
+            <router-link to="dashboard/settings">
             <button  class="px-16 py-2.5 rounded-md bg-blue-700 shadow-3xl mt-4 text-white flex justify-center items-center font-bold">
              Create Roles
             </button>
@@ -171,7 +171,7 @@ import InfoCard from './reusable/Info-Card.vue';
     console.log(roles, !roles, AppActionEvents); 
     let emptyArray = []
     for(let [key,value] of Object.entries(AppActionEvents)){
-      if(key !== 'user'){
+      if(key != 'user' && key != 'role' && key != 'permission' && key != 'group' && key != 'preference'   ){
         emptyArray.push({
             title: key,
             range: 10,
@@ -184,7 +184,7 @@ import InfoCard from './reusable/Info-Card.vue';
               showStatistics: "show product statistics",
             },
             routes: {
-              toListingView: key === 'role'?'dashboard/settings':key === "group"?'dashboard/settings/groups': key ==="preference"?'dashboard/settings/preferences':"dashboard/"+key+'s',
+              toListingView: "/explore/dashboard/"+key+'s',
               toStatisticsView: "products/statistics",
             },
           })
@@ -193,6 +193,8 @@ import InfoCard from './reusable/Info-Card.vue';
 
     emptyArray = emptyArray.filter((data) => !!data.description)
   this.cardSetup = emptyArray
+  console.log(this.cardSetup);
+  
 
     
   }
@@ -201,8 +203,6 @@ import InfoCard from './reusable/Info-Card.vue';
 export default class Default extends Vue{
   dataObject:any = getFromStorage('user')
   roles = this.dataObject['permissions']
-
-  
 
   data() {
     return {

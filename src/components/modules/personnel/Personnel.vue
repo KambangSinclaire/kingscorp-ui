@@ -1,7 +1,7 @@
 <template>
   <Listing
     :listData="personnels"
-    :options="{ actionBtns: true, inputs, entity, actions }"
+    :options="{ actionBtns: true, inputs, entity, actions, relations }"
     :listingTitles="titles"
     @fetchDropDownIcons="upDateActions"
   />
@@ -50,6 +50,7 @@ import Listing from "../../reusable/Listing.vue";
   },
   mounted() {
     this.$store.dispatch(AppActionEvents.personnel.retrieve);
+    this.$store.dispatch(AppActionEvents.role.retrieve);
   },
 })
 export default class Personnel extends Vue {
@@ -66,13 +67,19 @@ export default class Personnel extends Vue {
       inputs: {
         username: "text",
         "email": "email",
-        role: "text",
+        role: "select",
         // group:"text",
         // password:"password",
         // "profile_image":"file",
 
       },
+
       entity: "personnel",
+      relations: {
+        // category: "Categories",
+        role: "Roles",
+        // inventory: "Inventories",
+      },
       actions: {
         add: AppActionEvents.personnel.add,
         edit: AppActionEvents.personnel.edit,

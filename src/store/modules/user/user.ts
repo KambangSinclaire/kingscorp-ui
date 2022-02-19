@@ -10,6 +10,7 @@
 
 import { AppActionEvents } from "@/events/app.events";
 import router from "@/router";
+import store from "@/store";
 import IPC from "@/utils/ipc-renderer.util";
 import { setToStorage } from "@/utils/storage.util";
 
@@ -36,7 +37,12 @@ const actions = {
                 ctx.commit('setUser', data);
                 router.push('/explore/dashboard')
             }else{
-                !data?alert(`Please Ensure Available Internet Connection`):alert(`${data?.message}`)
+                let dataToast = {
+                    type:"ERROR" ,
+                    message:"Slow Network Intervention. Please Try again Later.",
+                    status: 0 || data?.status,     
+            }
+                !data?store.dispatch('getToast', dataToast):store.dispatch('getToast', dataToast['message'] = data?.message)
             }
         });
     },
@@ -67,7 +73,12 @@ const actions = {
                 ctx.commit('setUser', data);
                 router.push('/explore/dashboard')
             }else{
-                !data?.message?alert(`Please Ensure Available Internet Connection`):alert(`${data?.message}`)
+                let dataToast = {
+                    type:"ERROR" ,
+                    message:"Slow Network Intervention. Please Try again Later.",
+                    status: 0 || data?.status,     
+            }
+                !data?store.dispatch('getToast', dataToast):store.dispatch('getToast', dataToast['message'] = data?.message)
             }
             
         });

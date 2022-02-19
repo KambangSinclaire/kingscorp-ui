@@ -24,7 +24,7 @@ import user from "./modules/user/user";
 import location from './modules/location/location'
 import toasts from "./modules/toasts/toast";
 import loader from "./modules/loaders/loader";
-
+import permissions  from "./modules/permissions/permissions";
 export default createStore({
   state: {
     isLoggedIn: false,
@@ -82,6 +82,7 @@ export default createStore({
     user,
     location,
     toasts,
-    loader
+    loader,
+    permissions
   },
 });

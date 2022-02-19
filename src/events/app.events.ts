@@ -120,12 +120,8 @@ export const AppActionEvents = {
         delete: "deletePreference",
     },
     permission: {
-        add: "addPermission",
-        edit: "editPermission",
         retrieve: "getPermissions",
         retrieveSingle: "getSinglePermission",
-        delete: "deletePermission",
-        all: "permissions"
     },
     
     API_BASE_URL: "https://kingscorp-web-api.herokuapp.com/api/v1/app",

@@ -209,7 +209,8 @@
                     
                   "
                 >
-                  <table class="min-w-full divide-gray-200 relative">
+                <Nodata v-if="checkIfNoData"/>
+                  <table v-if="!checkIfNoData" class="min-w-full divide-gray-200 relative">
                     
                     <thead class="bg-gray-100">
                       <tr>
@@ -347,6 +348,7 @@
 
     <Add
       v-if="openAddForm"
+      v-view="`ADD${options?.entity.toUpperCase()}`"
       @closeForm="openAddForm = !openAddForm"
       :setup="{
         inputs: options?.inputs,
@@ -354,6 +356,7 @@
         actions: options?.actions,
         relations: options?.relations,
       }"
+      
     />
     <Delete
       v-if="openDeleteForm"
@@ -392,6 +395,7 @@ import Delete from "./Delete.vue";
 import Details from "./Details.vue";
 import Edit from "./Edit.vue";
 import SkeletonLoader from './loaders/skeleton.vue'
+import Nodata from './Nodata.vue'
 
 @Options({
   components: {
@@ -399,7 +403,8 @@ import SkeletonLoader from './loaders/skeleton.vue'
     Delete,
     Edit,
     Details,
-    SkeletonLoader
+    SkeletonLoader,
+    Nodata
   },
   props: {
     listingTitles: Array,
@@ -422,6 +427,12 @@ import SkeletonLoader from './loaders/skeleton.vue'
     dropdownDetails() {
       return this.$store.getters.getDropDowns;
     },
+    checkIfNoData(){
+      if(navigator.onLine && this.listData.length == 0){
+        return true
+      }
+      return false;
+    }
     
   },
   methods: {

@@ -138,9 +138,6 @@ import Toast from './reusable/toast/toast.vue'
       if(this.$store.getters.getToast){
         this.toast = true;
       }
-      // setTimeout(() => {
-      //   this.toast = false
-      // }, 10000);
       return this.$store.getters.getToast
     },
   },

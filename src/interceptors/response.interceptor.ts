@@ -33,10 +33,8 @@ try {
             }
         }
         switch (true) {
-            case res.request?.responseURL.includes('get'):
-            //  console.log(dataToast);
-             
-            store.dispatch('getToast', dataToast)
+            case res.request?.responseURL.includes('get'):             
+                store.dispatch('getToast', dataToast)
                 break;
 
             case res.request?.responseURL.includes('add'):

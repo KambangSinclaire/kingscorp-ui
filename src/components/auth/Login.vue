@@ -336,6 +336,7 @@ import Toast from '@/components/reusable/toast/toast.vue'
           last_login_location:userLocation,
           last_login: new Date(Date.now())
         }
+        
         this.$store.dispatch(AppActionEvents.user.login, data);
       }
     },
@@ -395,7 +396,7 @@ import Toast from '@/components/reusable/toast/toast.vue'
      this.$store.dispatch(AppActionEvents.location.retrieve)
   },
   computed:{
-    responseData(){
+   responseData(){
       if(this.$store.getters.getToast){
         this.toast = true;
       }

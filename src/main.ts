@@ -20,6 +20,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import router from "./router";
 import store from "./store";
 import './index.scss';
+import {ActionDirective} from './directives/actions.directives'
+
 
 // added some weird info
 library.add(fas,fab,far);
@@ -27,5 +29,5 @@ dom.watch();
 createApp(App)
     .use(store)
     .use(router)
-    .component('font-awesome-icon', FontAwesomeIcon)
+    .component('font-awesome-icon', FontAwesomeIcon).directive('view', new ActionDirective().toogleViews )
     .mount("#app");

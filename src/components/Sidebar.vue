@@ -253,10 +253,8 @@
                   <ul class="text-sm font-medium" v-for="i of this.routes[0]?.main" :key="i">
                       <router-link :to="i?.path">
                     <li>
-                      <a class="flex items-center pl-3 py-1.5 pr-4 rounded" :class="[{'bg-blue-700':$route?.path == i?.path},{'text-white':$route?.path == i?.path}, {'hover:bg-indigo-50':$route?.path != i?.path}, {'text-gray-500':$route?.path != i?.path}]">
-                        <span class="inline-block mr-3 text-xl">
-                          <i :class="i?.icon" class="text-gray-200 "></i>
-                        </span>
+                      <a class="flex items-center pl-3 py-2.5 pr-4 rounded" :class="[{'bg-blue-700':$route?.path == i?.path},{'text-white':$route?.path == i?.path}, {'hover:bg-indigo-50':$route?.path != i?.path}, {'text-gray-500':$route?.path != i?.path}]">
+                        <span class="inline-block mr-3 text-xl"  v-html="i.icon" ></span>
                         <span data-config-id="link1" class="capitalize">{{i?.name}}</span>
                         <span class="inline-block ml-auto cursor-pointer text-xl">
                           <svg class="text-gray-300 w-3 h-3 cursor-pointer" @click.prevent="i.opened = !i.opened" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-3-2">
@@ -269,10 +267,8 @@
                       <div v-if="i?.opened">
                     <li v-for="x of i?.subroute" :key="x">
                     <router-link :to="x?.path">
-                      <a class="flex items-center pl-3 py-1.5 pr-4 text-gray-500  rounded" :class="[{'bg-blue-700':$route?.path == x?.path},{'text-white':$route?.path == x?.path}, {'hover:bg-indigo-50':$route?.path != x?.path}, {'text-gray-500':$route?.path != x?.path}]" >
-                        <span class="inline-block mr-3 text-xl">
-                          <i :class="x?.icon" class="text-gray-200 "></i>
-                        </span>
+                      <a class="flex items-center pl-3 py-2.5 pr-4 rounded" :class="[{'bg-blue-700':$route?.path == x?.path},{'text-white':$route?.path == x?.path}, {'hover:bg-indigo-50':$route?.path != x?.path}, {'text-gray-500':$route?.path != x?.path}]" >
+                        <span class="inline-block mr-3 text-xl"  v-html="x.icon" ></span>
                         <span data-config-id="link1" class="capitalize">{{x?.name}}</span>
                       </a>
                       </router-link>
@@ -317,7 +313,7 @@
                    
                   </ul>
                   <div class="pt-8">
-                    <router-link to="dashboard/settings">
+                    <router-link to="/explore/dashboard/settings">
                     <a class="flex items-center pl-3 py-2 pr-2 text-gray-500 hover:bg-indigo-50 rounded">
                       <span class="inline-block mr-4">
                         <svg class="text-gray-200 w-5 h-5" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-17-2">
@@ -372,21 +368,60 @@ export default class Sidebar extends Vue {
           name:'dashboard',
           opened:false,
           path:'/explore/dashboard',
-          icon:'fab fa-dashcube',
+          icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+          </svg>`,
           subroute:[{
             name:'products',
-            path:'dashboard/products',
-            icon:"fab fa-accusoft"
+            path:'/explore/dashboard/products',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>`
           },{
             name:'services',
-            path:'dashboard/services',
-            icon:"fab fa-servicestack"
+            path:'/explore/dashboard/services',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>`
+          },{
+            name:'stock',
+            path:'/explore/dashboard/stocks',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>`
+          },{
+            name:'invoices',
+            path:'/explore/dashboard/invoices',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>`
+          },{
+            name:'personnels',
+            path:'/explore/dashboard/personnels',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            </svg>`
+          },{
+            name:'credits',
+            path:'/explore/dashboard/credits',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>`
+          },{
+            name:'sale',
+            path:'/explore/dashboard/sales',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>`
           }]
         },{
           name:'statistics',
           opened:false,
           path:'/explore/dashboard/statistics',
-          icon:'fas fa-chart-pie',
+          icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+          </svg>`,
           subroute:[{
             name:'products',
             path:'dashboard/products',

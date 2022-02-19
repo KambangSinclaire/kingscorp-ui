@@ -93,7 +93,7 @@
     </div>
   </section> -->
 
-<section id="page" class="antialiased h-screen font-body bg-body text-body" cz-shortcut-listen="true">
+<section id="page" class="antialiased  font-body bg-body text-body" cz-shortcut-listen="true">
     <div class="" id="content">
 
       <div data-section-id="1" data-category="ta-menus" data-component-id="10070f9f_02_awz" data-container="1">

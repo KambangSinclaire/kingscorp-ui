@@ -13,12 +13,8 @@ try {
                'Authorization':userCredentials?`Bearer ${userCredentials?.refresh_token}`:``,
                "x-api-key": userCredentials? userCredentials?.x_api_key : '',
            }
-           if(config.url?.includes('app')){
-               store.dispatch('showLoader', "spinner")
-           }
-           
            store.dispatch('showLoader', "skeleton")
-       }
+        }
         
         return config
     })

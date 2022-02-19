@@ -1,6 +1,6 @@
 <template>
      
-      <div class="w-full rounded-lg  lg:w-1/3 p-4">
+      <div class="w-full rounded-lg  lg:w-1/3 p-4" >
                     <div class="bg-white shadow rounded overflow-hidden">
                       <div class="pt-6 px-6 mb-10 flex justify-between items-center">
                          <router-link :to="setup?.routes?.toListingView">
@@ -31,10 +31,6 @@
                           </div>
                         </div>
                         <div class="flex mb-6">
-                          <!-- <img class="w-8 h-8 rounded-full object-cover object-right" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" data-config-id="image1-1">
-                          <img class="w-8 h-8 -ml-2 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" data-config-id="image1-2">
-                          <img class="w-8 h-8 -ml-2 rounded-full object-cover object-top" src="https://images.unsplash.com/photo-1528936466093-76ffdfcf7a40?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="" data-config-id="image1-3">
-                          <img class="w-8 h-8 -ml-2 rounded-full object-cover" src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1055&amp;q=80" alt="" data-config-id="image1-4"> -->
                           <div class="flex items-center justify-center w-8 h-8 -ml-2 rounded-full bg-blue-50 text-xs text-blue-500">+3</div>
                         </div>
                         <p class="mb-2 text-xs font-medium" data-config-id="note1">During the testing</p>
@@ -268,6 +264,9 @@ export default class InfoCard extends Vue {
         },
       },
     };
+  }
+  directives(){
+    
   }
 }
 </script>

@@ -225,10 +225,10 @@
                     </li>
                   </ul>
                   <div class="hidden lg:block">
-                    <button class="flex items-center">
+                    <button class="flex items-end">
                       <div class="mr-3">
                         <p class="text-sm capitalize" data-config-id="name">{{dataObject?.username}}</p>
-                        <p class="text-sm text-gray-500" data-config-id="job">{{role?.length < 83?"Role":"Admin"}}</p>
+                        <p class="text-sm text-gray-500 text-right" data-config-id="job">{{roles?.length < 83?"Role":"Admin"}}</p>
                       </div>
                       <div class="mr-2">
                         <img class="w-10 h-10 rounded-full object-cover object-right" src="@/assets/img/fakurian-design-PGdW_bHDbpI-unsplash.jpg" alt="" data-config-id="avatar">
