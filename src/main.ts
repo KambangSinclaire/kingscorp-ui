@@ -20,14 +20,14 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import router from "./router";
 import store from "./store";
 import './index.scss';
-import {ActionDirective} from './directives/actions.directives'
+import { ActionDirective } from './directives/actions.directives'
 
 let directive = new ActionDirective()
 // added some weird info
-library.add(fas,fab,far);
+library.add(fas, fab, far);
 dom.watch();
 createApp(App)
     .use(store)
     .use(router)
-    .component('font-awesome-icon', FontAwesomeIcon).directive('view', directive.toogleViews  )
+    .component('font-awesome-icon', FontAwesomeIcon).directive('view', directive.toogleViews)
     .mount("#app");
