@@ -1,6 +1,6 @@
 <template>
      
-      <div class="w-full rounded-lg  lg:w-1/3 p-4" >
+      <div class="w-full rounded-lg  lg:w-1/3 p-4" v-view="setup.title.toUpperCase()" >
                     <div class="bg-white shadow rounded overflow-hidden">
                       <div class="pt-6 px-6 mb-10 flex justify-between items-center">
                          <router-link :to="setup?.routes?.toListingView">

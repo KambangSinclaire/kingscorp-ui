@@ -319,7 +319,7 @@
                         bg-gray-100
                       "
                     >
-                      <img v-bind:src="previewImage"  alt="" class="w-full h-full ">
+                      <img v-bind:src="previewImage"  alt="" zclass="w-full h-full ">
                     </div>
                     <input
                       @input="pickFile"

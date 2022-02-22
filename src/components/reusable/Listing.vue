@@ -97,6 +97,7 @@
             text-gray-400
             mr-2
           "
+          v-view="'DELETE'+options?.entity"
           :title="'Delete All '+options?.entity + 's'"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -136,6 +137,7 @@
             text-gray-400
             mr-2
           "
+          v-view="'ADD'+options?.entity"
           @click="addNewForm"
           :title="'add new '+options?.entity"
         >

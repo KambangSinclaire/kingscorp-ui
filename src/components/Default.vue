@@ -1,54 +1,60 @@
 <template>
 <div class="bg-white">
       <!-- welcome screen here -->
-      <div :class="{'hidden':this.roles}" style="background:rgb(227, 243, 240);" class="w-full rounded-lg  pl-10 pr-6 py-4 ">
-        <div class="flex justify-between items-center">
+      <div class="px-4 py-8">
+      <div style="background:rgb(227, 243, 240);" :class="{'h-24':this.toogleShowCard}" class="w-full reveal rounded relative pl-10 pr-6 py-4 overflow-hidden ">
+        <button @click.prevent="this.toogleShowCard = !this.toogleShowCard" class="h-8 w-8 rounded bg-blue-50 absolute left-0 top-0 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+          </svg>
+        </button>
+        <div class="flex justify-between items-start">
           <div class="w-1/2 text-left capitalize">
-            <h1 class="text-4xl font-extrabold capitalize  text-gray-900">Welcome To kingscorp <br> {{dataObject?.username}}</h1>
-            <router-link to="/login">
-            
-            </router-link>
+            <h1 class="text-2xl font-extrabold capitalize  text-gray-900">Welcome To kingscorp <br> {{dataObject?.username}}</h1>
+           
           </div>
           <div class="img-contatiner ">
-          <img src="@/assets/img/img1.png" alt="" >
+          <img src="@/assets/img/img1.png" alt="" class="h-20" >
           </div>
         </div>
-        <div class="grid md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-8 my-4">
+        <div class="grid md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-4 my-2">
           <div class="w-full flex flex-col">
-            <h1 class="font-bold text-l text-gray-900 my-4 text-left">The idea of a secure business manager</h1>
+            <h1 class="font-bold text-l text-gray-900 my-2 text-left">  business Intelligence  </h1>
             <p class="font-normal text-gray-700">
              Create Roles that govern your organization.
              You Can Edit This Latter
             </p>
             <router-link to="dashboard/settings">
-            <button  class="px-16 py-2.5 rounded-md bg-blue-700 shadow-3xl mt-4 text-white flex justify-center items-center font-bold">
+            <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
              Create Roles
             </button>
             </router-link>
           </div>
             <div class="w-full flex flex-col">
-            <h1 class="font-bold text-l text-gray-900 my-4 text-left">You Can Create Personels To manage </h1>
+            <h1 class="font-bold text-l text-gray-900 my-2 text-left">Personels To manage Duties </h1>
             <p class="font-normal text-gray-700">
               Create personels and assign them to a particular roles in your organization
             </p>
              <router-link to="dashboard/personnels">
-            <button  class="px-16 py-2.5 rounded-md bg-blue-700 shadow-3xl mt-4 text-white flex justify-center items-center font-bold">
+            <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
              Create personel 
             </button>
             </router-link>
           </div>
             <div class="w-full flex flex-col">
-            <h1 class="font-bold text-l text-gray-900 my-4 text-left">Profile</h1>
+            <h1 class="font-bold text-l text-gray-900 my-2 text-left">Profile</h1>
             <p class="font-normal text-gray-700">
               Create your profile and manage several organizations  on kingscorp.
             </p>
             <router-link to="dashboard/profile">
-            <button  class="px-16 py-2.5 rounded-md bg-blue-700 shadow-3xl mt-4 text-white flex justify-center items-center font-bold">
+            <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
               Profile 
             </button>
             </router-link>
           </div>
         </div>
+      </div>
+
       </div>
       <!-- welcome ends -->
 
@@ -79,7 +85,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                     </svg>
                   </a>
-                  <router-link to="dashboard/settings">
+                  <router-link to="/explore/dashboard/settings" v-view="['GROUP', 'ROLE', 'PERMISSIONS', 'PREFERENCES' ]" >
                   <a class="inline-flex items-center py-2 px-3 mr-3 text-xs text-indigo-500 font-medium bg-indigo-50 hover:bg-indigo-100 rounded">
                     <span class="inline-block mr-1">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-3-2">
@@ -96,7 +102,7 @@
   <div class="container px-4 mx-auto">
     <div class="flex flex-wrap -m-4">
      
-      <InfoCard
+      <InfoCard 
         v-for="(setup, index) of this.cardSetup"
         :key="index"
         :setup="setup"
@@ -207,8 +213,20 @@ export default class Default extends Vue{
   data() {
     return {
       cardSetup:[],
-      role:''
+      role:'',
+      toogleShowCard:false
     };
   }    
 }
 </script>
+
+<style lang="scss" scoped>
+*, *::after, *::before{
+  transition: all ease-in-out 0.6s !important;
+}
+.reveal{
+  transition: all ease-in-out 0.6s;
+}
+
+
+</style>
