@@ -25,10 +25,10 @@ import VueApexCharts from 'vue3-apexcharts'
 
 let directive = new ActionDirective()
 // added some weird info
-library.add(fas,fab,far);
+library.add(fas, fab, far);
 dom.watch();
 createApp(App)
     .use(store)
     .use(router)
-    .component('font-awesome-icon', FontAwesomeIcon).directive('view', directive.toogleViews  ).use(VueApexCharts)
+    .component('font-awesome-icon', FontAwesomeIcon).directive('view', directive.toogleViews).use(VueApexCharts)
     .mount("#app");
