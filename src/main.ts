@@ -21,6 +21,7 @@ import router from "./router";
 import store from "./store";
 import './index.scss';
 import {ActionDirective} from './directives/actions.directives'
+import VueApexCharts from 'vue3-apexcharts'
 
 let directive = new ActionDirective()
 // added some weird info
@@ -29,5 +30,5 @@ dom.watch();
 createApp(App)
     .use(store)
     .use(router)
-    .component('font-awesome-icon', FontAwesomeIcon).directive('view', directive.toogleViews  )
+    .component('font-awesome-icon', FontAwesomeIcon).directive('view', directive.toogleViews  ).use(VueApexCharts)
     .mount("#app");

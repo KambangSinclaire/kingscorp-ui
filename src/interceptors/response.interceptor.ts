@@ -19,19 +19,28 @@ try {
                     type:"ERROR" ,
                     message:"Slow Network Intervention. Please Try again Later.",
                     status: res.status,
-                    
             }
         }
 
         if(res.status > 100 && res.status < 400){
             dataToast =  {
                 type:"SUCCESS" ,
-                message:res.statusText,
+                message:"Success",
                 status: res.status,
                 others:res.data,
                 
             }
         }
+
+        if(res.status >= 400 ){
+            dataToast =  {
+                type:"ERROR" ,
+                message:res.statusText,
+                status: res.status,
+                others:res.data,
+            }
+        }
+
         switch (true) {
             case res.request?.responseURL.includes('get'):             
                 store.dispatch('getToast', dataToast)

@@ -124,6 +124,6 @@ export const AppActionEvents = {
         retrieveSingle: "getSinglePermission",
     },
     
-    API_BASE_URL: "https://kingscorp-web-api.herokuapp.com/api/v1/app",
+    API_BASE_URL: "http://ec2-3-144-142-214.us-east-2.compute.amazonaws.com/api/v1/app",
     LOCATION_BASE_URL:'https://ipapi.co/json'
 }

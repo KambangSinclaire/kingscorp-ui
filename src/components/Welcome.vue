@@ -92,7 +92,7 @@
               <Sidebar @toogleSideBar="toogleSideBar = !toogleSideBar" />
             </div>
 
-            <div class="mx-auto lg:ml-80" data-bucket="1">
+            <div class="mx-auto lg:ml-80 " data-bucket="1">
             <!-- navbar -->
             <Navbar />
             
@@ -100,7 +100,9 @@
             <!-- page header -->
             <Toast :toast="responseData" @closeToast="this.toast = !this.toast" v-if="this.toast" />
 
-            <router-view />
+            <div class="main">
+            <router-view/>
+            </div>
             <!-- router outlet ends here -->
             </div>
           </div>
@@ -166,7 +168,9 @@ data(){
 </script>
 
 <style scoped lang="scss">
-
+.main{
+  background-color:#F1F5F9;
+}
 .slideIn{
   position: fixed;
   width:350px;

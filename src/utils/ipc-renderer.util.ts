@@ -15,6 +15,7 @@ import ElectronUI from "./electron.util";
 import axios from "axios";
 import requestInterceptor from '../interceptors/request.interceptor'
 import responseInterceptor from "@/interceptors/response.interceptor";
+import store from "@/store";
 
 // const ipcResponseHandler = (actionEvent: string, handler: any) => {
 //     ElectronUI.ipcRenderer.on(actionEvent + "-response", handler);
@@ -28,6 +29,11 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
 
     if (!navigator.onLine) {
         console.log("offline running...", isOnline);
+        store.dispatch('getToast', {
+            type:"DELETE" ,
+            message:"Network Failure. Please Check Your Internet Connection!",
+            status:0,
+        })
         // setToStorage()
         const response: ResponsePayload = await ElectronUI.ipcRenderer.invoke(actionEvent, payload);
         console.log("response data...", response);
@@ -52,6 +58,11 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
     try {
         return await webAPICaller(endpoint, method, payload)
     } catch (error) {
+        store.dispatch('getToast', {
+            type:"DELETE" ,
+            message:"Network Failure. Please Check Your Internet Connection!",
+            status:0,
+        })
         console.log("error ",error);
         return []
     }
