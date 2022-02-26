@@ -70,7 +70,7 @@ export default class Personnel extends Vue {
         "email": "email",
         role: "select",
         // group:"text",
-        password:"password", // added this just for test purposes
+        // password:"password",
         // "profile_image":"file",
 
       },
