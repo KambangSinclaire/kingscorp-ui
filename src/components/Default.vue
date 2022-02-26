@@ -22,7 +22,7 @@
             <h1 class="font-bold text-l text-gray-900 my-2 text-left">  business Intelligence  </h1>
             <p class="font-normal text-gray-700">
              Create Roles that govern your organization.
-             You Can Edit This Latter
+             You Can Edit This Later
             </p>
             <router-link to="dashboard/settings">
             <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
@@ -44,7 +44,7 @@
             <div class="w-full flex flex-col">
             <h1 class="font-bold text-l text-gray-900 my-2 text-left">Profile</h1>
             <p class="font-normal text-gray-700">
-              Create your profile and manage several organizations  on kingscorp.
+              Create a profile and be able to manage several organizations on kingscorp.
             </p>
             <router-link to="dashboard/profile">
             <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
