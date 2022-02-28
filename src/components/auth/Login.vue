@@ -163,7 +163,7 @@
           <div class="input-container my-4">
             <div>
               <label for="username" class="block text-sm font-medium text-gray-700"
-                >UserName</label
+                >Username</label
               >
               <div class="mt-1 relative rounded-md shadow-sm">
                 <div
@@ -292,7 +292,7 @@
             <button  @click.prevent="createUser"
               class="w-full text-center font-bold px-2 py-2 bg-blue-600 text-wihte my-4 shadow-3xl border-none rounded-md"
             >
-              create Account
+              Create Account
             </button>
           </div>
         </form>
