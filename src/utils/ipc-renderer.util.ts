@@ -58,12 +58,8 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
     try {
         return await webAPICaller(endpoint, method, payload)
     } catch (error) {
-        store.dispatch('getToast', {
-            type:"DELETE" ,
-            message:"Network Failure. Please Check Your Internet Connection!",
-            status:0,
-        })
-        console.log("error ",error);
+
+        // console.log("error ",error);
         return []
     }
 }

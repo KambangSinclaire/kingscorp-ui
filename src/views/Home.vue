@@ -70,7 +70,7 @@
   <section id="page" class="antialiased font-body bg-body text-body" cz-shortcut-listen="true">
     <div class="" id="content">
 
-      <section data-section-id="1" data-category="headers" data-component-id="44d0b9e2_01_awz" class="relative pb-20 bg-gray-800 overflow-hidden "><div class="absolute bottom-0 inset-x-0 h-full bg-gradient-kingscorp-1"></div>
+      <section data-section-id="1" data-category="headers" data-component-id="44d0b9e2_01_awz" class="relative flex items-center justify-center h-screen pb-20 bg-gray-800 overflow-hidden "><div class="absolute bottom-0 inset-x-0 h-full bg-gradient-kingscorp-1"></div>
         <div class="absolute bottom-0 inset-x-0 h-3/5  -ml-64 -mb-12 bg-gradient-kingscorp-2 transform -rotate-6" style="width: 200%;"></div>
 
         <div class="relative container px-4 pt-12 md:pt-20 mx-auto ">

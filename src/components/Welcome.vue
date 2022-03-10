@@ -98,7 +98,7 @@
             
             <!-- router-outlet here! -->
             <!-- page header -->
-            <Toast :toast="responseData" @closeToast="this.toast = !this.toast" v-if="this.toast" />
+            <!-- <Toast :toast="responseData" @closeToast="this.toast = !this.toast" v-if="this.toast" /> -->
 
             <div class="main">
             <router-view/>
@@ -136,12 +136,14 @@ import Toast from './reusable/toast/toast.vue'
     Toast,
   },
   computed:{
-    responseData(){
-      if(this.$store.getters.getToast){
-        this.toast = true;
-      }
-      return this.$store.getters.getToast
-    },
+    // responseData(){
+    //   if(this.$store.getters.getToast){
+    //     this.toast = true;
+    //   }
+    //   console.log(this.$store.getters.getToast);
+      
+    //   return this.$store.getters.getToast
+    // },
   },
 
 

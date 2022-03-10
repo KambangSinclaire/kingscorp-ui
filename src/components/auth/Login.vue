@@ -1,9 +1,27 @@
 <template>
   <div
-    class="auth-container w-full bg-blue-100 h-screen flex justify-center align-center"
+    class="
+      auth-container
+      w-full
+      bg-blue-100
+      h-screen
+      flex
+      justify-center
+      align-center
+    "
   >
-    <Toast :toast="responseData" @closeToast="this.toast = !this.toast" v-if="this.toast" />
-    <div
+    <Spinner
+      v-if="
+        this.$store.getters.getLoader?.type == 'spinner' &&
+        this.$store.getters.getLoader?.loading
+      "
+    />
+    <Toast
+      :toast="responseData"
+      @closeToast="this.toast = !this.toast"
+      v-if="!this.$store.getters.getToast"
+    />
+    <!-- <div
       class="card-container shadow-2xl rounded bg-white my-auto grid  sm:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4"
     >
       <div class="img-container w-full hidden md:flex lg:flex  justify-center align-center ">
@@ -43,16 +61,15 @@
       <div :class="{ 'hidden':this.actionType.register}"
         class=" login-container w-full h-full rounded-3xl relative lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
       >
-      <div class="absolute right-2 top-5 bg-blue-500 "  v-if="spinner" >
-            <Spinner />
-      </div>
+          
+ 
         <div class="md:hidden lg:hidden relative w-full -top-10 px-4 rounded-2xl shadow-2xl py-2">
               <p class="text-gray-800">Don't Have An Account?</p>
               <a @click.prevent="isActionMutation" class="text-yellow-500 font-bold">Create Account</a>
             </div>
         <form autocomplete="false" class="px-4   sm:w-full ">
           <h1 class="text-2xl font-bold mb-8">Login</h1>
-          <!-- username -->
+       
           <div class="input-container my-4">
             <div>
               <label for="username" class="block text-sm font-medium text-gray-700">
@@ -78,7 +95,6 @@
             </div>
           </div>
 
-          <!-- password -->
           <div class="input-container">
             <div>
               <label
@@ -124,27 +140,7 @@
             </button>
           </div>
         </form>
-<!-- 
-        <div class="w-full  py-6 px-4 flex flex-col items-center justify-center  overflow-hidden text-center relative">
-          <div class="line w-full h-0.5 bg-gray-300 "></div>
-          <div
-            class="h-10 absolute choice top-1 rounded-full w-10 bg-white text-sm border text-gray-400 text-center px-2 py-2 "
-          >
-            <small>OR</small>
-          </div>
-        </div>
-        <div class="px-4  w-full mt-6">
-          <button
-            class="w-full google text-center font-bold px-2 py-2 bg-white-600 my-4 shadow-3xl border-none rounded-md flex justify-center"
-          >
-            <img
-              src="../../assets/img/google.png"
-              class="h-6 w-6 rounded-full mr-2"
-              alt=""
-            /><span> <small>Continue With Google</small></span>
-          </button>
-        </div> -->
-      </div>
+   </div>
 
        <div :class="{ 'hidden':this.actionType.login}"
         class="register-container w-full  h-full rounded-3xl lg:px-6 py-6 md:px-6 px-2 flex flex-col align-center justify-center"
@@ -159,7 +155,7 @@
             <Spinner />
       </div>
           <h1 class="text-2xl font-bold mb-8">Create Account</h1>
-          <!-- username -->
+       
           <div class="input-container my-4">
             <div>
               <label for="username" class="block text-sm font-medium text-gray-700"
@@ -301,8 +297,203 @@
       </div>
 
       </div>
+    </div> -->
+
+    <div class="login-page-new">
+      <nav>
+        <a
+          href="https://clickup.com/?noRedirect=true"
+          target="_blank"
+          data-test="login__logo"
+          class="login-page-new__logo"
+          ><img
+            src="@/assets/logo/logo4-removebg-preview.png"
+            class="login-page-new__logo-img"
+            alt="ClickUp - Home"
+        /></a>
+        <div class="login-page-new__top-right">
+          <div class="login-page-new__top-right-text">
+            Don't have an account?
+          </div>
+          <router-link to="/register">
+          <a
+            data-test="login__top-right-button"
+            queryparamshandling="preserve"
+            class="login-page-new__top-right-button"
+           
+            >Sign up</a
+          >
+          </router-link>
+        </div>
+      </nav>
+       <div class="login-page-new__main">
+        <div class="login-page-new__main-bg"></div>
+        <div class="login-page-new__main-container">
+          <div data-test="signup__main-form" class="login-page-new__main-form">
+            <div class="login-page-new__main-form-title-brand"></div>
+            <h1 class="login-page-new__main-form-title">Welcome Back!</h1>
+            <section class="ng-star-inserted"
+              ><div class="signup-page-new">
+                <form
+                  novalidate=""
+                  id="signup-form"
+                  aria-label="Sign Up"
+                  class="
+                    cu-form
+                    cu-onboarding__form
+                    
+                  "
+                >
+       
+                  <div
+                    id="signup-form-username-row"
+                    class="cu-form__row"
+                  >
+                    <div class="cu-form__label">Username</div>
+                    <div class="cu-form__field">
+                      <div
+                        aria-hidden="true"
+                        class="cu-onboarding__user_icon icon"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg><!---->
+                      </div>
+                      <input
+                        cuautofocus=""
+                        id="signup-username-input"
+                        placeholder="username..."
+                        v-model="this.login.username"
+                        type="username"
+                        maxlength="76"
+                        pattern="[A-Za-z]{3,}" title="More Than Three letter"
+                        class="cu-form__input"
+                      />
+                    </div>
+                    <!----><!---->
+                  </div>
+                 
+                  <!---->
+                  <div
+                    id="signup-form-password-row"
+                    class="cu-form__row"
+                  >
+                    <div class="cu-form__label">Password</div>
+                    <div class="cu-form__field">
+                      <div
+                        aria-hidden="true"
+                        class="cu-onboarding__lock_icon icon"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                        </svg>
+                      </div>
+                      <input
+                        id="signup-password-input"
+                        :type="showPassword?'text':'password'"
+                        autocomplete="off"
+                        placeholder="••••••"
+                        class="cu-form__input"
+                        v-model="this.login.password"
+                      /><a
+                        @click.prevent='this.showPassword = !this.showPassword'
+                        draggable="false"
+                        cupwd=""
+                        class="cu-show-pwd"
+                        >Show</a
+                      >
+                    </div>
+                    
+                  </div>
+
+                
+  
+
+                  <div class="cu-form__row cu-form__row_last">
+   
+                    <button
+                      type="submit"
+                      class="
+                        login-page-new__main-form-button
+                        cu-btn cu-btn_block cu-btn_spinner
+                       
+                      "
+                       @click.prevent="loginUser"
+                    >
+                      <span class="cu-btn__text"
+                        >Log In</span
+                      >
+                      <div class="cu-btn__spinner">
+                        <div class="cu-btn__bounce1"></div>
+                        <div class="cu-btn__bounce2"></div>
+                        <div class="cu-btn__bounce3"></div>
+                      </div></button
+                    ><!----><!----><!---->
+                  </div>
+                </form>
+                
+                <div class="cu-onboarding__footnote">
+                  Get New Updates About Kingscorp!
+                  
+                </div>
+                <!----><!----><!----><!---->
+              </div>
+              <!----><!----><!----></section
+            ><!----><a
+              href="https://clickup.com/help"
+              target="_blank"
+              class="login-page-new__main-form-help"
+              ><svg
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 6a6 6 0 016-6h4a6 6 0 016 6v4a6 6 0 01-6 6H6a6 6 0 01-6-6V6zm2 0a4 4 0 014-4h4a4 4 0 014 4v4a4 4 0 01-4 4H6a4 4 0 01-4-4V6zm5.117-.483c-.12.25-.34.483-.617.483H6c-.552 0-1.016-.46-.836-.982A3.001 3.001 0 0111 6c0 1.126-.62 1.863-1.538 2.308C9.192 8.44 9 8.7 9 9a1 1 0 01-2 0v-.5c0-.828.724-1.313 1.482-1.647C8.787 6.72 9 6.467 9 6a1 1 0 00-1-1c-.512 0-.761.262-.883.517zM8 13a1 1 0 100-2 1 1 0 000 2z"
+                  fill="#fff"
+                ></path>
+              </svg>
+              <div class="login-page-new__main-form-help-text">Help</div></a
+            ><!---->
+          </div>
+          <div class="login-page-new__main-bot-logos">
+            <div
+              class="
+                login-page-new__main-bot-logo
+                login-page-new__main-bot-logo_webflow
+              "
+            ></div>
+            <div
+              class="
+                login-page-new__main-bot-logo
+                login-page-new__main-bot-logo_booking-com
+              "
+            ></div>
+            <div
+              class="
+                login-page-new__main-bot-logo
+                login-page-new__main-bot-logo_squarespace
+              "
+            ></div>
+            <div
+              class="
+                login-page-new__main-bot-logo
+                login-page-new__main-bot-logo_padres
+              "
+            ></div>
+          </div>
+          
+        </div>
+      </div>
     </div>
-    <Alert :messageType="'ERROR'" :messageContent="this.errorMessage" v-if="this.isError" @dismiss="this.isError = !this.isError" />
+    <Alert
+      :messageType="'ERROR'"
+      :messageContent="this.errorMessage"
+      v-if="this.isError"
+      @dismiss="this.isError = !this.isError"
+    />
   </div>
 </template>
 
@@ -311,284 +502,119 @@ import { Options, Vue } from "vue-class-component";
 import { AppActionEvents } from "../../events/app.events";
 import Alert from "../reusable/Alerts.vue";
 import { getFromStorage } from "@/utils/storage.util";
-import {  User, } from "@/interfaces/user.interface";
-import Spinner from '@/components/reusable/loaders/spinner.vue'
-import Toast from '@/components/reusable/toast/toast.vue'
+import { User } from "@/interfaces/user.interface";
+import Spinner from "@/components/reusable/loaders/spinner.vue";
+import Toast from "@/components/reusable/toast/toast.vue";
 
 @Options({
   methods: {
     loginUser() {
-      this.spinner = !this.spinner
-      if (!this.login.username.trim()  || !this.login.password.trim() ) {
+      this.spinner = !this.spinner;
+      if (!this.login.username.trim() || !this.login.password.trim()) {
         // this.$router.push("/explore/dashboard");
-        this.errorMessage = "invalid username or password"
+        this.errorMessage = "invalid username or password";
       }
-      if(!!this.errorMessage){
-        this.isError = true
-      }else{
-         // this.$store.dispatch(AppActionEvents.user.add, this.register);
-        this.$store.dispatch(AppActionEvents.location.retrieve)
-        let userLocation = !this.$store.getters.getLocation?this.$store.getters.getLocation : getFromStorage('location')
+      if (!!this.errorMessage) {
+        this.isError = true;
+      } else {
+        // this.$store.dispatch(AppActionEvents.user.add, this.register);
+        this.$store.dispatch(AppActionEvents.location.retrieve);
+        let userLocation = !this.$store.getters.getLocation
+          ? this.$store.getters.getLocation
+          : getFromStorage("location");
         // console.log(this.register, userLocation);
-        let data:any = {
-          username:this.login.username,
-          password:this.login.password,
-          last_login_location:userLocation,
-          last_login: new Date(Date.now())
-        }
-        
+        let data: any = {
+          username: this.login.username,
+          password: this.login.password,
+          last_login_location: userLocation,
+          last_login: new Date(Date.now()),
+        };
+
         this.$store.dispatch(AppActionEvents.user.login, data);
       }
     },
-    isActionMutation(){
-      this.actionType['login'] = !this.actionType.login;
-      this.actionType['register'] = !this.actionType.register 
+    isActionMutation() {
+      this.actionType["login"] = !this.actionType.login;
+      this.actionType["register"] = !this.actionType.register;
     },
-    createUser() {
-      this.spinner = !this.spinner
-      switch (false) {
-        case /^(?=.{4,20}$)(?:[a-zA-Z\d]+(?:(?:\.|-|_)[a-zA-Z\d])*)+$/.test(this.register.username):
-          this.errorMessage = "User name is badly formated"
-        break;
-
-        case  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.register.email):
-          this.errorMessage = "Invalid Email is badly formated"
-        break;
-
-        case /^[a-zA-Z0-9?!@#$%^&*]{4,16}$/.test(this.register.password):
-            this.errorMessage = "Password should be characters"
-        break;
-        
-        case /^\+(?:[0-9] ?){6,14}[0-9]$/.test(this.register.phone_number):
-           this.errorMessage = "phone number must have country code"
-        break;
-      }
-      if(!!this.errorMessage){
-        this.isError = true
-      }else{
-        // this.$store.dispatch(AppActionEvents.user.add, this.register);
-        this.$store.dispatch(AppActionEvents.location.retrieve)
-        let userLocation ;
-        if(!this.$store.getters.getLocation && !getFromStorage('location')){
-          userLocation=""
-        }else{
-          userLocation = getFromStorage('location')
-        }
-        // console.log(this.register, userLocation);
-        let data:User = {
-          username:this.register.username,
-          email:this.register.email,
-          password:this.register.password,
-          phone_number:this.register.phone_number,
-          last_login_location:userLocation.toString(),
-          last_login: new Date(Date.now())
-        }
-         this.$store.dispatch(AppActionEvents.user.add, data)
-        
-        // this.$router.push("/explore/dashboard");
-      }
-      
-    },
-
-    
+   
   },
   mounted() {
-     this.$store.dispatch(AppActionEvents.location.retrieve)
+    this.$store.dispatch(AppActionEvents.location.retrieve);
   },
-  computed:{
-   responseData(){
-      if(this.$store.getters.getToast){
+  computed: {
+    responseData() {
+      if (this.$store.getters.getToast) {
         this.toast = true;
       }
-      return this.$store.getters.getToast
+      return this.$store.getters.getToast;
     },
   },
-  components:{
+  components: {
     Alert,
     Spinner,
-    Toast
-  }
+    Toast,
+  },
 })
 export default class Login extends Vue {
-
-
   data() {
     return {
       user: {
         username: "",
         password: "",
       },
-      register:{
-        username:"", email:"", password:"", phone_number:""
+      showPassword:false,
+      login: {
+        username: "",
+        password: "",
       },
-      login:{
-        username:"", password:""
-      },
-      errorMessage : "",
-      isError:false,
-      actionType:{login:true, register:false},
-      toast:true,
-      spinner:false
+      errorMessage: "",
+      isError: false,
+      actionType: { login: true, register: false },
+      toast: true,
+      spinner: false,
     };
   }
 }
 </script>
 
 <style lang="scss" scoped>
-a{
-  cursor:pointer;
-}
-.card-container {
-  width: 800px;
-  height: 500px;
-  max-width: 90%;
-  border-radius: 20px;
-}
-.img-container {
-  border-radius: 20px;
-  background-image: url(../../assets/img/fakurian-design-PGdW_bHDbpI-unsplash.jpg);
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  position: relative;
-  &::after {
-    position: absolute;
-    content: "";
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    left: 3%;
-    top: -8%;
-    background: radial-gradient(
-      circle at 65% 15%,
-      white 1px,
-      aqua 3%,
-      darkblue 60%,
-      aqua 100%
-    );
-  }
-}
-.text-blur-container {
-  position: relative;
-  //    overflow: hidden;
-  &::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    background-image: url(../../assets/img/fakurian-design-PGdW_bHDbpI-unsplash.jpg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    filter: blur(8px);
-    top: 0;
-    left: 0;
-  }
-  &::after {
-    position: absolute;
-    content: "";
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    left: -23%;
-    bottom: -17%;
-    background: radial-gradient(
-      circle at 65% 15%,
-      white 1px,
-      aqua 3%,
-      darkblue 60%,
-      aqua 100%
-    );
-  }
-}
-.text-container {
-  position: relative;
-  z-index: 100000000;
-}
-h1.header-text {
-  line-height: 1rem;
-  text-align: justify;
-  padding: 1rem;
-  background: #bee3f836;
-  width: 35%;
-  border-radius: 5px;
-  margin-top: 1rem;
-  padding: 0.5rem 0.3rem;
-  margin-left: 1.5rem;
-}
-.text {
-  small {
-    font-size: 0.6rem;
-  }
-  h1 {
-    margin-bottom: -0.5rem;
-  }
-}
-.signin-link {
+@import '@/assets/styles/clickup.scss';
+
+.login-page-new__main-bg {
   position: absolute;
-  bottom: 0;
-  transform: translateY(170px);
-  background: #bee3f82a;
+  height: calc(100% - 17vh);
+  width: 100%;
+  top: 17vh;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: url(../../assets/img/login.svg) center 10px no-repeat;
+  background-size: cover;
 }
-input {
-  outline: none !important;
+.login-page-new__main-bg:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 200%;
+  height: 300%;
+  top: -100%;
+  left: -50%;
+  background: url(../../assets/img/dots.svg);
+  transform: rotate(-28deg);
 }
-button {
-  border: none;
-  box-shadow: 2px 2px 2px #cfcfd1;
-  color: white;
-}
-button.google {
-  color: black;
-  border: 1px solid blue;
-}
-@media (max-width: 767px){
-.card-container{
-  height: 90%;
-}
-.text-blur-container {
- top: -45px;
- }
- .signin-link {
- transform: translateY(110px);
-right: -50px;
-}.choice{
-  transform: translateX(50%);
-left: 35%;
-}
-}
-
-.login-container{
-  animation: login 1s ease 0s 1 normal forwards;
+.login-page-new__main-bg:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(../../assets/img/bg-top.svg) top no-repeat;
+  background-size: 100%;
 }
 
-.register-container{
-  animation: register 1s ease 0s 1 normal forwards;
-}
-
-@keyframes register {
-  0% {
-    opacity: 0;
-    transform: translateX(250px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes login {
-  0% {
-    opacity: 0;
-    transform: translateX(-250px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 </style>
 
 

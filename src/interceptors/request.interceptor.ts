@@ -4,7 +4,7 @@ import { getFromStorage } from '@/utils/storage.util'
 import axios from 'axios'
 
 const requestInterceptor = async () => {
-try {
+
    return axios.interceptors.request.use((config) => {
     let userCredentials = getFromStorage('user')
        if(!config.url?.includes('ipapi.co/json')){
@@ -13,16 +13,20 @@ try {
                'Authorization':userCredentials?`Bearer ${userCredentials?.refresh_token}`:``,
                "x-api-key": userCredentials? userCredentials?.x_api_key : '',
            }
+           store.dispatch('showLoader', "spinner")
            store.dispatch('showLoader', "skeleton")
+            if(config.url?.includes('/app')){
+            store.dispatch('showLoader', "spinner")
         }
-        
+        }
+   
         return config
+    }, (error)=> {
+        store.dispatch('hideLoader')
+        Promise.reject(error)
     })
     
-} catch (error) {
-    store.dispatch('showLoader')
-    Promise.reject(error)
-}
+
 }
 
 export default requestInterceptor
