@@ -10,8 +10,8 @@ import { getFromStorage } from "@/utils/storage.util";
                 type:"ERROR" ,
                 message:"Not Authenticated",
                 status: 0,
-                
-        })
+            }
+        )
         
         return next('/login') 
     }

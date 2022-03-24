@@ -1,6 +1,7 @@
 <template>
   <section class="parent-container relative">
-  
+  <Spinner  v-if="this.$store.getters.getLoader?.type == 'spinner' && this.$store.getters.getLoader?.loading"/>
+  <Toast :toast="responseData" @closeToast="this.toast = !this.toast" v-if="!this.toast" />
     <div class="p-4 flex items-center">
         <button @click="$router.back()"
           class="
@@ -37,7 +38,7 @@
     </div>
 
     <div class="w-full px-4 ">
-      <div class="shadow overflow-hidden rounded-md my-4 ">
+      <div class="shadow bg-white overflow-hidden rounded-md my-4 ">
         <!-- <div class="w-full flex justify-between p-3 items-center bg-blue-50">
           <div class="w-1/2 px-2 justify-end items-end">
             <h1>Uchenna</h1>
@@ -399,7 +400,8 @@ import Details from "./Details.vue";
 import Edit from "./Edit.vue";
 import SkeletonLoader from './loaders/skeleton.vue'
 import Nodata from './Nodata.vue'
-
+import Spinner from './loaders/spinner.vue'
+import Toast from './toast/toast.vue'
 @Options({
   components: {
     Add,
@@ -407,7 +409,9 @@ import Nodata from './Nodata.vue'
     Edit,
     Details,
     SkeletonLoader,
-    Nodata
+    Nodata,
+    Spinner,
+    Toast
   },
   props: {
     listingTitles: Array,
@@ -435,9 +439,19 @@ import Nodata from './Nodata.vue'
         return true
       }
       return false;
-    }
+    },
+     responseData(){
+
+       const message = this.$store.getters?.getToast;
+        this.toast = message?.message != '' ? !this.toast : this.toast;
+
+      console.log('popup data displayed here ', message);
+      
+      return message
+    },
     
   },
+
   methods: {
     toggleSideAction() {
       this.showMoreActions = !this.showMoreActions;
@@ -475,6 +489,8 @@ export default class Listing extends Vue {
       openDeleteForm: false,
       openEditForm: false,
       openDetailsForm: false,
+      toast: true,
+
     };
   }
 }

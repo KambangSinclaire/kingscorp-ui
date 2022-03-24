@@ -21,10 +21,8 @@
      showLoader(state:any, payload:any){
         return state.load = { type:payload, loading:true }
      },
-     hideLoader(){
-        return state.load = {
-            type:"", loading:false
-        }
+     hideLoader(state:any){
+        return state.load =  { type:'', loading:false }
      }
  };
  const actions = {

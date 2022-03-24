@@ -100,8 +100,8 @@
               </div>
             </section>
   <div class="container px-4 mx-auto">
+     <!-- <Spinner  v-if="this.$store.getters.getLoader?.type === 'spinner' && this.$store.getters.getLoader?.loading"/> -->
     <div class="flex flex-wrap -m-4">
-     
       <InfoCard 
         v-for="(setup, index) of this.cardSetup"
         :key="index"
@@ -164,10 +164,10 @@ import { AppActionEvents } from '@/events/app.events';
 import { getFromStorage } from '@/utils/storage.util';
 import {Vue,Options} from 'vue-class-component';
 import InfoCard from './reusable/Info-Card.vue';
-
+import Spinner from './reusable/loaders/spinner.vue'
  @Options({
    components: {
-    InfoCard,
+    InfoCard,Spinner
   },
   mounted(){
     let roles = this.$store.getters?.getRoles;

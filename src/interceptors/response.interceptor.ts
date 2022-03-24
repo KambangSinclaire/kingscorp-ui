@@ -1,72 +1,77 @@
 
+import { logError } from '@/components/modules/services/errorLogger.service';
 import { ToastInterface } from '@/interfaces/toast.interface';
 import store from '@/store';
 import axios from 'axios'
 
 
 const responseInterceptor = async () => {
-try {
+
     return axios.interceptors.response.use((res) => {
         
+      
+        
         let dataToast:ToastInterface = {
-            type: 'ERROR',
-            message: '',
-            status: 0,
-        }
-
-        if(res.status == 0){
-            dataToast = {
-                    type:"ERROR" ,
-                    message:"Slow Network Intervention. Please Try again Later.",
-                    status: res.status,
-            }
-        }
-
-        if(res.status > 100 && res.status < 400){
-            dataToast =  {
-                type:"SUCCESS" ,
+            type:"SUCCESS" ,
                 message:"Success",
                 status: res.status,
                 others:res.data,
-                
-            }
-        }
-
-        if(res.status >= 400 ){
-            dataToast =  {
-                type:"ERROR" ,
-                message:res.statusText,
-                status: res.status,
-                others:res.data,
-            }
         }
 
         switch (true) {
-            case res.request?.responseURL.includes('get'):             
+            case res.request?.responseUrl.includes('get'):             
                 store.dispatch('getToast', dataToast)
+                store.dispatch('hideLoader')
                 break;
 
-            case res.request?.responseURL.includes('add'):
+            case res.request?.responseUrl.includes('add'):
                 store.dispatch('getToast', dataToast)
+                store.dispatch('hideLoader')
                 break;
 
-            case res.request?.responseURL.includes('edit'):
+            case res.request?.responseUrl.includes('edit'):
                 store.dispatch('getToast', dataToast)
+                store.dispatch('hideLoader')
                 break;
 
-            case res.request?.responseURL.includes('delete'):
+            case res.request?.responseUrl.includes('delete'):
                 store.dispatch('getToast', dataToast)
+                store.dispatch('hideLoader')
                 break;
-        
         }
+        store.dispatch('getToast', {
+            type: 'ERROR',
+            message:'An Unexpected Error Occured! Please try later',
+            status: 0,
+        })
+        // store.dispatch('hideLoader')
+
+        console.log('axios response', res, res.request);
         
         store.dispatch('hideLoader')
         return res;
-    })
+    }, (error)=> {
+        
+        
+        // let dataToast:ToastInterface = {
+        //     type: 'ERROR',
+        //     message: error?.response?.data?.message,
+        //     status: error?.response?.status ?? 0,
+        // }
+        // if(!error.status){
+        //     store.dispatch('getToast', {
+        //         type: 'ERROR',
+        //         message:'An Unexpected Error Occured! Please try later',
+        //         status: 0,
+        //     })
+        //     store.dispatch('hideLoader')
+        //     return Promise.reject(error)
+        // }
+        // logError(error).then(()=> store.dispatch('hideLoader')).finally(()=>Promise.reject(error))
+        console.log(error, typeof error);
+        store.dispatch('hideLoader')
+    },)
+} 
 
-} catch (error) {
-    Promise.reject(error)
-}
-}
 
 export default responseInterceptor
