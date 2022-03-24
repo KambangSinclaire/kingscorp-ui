@@ -29,11 +29,11 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
 
     if (!navigator.onLine) {
         console.log("offline running...", isOnline);
-        store.dispatch('getToast', {
-            type:"DELETE" ,
-            message:"Network Failure. Please Check Your Internet Connection!",
-            status:0,
-        })
+        // store.dispatch('getToast', {
+        //     type:"DELETE" ,
+        //     message:"Network Failure. Please Check Your Internet Connection!",
+        //     status:0,
+        // })
         // setToStorage()
         const response: ResponsePayload = await ElectronUI.ipcRenderer.invoke(actionEvent, payload);
         console.log("response data...", response);

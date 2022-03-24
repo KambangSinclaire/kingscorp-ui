@@ -25,6 +25,8 @@ import { ToastInterface } from "@/interfaces/toast.interface";
 
  const actions = {
      getToast(ctx:any, payload:ToastInterface){
+         console.log(payload);
+         
         ctx.commit('setToast', payload);
      }
  };

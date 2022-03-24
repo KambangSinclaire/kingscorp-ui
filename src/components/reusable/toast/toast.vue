@@ -86,9 +86,10 @@
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
         </div>
+    
 
         <!-- delete -->
-        <div v-if="this.toast?.type === 'ERROR'" id="toast-danger" class="flex items-center w-full p-4 mb-4 text-white bg-red-700 rounded shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+        <div  v-if="this.toast?.type === 'ERROR'" id="toast-danger" class="flex items-center w-full p-4 mb-4 text-white bg-red-700 rounded shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
         <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </div>
@@ -141,3 +142,16 @@ export default class Toast extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.toast{
+    position: absolute;
+    top: 0;
+    z-index: 50;
+    width: 460px;
+    left: 0;
+    right: 0;
+    transform: translate(0%, 20%);
+    max-width: 100%;
+}
+</style>
