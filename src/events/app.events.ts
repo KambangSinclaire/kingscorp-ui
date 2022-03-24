@@ -124,7 +124,7 @@ export const AppActionEvents = {
         retrieveSingle: "getSinglePermission",
     },
     
-    API_BASE_URL: "https://ec2-3-144-142-214.us-east-2.compute.amazonaws.com/api/v1/app",
+    API_BASE_URL: "https://kingscorp.xyz/api/v1/app",
     // API_BASE_URL: "http://localhost:8000/api/v1/app",
     LOCATION_BASE_URL:'https://ipapi.co/json'
 }
