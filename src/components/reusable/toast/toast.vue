@@ -147,7 +147,7 @@ export default class Toast extends Vue {
 .toast{
     position: absolute;
     top: 0;
-    z-index: 50;
+    z-index: 1000;
     width: 460px;
     left: 0;
     right: 0;

@@ -101,6 +101,11 @@
             <!-- <Toast :toast="responseData" @closeToast="this.toast = !this.toast" v-if="this.toast" /> -->
 
             <div class="main">
+              <Toast
+      :toast="this.$store.getters.getToast"
+      @closeToast="this.$store.dispatch('hideToast')"
+      v-if="!!this.$store.getters.getToast"
+    />
             <router-view/>
             </div>
             <!-- router outlet ends here -->
@@ -133,17 +138,10 @@ import Toast from './reusable/toast/toast.vue'
     Navbar,
     Sidebar,
     RightSidebar,
-    Toast,
+    Toast
+  
   },
   computed:{
-    // responseData(){
-    //   if(this.$store.getters.getToast){
-    //     this.toast = true;
-    //   }
-    //   console.log(this.$store.getters.getToast);
-      
-    //   return this.$store.getters.getToast
-    // },
   },
 
 

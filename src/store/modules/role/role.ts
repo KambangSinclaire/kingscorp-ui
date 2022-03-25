@@ -10,7 +10,8 @@
 
 import { AppActionEvents } from "@/events/app.events";
 import IPC from "@/utils/ipc-renderer.util";
-import { setToStorage } from "@/utils/storage.util";
+import { StorageUtilis } from "@/utils/storage.util";
+let storageUtils = new StorageUtilis()
 
 const state = {
     Roles: <any>[]
@@ -21,7 +22,7 @@ const mutations = {
     },
     setRoles(state: any, payload: any | Iterable<any>) {
         if(!!payload?.data){
-            setToStorage(payload?.data?.refresh_token, 'refresh_token')
+            storageUtils.setToStorageAndEncode(payload?.data?.refresh_token, 'refresh_token')
             return state.Roles = [...payload?.data];
         }else{
             console.log('empty payload No network :) ');

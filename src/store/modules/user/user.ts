@@ -12,7 +12,9 @@ import { AppActionEvents } from "@/events/app.events";
 import router from "@/router";
 import store from "@/store";
 import IPC from "@/utils/ipc-renderer.util";
-import { setToStorage } from "@/utils/storage.util";
+import { StorageUtilis } from "@/utils/storage.util";
+
+let storageUtil = new StorageUtilis();
 
 const state = {
     users: <any>[]
@@ -32,17 +34,10 @@ const mutations = {
 const actions = {
     appRegister(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.add, payload).then((data) => {
-            if(data?.status >= 200 && data?.status < 400){
-                setToStorage(data?.data, 'user')
+            if(!data || data?.length !== 0){
+                storageUtil.setToStorageAndEncode(data?.data, 'user');
                 ctx.commit('setUser', data);
-                router.push('/explore/dashboard')
-            }else{
-                let dataToast = {
-                    type:"ERROR" ,
-                    message:"Slow Network Intervention. Please Try again Later.",
-                    status: 0 || data?.status,     
-            }
-                !data?store.dispatch('getToast', dataToast):store.dispatch('getToast', dataToast['message'] = data?.message)
+                router.push('/explore/dashboard');
             }
         });
     },
@@ -68,20 +63,13 @@ const actions = {
     },
     appLogin(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.login, payload).then((data) => {
-            if(data?.status >= 200 && data?.status < 400){
-                setToStorage(data?.data, 'user')
+            if(!data || data?.length !== 0){
+                storageUtil.setToStorageAndEncode(data?.data, 'user');
                 ctx.commit('setUser', data);
-                router.push('/explore/dashboard')
-            }else{
-                let dataToast = {
-                    type:"ERROR" ,
-                    message:"Slow Network Intervention. Please Try again Later.",
-                    status: 0 || data?.status,     
+                router.push('/explore/dashboard');
             }
-                !data?store.dispatch('getToast', dataToast):store.dispatch('getToast', dataToast['message'] = data?.message)
-            }
-            
-        });
+        }).catch(error => console.log(error)
+        );
     },
     appLogout(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.logout, payload).then((data) => {

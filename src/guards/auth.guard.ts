@@ -1,11 +1,13 @@
 import store from "@/store";
-import { getFromStorage } from "@/utils/storage.util";
+import { StorageUtilis } from "@/utils/storage.util";
+
+let storageUtil = new StorageUtilis();
+let x_api_key = storageUtil.getFromStorageAndDecode('x_api_key');
+let refresh_token = storageUtil.getFromStorageAndDecode('refresh_token');
 
  class AuthGuard {
-    checkIfLogged(to:any, from:any, next:any){
-        const userCredentials = getFromStorage('user')        
-        if(!userCredentials  || !userCredentials['x_api_key'] || !userCredentials['refresh_token'] ) {
-            
+    checkIfLogged(to:any, from:any, next:any){    
+        if( !x_api_key || !refresh_token ) {
             store.dispatch('getToast', {
                 type:"ERROR" ,
                 message:"Not Authenticated",

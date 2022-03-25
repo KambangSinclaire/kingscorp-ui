@@ -228,7 +228,7 @@
                     <button class="flex items-end">
                       <div class="mr-3">
                         <p class="text-sm capitalize" data-config-id="name">{{dataObject?.username}}</p>
-                        <p class="text-sm text-gray-500 text-right" data-config-id="job">{{roles?.length < 83?"Role":"Admin"}}</p>
+                        <p class="text-sm text-gray-500 text-right" data-config-id="job">{{dataObject.permissions?.length < 83?"Role":"Admin"}}</p>
                       </div>
                       <div class="mr-2">
                         <img class="w-10 h-10 rounded-full object-cover object-right" src="@/assets/img/fakurian-design-PGdW_bHDbpI-unsplash.jpg" alt="" data-config-id="avatar">
@@ -247,9 +247,9 @@
 </template>
 
 <script lang="ts">
-import { getFromStorage } from "@/utils/storage.util";
+import { StorageUtilis } from "@/utils/storage.util";
 import { Options, Vue } from "vue-class-component";
-
+let storageUtils = new StorageUtilis()
 @Options({
   methods:{
     toogleSideBar(){
@@ -263,8 +263,7 @@ import { Options, Vue } from "vue-class-component";
 })
 
 export default class Navbar extends Vue {
-   dataObject:any = getFromStorage('user')
-  roles = this.dataObject['permissions']
+  dataObject:object = {username:storageUtils.getFromStorageAndDecode('username'), permissions:storageUtils.getFromStorageAndDecode('permissions')}
   
 }
 </script>

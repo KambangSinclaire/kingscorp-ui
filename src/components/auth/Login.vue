@@ -17,9 +17,9 @@
       "
     />
     <Toast
-      :toast="responseData"
-      @closeToast="this.toast = !this.toast"
-      v-if="this.toast"
+      :toast="this.$store.getters.getToast"
+      @closeToast="this.$store.dispatch('hideToast')"
+      v-if="!!this.$store.getters.getToast"
     />
     
     <div class="login-page-new">
@@ -224,7 +224,7 @@
 import { Options, Vue } from "vue-class-component";
 import { AppActionEvents } from "../../events/app.events";
 import Alert from "../reusable/Alerts.vue";
-import { getFromStorage } from "@/utils/storage.util";
+import { StorageUtilis } from "@/utils/storage.util";
 import { User } from "@/interfaces/user.interface";
 import Spinner from "@/components/reusable/loaders/spinner.vue";
 import Toast from "@/components/reusable/toast/toast.vue";
@@ -235,44 +235,31 @@ import Toast from "@/components/reusable/toast/toast.vue";
       this.spinner = !this.spinner;
       if (!this.login.username.trim() || !this.login.password.trim()) {
         // this.$router.push("/explore/dashboard");
+        this.isError = true;
         this.errorMessage = "invalid username or password";
       }
-      if (!!this.errorMessage) {
-        this.isError = true;
-      } else {
+       else {
         // this.$store.dispatch(AppActionEvents.user.add, this.register);
-        this.$store.dispatch(AppActionEvents.location.retrieve);
-        let userLocation = !this.$store.getters.getLocation
-          ? this.$store.getters.getLocation
-          : getFromStorage("location");
+        // this.$store.dispatch(AppActionEvents.location.retrieve);
+       
         // console.log(this.register, userLocation);
         let data: any = {
           username: this.login.username,
           password: this.login.password,
-          last_login_location: userLocation,
+          last_login_location: '',
           last_login: new Date(Date.now()),
         };
 
         this.$store.dispatch(AppActionEvents.user.login, data);
       }
     },
-    isActionMutation() {
-      this.actionType["login"] = !this.actionType.login;
-      this.actionType["register"] = !this.actionType.register;
-    },
+
    
   },
   mounted() {
     this.$store.dispatch(AppActionEvents.location.retrieve);
   },
-  computed: {
-    responseData() {
-      if (this.$store.getters.getToast) {
-        this.toast = true;
-      }
-      return this.$store.getters.getToast;
-    },
-  },
+
   components: {
     Alert,
     Spinner,
