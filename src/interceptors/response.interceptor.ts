@@ -41,18 +41,10 @@ const responseInterceptor = async () => {
                    break;
            }
            
-           return res;
         }
-        
-        // store.dispatch('getToast', {
-            //     type: 'ERROR',
-            //     message:'An Unexpected Error Occured! Please try later',
-            //     status: 0,
-            // })
-            // store.dispatch('hideLoader')
             
             store.dispatch('hideLoader')
-            return []
+            return res;
     }, (error)=> {
     
         logError(error).finally(()=>Promise.reject(error)).finally(()=>store.dispatch('hideLoader'))
