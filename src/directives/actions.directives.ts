@@ -1,6 +1,6 @@
-import { getFromStorage } from "@/utils/storage.util";
+import { StorageUtilis } from "@/utils/storage.util";
 
-let userPermissions = getFromStorage('user')?.permissions
+let userPermissions = new StorageUtilis().getFromStorageAndDecode('permissions') ?? [];
 export class ActionDirective {
     toogleViews(el:any, binding:any){    
         if(typeof binding.value === "string"){

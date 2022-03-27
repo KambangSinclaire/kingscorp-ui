@@ -1,18 +1,19 @@
 
 import store from '@/store'
-import { getFromStorage } from '@/utils/storage.util'
+import { getFromStorage, StorageUtilis } from '@/utils/storage.util'
 import axios from 'axios'
-
+let storageUtils = new StorageUtilis()
 const requestInterceptor = async () => {
 
    return axios.interceptors.request.use((config) => {
     
-    let userCredentials = getFromStorage('user')
+    let refresh_token = storageUtils.getFromStorageAndDecode('refresh_token')
+    let x_api_key = storageUtils.getFromStorageAndDecode('x_api_key')
        if(!config.url?.includes('ipapi.co/json')){
            config.headers = {
                'Content-Type':"application/json",
-               'Authorization':userCredentials?`Bearer ${userCredentials?.refresh_token}`:``,
-               "x-api-key": userCredentials? userCredentials?.x_api_key : '',
+               'Authorization':refresh_token?`Bearer ${refresh_token}`:``,
+               "x-api-key": x_api_key? x_api_key : '',
            }
            
            store.dispatch('showLoader', "skeleton")

@@ -161,10 +161,11 @@
 
 <script lang="ts">
 import { AppActionEvents } from '@/events/app.events';
-import { getFromStorage } from '@/utils/storage.util';
+import { StorageUtilis } from '@/utils/storage.util';
 import {Vue,Options} from 'vue-class-component';
 import InfoCard from './reusable/Info-Card.vue';
 import Spinner from './reusable/loaders/spinner.vue'
+let storageUtilis = new StorageUtilis()
  @Options({
    components: {
     InfoCard,Spinner
@@ -172,7 +173,7 @@ import Spinner from './reusable/loaders/spinner.vue'
   mounted(){
     let roles = this.$store.getters?.getRoles;
     this.role = roles
-    let rolesData = getFromStorage('user')?.permissions ?? []
+    let rolesData = storageUtilis.getFromStorageAndDecode('permissions') ?? []
     rolesData = rolesData.length < 83?"":"ADMIN" 
     console.log(roles, !roles, AppActionEvents); 
     let emptyArray = []
@@ -200,16 +201,12 @@ import Spinner from './reusable/loaders/spinner.vue'
     emptyArray = emptyArray.filter((data) => !!data.description)
   this.cardSetup = emptyArray
   console.log(this.cardSetup);
-  
-
-    
   }
 
  })
 export default class Default extends Vue{
-  dataObject:any = getFromStorage('user')
-  roles = this.dataObject['permissions']
-
+  dataObject:object = {username:storageUtilis.getFromStorageAndDecode('username'), permissions:storageUtilis.getFromStorageAndDecode('permissions')}
+  
   data() {
     return {
       cardSetup:[],

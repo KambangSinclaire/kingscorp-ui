@@ -18,16 +18,17 @@ import { ToastInterface } from "@/interfaces/toast.interface";
      setToast(state: any, payload: ToastInterface) {
          return state.toasts = payload;
      },
-     setToasts(state: any, payload: ToastInterface) {
-         return state.toasts = payload;
+     hideToast(state: any) {
+         return state.toasts = {};
      },
  };
 
  const actions = {
      getToast(ctx:any, payload:ToastInterface){
-         console.log(payload);
-         
         ctx.commit('setToast', payload);
+     },
+     hideToast(ctx:any){
+         ctx.commit('hideToast')
      }
  };
 

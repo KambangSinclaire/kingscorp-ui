@@ -30,8 +30,8 @@
  }
  const actions = {
      getPermissions(ctx: any, payload: any) {
-         IPC.ipcRequestTrigger(AppActionEvents.permission.retrieve, payload).then((result) => {
-             ctx.commit('setPermissions', result);
+         IPC.ipcRequestTrigger(AppActionEvents.permission.retrieve, payload).then((result) => {             
+            !result && ctx.commit('setPermissions', result);
          })
      },
  }

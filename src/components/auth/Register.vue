@@ -15,11 +15,12 @@
         this.$store.getters.getLoader?.loading
       "
     /> -->
-    <Toast
-      :toast="responseData"
-      @closeToast="this.toast = !this.toast"
-      v-if="this.toast"
+       <Toast
+      :toast="this.$store.getters.getToast"
+      @closeToast="this.$store.dispatch('hideToast')"
+      v-if="!!this.$store.getters.getToast"
     />
+    
     <Alert
       :messageType="'ERROR'"
       :messageContent="this.errorMessage"
@@ -294,11 +295,11 @@
 import { Options, Vue } from "vue-class-component";
 import { AppActionEvents } from "../../events/app.events";
 import Alert from "../reusable/Alerts.vue";
-import { getFromStorage } from "@/utils/storage.util";
+import { StorageUtilis } from "@/utils/storage.util";
 import { User } from "@/interfaces/user.interface";
 import Spinner from "@/components/reusable/loaders/spinner.vue";
 import Toast from "@/components/reusable/toast/toast.vue";
-
+let storageUtil = new StorageUtilis()
 @Options({
     methods: {
     createUser() {
@@ -307,34 +308,35 @@ import Toast from "@/components/reusable/toast/toast.vue";
           this.register.username
         ):
           this.errorMessage = "User name is badly formated";
+          this.isError = true;
           break;
 
         case /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
           this.register.email
         ):
           this.errorMessage = "Invalid Email is badly formated";
+          this.isError = true;
           break;
 
         case /^[a-zA-Z0-9?!@#$%^&*]{4,16}$/.test(this.register.password):
           this.errorMessage = "Password should be characters";
+          this.isError = true;
           break;
 
         case /^\+(?:[0-9] ?){6,14}[0-9]$/.test(this.register.phone_number):
           this.errorMessage = "phone number must have country code";
+          this.isError = true;
           break;
       }
-      if (!!this.errorMessage) {
-        this.isError = true;
-      } else {
-        // this.$store.dispatch(AppActionEvents.user.add, this.register);
-        this.$store.dispatch(AppActionEvents.location.retrieve);
-        let userLocation;
-        if (!this.$store.getters.getLocation && !getFromStorage("location")) {
-          userLocation = "";
-        } else {
-          userLocation = getFromStorage("location");
-        }
+
+      if(!this.errorMessage){
+        this.isError = false;
+         this.$store.dispatch(AppActionEvents.location.retrieve);
+        let userLocation = "";
+        
+        storageUtil.getFromStorageAndDecode('location')?userLocation = storageUtil.getFromStorageAndDecode('location') : userLocation
         // console.log(this.register, userLocation);
+        
         let data:User = {
           username: this.register.username,
           email: this.register.email,
@@ -344,10 +346,8 @@ import Toast from "@/components/reusable/toast/toast.vue";
           last_login: new Date(Date.now()),
         };
         this.$store.dispatch(AppActionEvents.user.add, data);
-        // console.log(data);
-
-        // this.$router.push("/explore/dashboard");
       }
+
     },
     },
     components: {

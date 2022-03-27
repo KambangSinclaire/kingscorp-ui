@@ -10,18 +10,17 @@
 
  import { AppActionEvents } from "@/events/app.events";
  import IPC from "@/utils/ipc-renderer.util";
-import { setToStorage } from "@/utils/storage.util";
- 
+import { StorageUtilis } from "@/utils/storage.util";
+ let storageUtil = new StorageUtilis()
  const state = {
      locations: <any>[]
  };
 
  const mutations = {
-     setLocation(state: any, payload: any) {
-         return state.locations.push(payload);
-     },
+     
      setLocations(state: any, payload: any | Iterable<any>) {
-         setToStorage(payload, 'location')
+        !!payload && storageUtil.setToStorageAndEncode(payload, 'location')
+        console.log(payload);
          return state.locations = [payload];
      },
  };

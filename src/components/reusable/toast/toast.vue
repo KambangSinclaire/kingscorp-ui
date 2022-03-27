@@ -147,11 +147,59 @@ export default class Toast extends Vue {
 .toast{
     position: absolute;
     top: 0;
-    z-index: 50;
+    z-index: 1000;
     width: 460px;
-    left: 0;
+    left: 50%;
     right: 0;
-    transform: translate(0%, 20%);
+    transform: translate(-50%, 20%);
     max-width: 100%;
+    div{
+      animation: myAnim 2s ease 0s 1 normal forwards;
+    }
+}
+@keyframes myAnim {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateY(-45px);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  40% {
+    animation-timing-function: ease-in;
+    transform: translateY(-24px);
+  }
+
+  65% {
+    animation-timing-function: ease-in;
+    transform: translateY(-12px);
+  }
+
+  82% {
+    animation-timing-function: ease-in;
+    transform: translateY(-6px);
+  }
+
+  93% {
+    animation-timing-function: ease-in;
+    transform: translateY(-4px);
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+    animation-timing-function: ease-out;
+    transform: translateY(0px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 </style>
