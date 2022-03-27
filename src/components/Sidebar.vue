@@ -238,9 +238,11 @@
               <div class="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"></div>
               <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-4 pb-8 bg-white border-r overflow-y-auto">
                 <div class="flex justify-between w-full items-center px-6  mb-4 lg:border-b border-gray-100" style="padding-bottom:.7rem;">
-                  <a class=" w-32 relative" style="height: 1.8rem;" data-config-id="brand">
+                 <router-link to="/" class=" w-32 relative">
+                    <a class=" w-32 relative" style="height: 1.8rem;" data-config-id="brand">
                     <img class="w-full" src="@/assets/logo/logo4-removebg-preview.png" alt="" width="auto">
                   </a>
+                 </router-link>
                   <button @click.prevent="toogleSideBar" class="w-10 h-10 px-2 flex justify-center lg:hidden  items-center shadow-lg rounded-lg text-gray-800 mr-2">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />

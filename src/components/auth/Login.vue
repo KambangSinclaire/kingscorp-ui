@@ -24,8 +24,8 @@
     
     <div class="login-page-new">
       <nav>
+        <router-link to="/">
         <a
-          href="https://clickup.com/?noRedirect=true"
           target="_blank"
           data-test="login__logo"
           class="login-page-new__logo"
@@ -34,6 +34,7 @@
             class="login-page-new__logo-img"
             alt="ClickUp - Home"
         /></a>
+        </router-link>
         <div class="login-page-new__top-right">
           <div class="login-page-new__top-right-text">
             Don't have an account?
@@ -163,7 +164,7 @@
               </div>
               <!----><!----><!----></section
             ><!----><a
-              href="https://clickup.com/help"
+              href="#"
               target="_blank"
               class="login-page-new__main-form-help"
               ><svg
