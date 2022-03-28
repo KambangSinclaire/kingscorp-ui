@@ -20,7 +20,6 @@ import { StorageUtilis } from "@/utils/storage.util";
      
      setLocations(state: any, payload: any | Iterable<any>) {
         !!payload && storageUtil.setToStorageAndEncode(payload, 'location')
-        console.log(payload);
          return state.locations = [payload];
      },
  };

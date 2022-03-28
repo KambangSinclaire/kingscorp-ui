@@ -9,12 +9,12 @@
       justify-center
       align-center
     ">
-    <!-- <Spinner
+    <Spinner
       v-if="
         this.$store.getters.getLoader?.type == 'spinner' &&
         this.$store.getters.getLoader?.loading
       "
-    /> -->
+    />
        <Toast
       :toast="this.$store.getters.getToast"
       @closeToast="this.$store.dispatch('hideToast')"
@@ -39,11 +39,11 @@
             alt="ClickUp - Home"
         /></a>
         <div class="login-page-new__top-right">
+            <p class="mx-2">Already Have An Account?</p>
           <div class="login-page-new__top-right-text">
-            Already Have An Account?
           <router-link to="/login">
           <a
-            data-test="signup__top-right-button ml-2"
+            data-test="signup__top-right-button"
             class="login-page-new__top-right-button text-center"
             href="https://app.clickup.com/login"
             >Login</a
@@ -334,7 +334,7 @@ let storageUtil = new StorageUtilis()
          this.$store.dispatch(AppActionEvents.location.retrieve);
         let userLocation = "";
         
-        storageUtil.getFromStorageAndDecode('location')?userLocation = storageUtil.getFromStorageAndDecode('location') : userLocation
+        storageUtil.getFromStorageAndDecode('city') ? userLocation = storageUtil.getFromStorageAndDecode('city') : userLocation
         // console.log(this.register, userLocation);
         
         let data:User = {

@@ -14,8 +14,8 @@ const responseInterceptor = async () => {
         let dataToast:ToastInterface = {
             type:"SUCCESS" ,
                 message:"Success",
-                status: res.status,
-                others:res.data,
+                status: res?.status,
+                others:res?.data,
         }
 
        if(res !== undefined && !!res.request?.responseUrl){
