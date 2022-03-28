@@ -10,8 +10,8 @@
         </button>
         <div class="flex justify-between items-start">
           <div class="w-1/2 text-left capitalize">
-            <h1 class="text-2xl font-extrabold capitalize  text-gray-900">Welcome To kingscorp <br> {{dataObject?.username}}</h1>
-           
+            <h1 class="text-2xl font-extrabold capitalize  text-gray-900">Hi   &#x1F64B {{dataObject?.username}}, </h1> 
+            Welcome to Kingscorp
           </div>
           <div class="img-contatiner ">
           <img src="@/assets/img/img1.png" alt="" class="h-20" >
@@ -19,10 +19,11 @@
         </div>
         <div class="grid md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-4 my-2">
           <div class="w-full flex flex-col">
-            <h1 class="font-bold text-l text-gray-900 my-2 text-left">  business Intelligence  </h1>
+            <h1 class="font-bold text-l text-gray-900 my-2 text-left"> You can start by  </h1>
             <p class="font-normal text-gray-700">
-             Create Roles that govern your organization.
-             You Can Edit This Later
+             Creating <strong>Roles</strong> that govern your business. 
+             Roles are posts of responsibilities that can be handled by various personnels within your business organization. 
+             Roles can be edited later
             </p>
             <router-link to="dashboard/settings">
             <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
@@ -31,20 +32,20 @@
             </router-link>
           </div>
             <div class="w-full flex flex-col">
-            <h1 class="font-bold text-l text-gray-900 my-2 text-left">Personels To manage Duties </h1>
+            <h1 class="font-bold text-l text-gray-900 my-2 text-left">Assign roles to Personnels</h1>
             <p class="font-normal text-gray-700">
-              Create personels and assign them to a particular roles in your organization
+              Register <strong>Personnels</strong> and assign posts of responsibilities within your business organization to them
             </p>
              <router-link to="dashboard/personnels">
             <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
-             Create personel 
+             Create personnel 
             </button>
             </router-link>
           </div>
             <div class="w-full flex flex-col">
-            <h1 class="font-bold text-l text-gray-900 my-2 text-left">Profile</h1>
+            <h1 class="font-bold text-l text-gray-900 my-2 text-left">Personalized Profile</h1>
             <p class="font-normal text-gray-700">
-              Create a profile and be able to manage several organizations on kingscorp.
+              Create a profile and be able to manage several organizations and different branches of your organizations on kingscorp.
             </p>
             <router-link to="dashboard/profile">
             <button  class="px-4 py-1 rounded bg-blue-700 shadow mt-2 text-white flex justify-center items-center font-semibold">
@@ -70,8 +71,8 @@
                     </svg>
                   </span>
                   <div>
-                    <h2 class="mb-1 text-2xl font-bold" data-config-id="header">Analytic Dashboard</h2>
-                    <p class="text-sm text-gray-500 font-medium" data-config-id="desc">Take care of your business. Achieve your goals and increase profits.</p>
+                    <h2 class="mb-1 text-2xl font-bold" data-config-id="header">ROI Analytics Dashboard</h2>
+                    <p class="text-sm text-gray-500 font-medium" data-config-id="desc">Manage your business. Achieve your goals and increase profits.</p>
                   </div>
                 </div>
                 <div class="w-full lg:w-auto ml-auto px-3">
@@ -175,7 +176,7 @@ let storageUtilis = new StorageUtilis()
     this.role = roles
     let rolesData = storageUtilis.getFromStorageAndDecode('permissions') ?? []
     rolesData = rolesData.length < 83?"":"ADMIN" 
-    console.log(roles, !roles, AppActionEvents); 
+    // console.log(roles, !roles, AppActionEvents); 
     let emptyArray = []
     for(let [key,value] of Object.entries(AppActionEvents)){
       if(key != 'user' && key != 'role' && key != 'permission' && key != 'group' && key != 'preference'   ){

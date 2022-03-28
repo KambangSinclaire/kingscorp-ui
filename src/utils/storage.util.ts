@@ -46,14 +46,16 @@ export class StorageUtilis {
     }
 
     getFromStorageAndDecode(storeName:string){
-        (storeName === undefined || storeName === null) && false;
+
+        if(storeName === null || storeName === undefined ) return false;
+        
         let element:any;
 
         try {
             element = localStorage.getItem(storeName);
-            element = atob(element as string)
             
-            if(element !== undefined){
+            if(element){
+                element = atob(element as string)
                 element = JSON.parse(element)
                 return element;
             }

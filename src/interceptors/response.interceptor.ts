@@ -49,7 +49,6 @@ const responseInterceptor = async () => {
     
         logError(error).finally(()=>Promise.reject(error)).finally(()=>store.dispatch('hideLoader'))
      
-        
     },)
 } 
 

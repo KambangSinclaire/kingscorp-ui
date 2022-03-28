@@ -23,7 +23,7 @@
             </div>
          </div>
          <div class="text">
-            <p>Please wait...</p>
+            <p>loading...</p>
          </div>
       </div>
    </section>
