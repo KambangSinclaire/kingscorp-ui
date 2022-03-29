@@ -1,239 +1,5 @@
 <template>
-  <!-- <section
-    class="sidebar w-full h-full bg-white bg-gradient-to-r app-custom-gradient"
-  >
-    <div class="side-links flex flex-col items-center justify-center">
-      <div class="nav-items">
-        <router-link to="/" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/monitor.svg" alt="" />
-          <span class="nav-title">Dashboard</span>
-        </router-link>
-      </div>
 
-      <div class="nav-items" v-if="getPref.Products">
-        <router-link :to="routes.product.list" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/gift.svg" alt="" />
-          <span class="nav-title">Products</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items" v-if="getPref.Stock">
-        <router-link to="/stock" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/award.svg" alt="" />
-          <span class="nav-title">Stock</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items" v-if="getPref.Inventory">
-        <router-link to="/inventory" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/inbox.svg" alt="" />
-          <span class="nav-title">Inventory</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items" v-if="getPref.Sales">
-        <router-link to="/sales" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/dollar-sign.svg" alt="" />
-          <span class="nav-title">Sales</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items" v-if="getPref.Credits">
-        <router-link to="/credits" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/credit-card.svg" alt="" />
-          <span class="nav-title">Credits</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items" v-if="getPref.Invoices">
-        <router-link to="/invoice" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/briefcase.svg" alt="" />
-          <span class="nav-title">Invoices</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items">
-        <router-link to="/personnel" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/users.svg" alt="" />
-          <span class="nav-title">Personnels</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items" v-if="getPref.Notifications">
-        <router-link to="/notification" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/bell.svg" alt="" />
-          <span class="nav-title">Notifications</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items">
-        <router-link to="/profile" class="sidebar-nav-items">
-          <img src="@/assets/feather_icons/user.svg" alt="" />
-          <span class="nav-title">Profile</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items">
-        <router-link to="/settings" class="sidebar-nav-items">
-          <span class="icon">
-            <img src="@/assets/feather_icons/settings.svg" alt="" />
-          </span>
-          <span class="nav-title">Settings</span>
-        </router-link>
-      </div>
-
-      <div class="nav-items">
-        <router-link to="/logout" class="sidebar-nav-items">
-          <span class="icon">
-            <img src="@/assets/feather_icons/log-out.svg" alt="" />
-          </span>
-          <span class="nav-title">Logout</span>
-        </router-link>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- <section class="container">
-    <div class="first-card container px-8 py-4 rounded-sm border border-solid">
-      <div class="logo py-6">
-        <img src="@/assets/feather_icons/user.svg" alt="" />
-      </div>
-      <div class="app-description">
-        <p class="text py-6">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium
-          et debitis ipsum? Nesciunt recusandae quas
-        </p>
-        <button class="department-button">
-          <img src="@/assets/feather_icons/user.svg" alt="" />
-          Create Department
-        </button>
-      </div>
-      <div class="popular-links flex flex-col">
-        <span> Products </span>
-        <span> Stock </span>
-      </div>
-    </div>
-
-    <div class="second-card container px-8 py-4 rounded-sm border border-solid my-8">
-      <h2>Quick</h2>
-      <div class="help-links flex flex-col">
-        <spa class="help-link-item py-4 flex">
-          <img src="@/assets/feather_icons/activity.svg" class="pr-4" alt="" />
-         Recent activity
-        </spa>
-         <spa class="help-link-item py-4 flex">
-          <img src="@/assets/feather_icons/archive.svg" class="pr-4" alt="" />
-         Archived resources
-        </spa>
-         <spa class="help-link-item py-4 flex">
-          <img src="@/assets/feather_icons/help-circle.svg" class="pr-4" alt="" />
-         Get Help
-        </spa>
-      </div>
-    </div>
-  </section> -->
-
-
-<!-- <div class=""> -->
-  <!-- <div class="flex flex-col w-full bg-gray-100 overflow-hidden">
- 
-    <ul class="flex flex-col py-4">
-      <router-link to="/explore/dashboard" :class="{'active':$route.path == '/explore/dashboard' }">
-      <li>
-        <a  class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
-          </svg>
-          </span>
-          <span class="text-sm font-bold">Dashboard</span>
-        </a>
-      </li>
-      
-      </router-link>
-      <router-link to="/explore/dashboard/statistics" :class="{'active':$route.path == '/explore/dashboard/statistics' }">
-      <li>
-        <a  class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-</svg>
-          </span>
-          <span class="text-sm font-bold">statistics</span>
-        </a>
-      </li>
-
-      </router-link>
-
-      <router-link to="/explore/dashboard/activities" :class="{'active':$route.path == '/explore/dashboard/activities' }">
-      <li>
-        <a class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
-</svg>
-          </span>
-          <span class="text-sm font-bold">Activities</span>
-        </a>
-      </li>
-      
-      </router-link>
-  <router-link to="/settings" :class="{'active':$route.path == '/settings' }">
-      <li>
-        <a class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-</svg>
-          </span>
-          <span class="text-sm font-bold">settings</span>
-        </a>
-      </li>
-  </router-link>
-  <router-link to="/explore/dashboard/profile" :class="{'active':$route.path == '/explore/dashboard/profile' }">
-      <li>
-        <a class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
-  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-</svg>
-          </span>
-          <span class="text-sm font-bold">Profile</span>
-        </a>
-      </li>
-  </router-link>
-  <router-link to="/explore/dashboard/notifications" active-class="active">
-      <li>
-        <a class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-            </svg>
-          </span>
-          <span class="text-sm font-bold">Notifications</span>
-          <span class="ml-auto mr-6 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">5</span>
-        </a>
-      </li>
-  </router-link>
-  <router-link to="/login">
-      <li>
-        <a class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            </span>
-          <span class="text-sm font-bold">Logout</span>
-        </a>
-      </li>
-  </router-link>
-    </ul>
-  </div> -->
-  
-
-<!-- </div> -->
             <div class="">
               <div class="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"></div>
               <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-4 pb-8 bg-white border-r overflow-y-auto">
@@ -317,7 +83,17 @@
                     
                   </div>
                 </div>
-                  <div class="flex justify-between w-full items-center  absolute bottom-0  px-6  lg:border-t border-gray-100" style="padding-bottom:.7rem;">
+                  <div class="border ring-offset-0 ring-1 mb-2 border-solid ring-blue-200   bg-gradient-to-r from-blue-800 to-blue-600 px-4 pt-0 pb-6 m-4 text-white rounded-md"><div class="" ><div class="py-4 flex justify-center items-center space-y-2 flex-col text-center">
+                    <span aria-label="icon" class=" text-white text-10 py-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                      </svg>
+                      </span>
+                      <h4 class="font-semibold leading-normal text-white text-2xl py-2">Get access to powerful features like:</h4></div>
+                      <ul class="pl-4 text-blue-300"><li>URLs that don't change</li><li>Your own custom domains</li><li>and more!</li></ul>
+                      <button type="button" class="ant-btn text-white mt-3 shadow border-blue-400 w-full py-2 rounded-md bg-blue-500 ant-btn-block"><a class="flex items-center justify-center text-inherit" href="/billing/plan">Upgrade Now</a></button></div></div>
+
+                  <div class="flex justify-between items-center bottom-0  px-6 fixed bg-white lg:border-t border-gray-100" style="padding-bottom:.7rem; width:inherit;">
               
                   <button  class="w-8 h-8 px-2 flex justify-center  items-center mt-2 shadow rounded text-gray-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -326,9 +102,9 @@
                   </button>
             
                   </div>
+                
               </nav>
             </div>
-
 
 </template>
 
