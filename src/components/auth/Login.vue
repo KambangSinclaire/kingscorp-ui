@@ -32,7 +32,7 @@
           ><img
             src="@/assets/logo/logo4-removebg-preview.png"
             class="login-page-new__logo-img"
-            alt="ClickUp - Home"
+            alt="Kingscorp"
         /></a>
         </router-link>
         <div class="login-page-new__top-right">
@@ -94,7 +94,6 @@
                         class="cu-form__input"
                       />
                     </div>
-                    <!----><!---->
                   </div>
                  
                   <!---->
@@ -158,7 +157,6 @@
                 
                 <div class="cu-onboarding__footnote">
                   Get New Updates About Kingscorp!
-                  
                 </div>
                 <!----><!----><!----><!---->
               </div>
@@ -290,7 +288,7 @@ export default class Login extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/clickup.scss';
+@import '@/assets/styles/Kingscorp.scss';
 
 .login-page-new__main-bg {
   position: absolute;
