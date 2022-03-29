@@ -16,26 +16,39 @@
                       </div>
                       <div class="px-6 mb-6">
                         <h4 class="text-xl font-bold" data-config-id="header1">{{setup?.title}}</h4>
-                        <p class="text-xs text-gray-500" data-config-id="desc1">{{"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, voluptatum!".slice(0, 100)+"..."}} 
+                        <p class="text-xs text-gray-500" data-config-id="desc1">
+                          {{this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length !== 0 ?this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`][this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length - 1]?.description.slice(0,100) : 'No Data Present Please Add Some!'}}
                         </p>
+                        
                       </div>
                       <div class="p-6 bg-lightGray-50">
                         <div class="flex -mx-2 mb-6">
                           <div class="w-1/2 px-2">
-                            <p class="mb-2 text-xs font-medium" data-config-id="label1-1">Final Date</p>
-                            <span class="inline-block py-1 px-2 bg-orange-50 rounded-full text-xs text-red-500" data-config-id="label-val1-1">14 March 2021</span>
+                            <p class="mb-2 text-xs font-medium" data-config-id="label1-1">Last Updated Date</p>
+                            <span class="inline-block py-1 px-2 bg-orange-50 rounded-full text-xs text-red-500" data-config-id="label-val1-1">
+                              {{this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length !== 0 ? new Date(this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`][this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length - 1]?.updated_At.toString()).toLocaleString() : 'No update'}}
+                              </span>
                           </div>
                           <div class="w-1/2 px-2">
                             <p class="mb-2 text-xs font-medium" data-config-id="label1-2">status</p>
-                            <span class="inline-block py-1 px-2 bg-green-50 rounded-full text-xs text-green-500" data-config-id="label-val1-2">200</span>
+                            <span v-if="this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length !== 0 &&new Date() - new Date(this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`][this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length - 1]?.updated_At.toString()) > 8640" class="inline-block py-1 px-2 bg-green-50 rounded-full text-xs text-green-500" data-config-id="label-val1-2">
+                              Active
+                            </span>
+
+                            <span v-if="this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length == 0" class="inline-block py-1 px-2 bg-red-50 rounded-full text-xs text-red-500" data-config-id="label-val1-2">
+                              Not Active
+                            </span>
+
                           </div>
                         </div>
                         <div class="flex mb-6">
-                          <div class="flex items-center justify-center w-8 h-8 -ml-2 rounded-full bg-blue-50 text-xs text-blue-500">+3</div>
+                          <div class="flex items-center justify-center w-8 h-8 -ml-2 rounded-full bg-blue-50 text-xs text-blue-500">
+                            {{this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length !== 0 ?this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length : '0'}}
+                          </div>
                         </div>
                         <p class="mb-2 text-xs font-medium" data-config-id="note1">During the testing</p>
                         <div class="relative w-full h-1 mb-3 rounded-full bg-blue-100">
-                          <div class="absolute top-0 left-0 h-full w-1/2 rounded-full bg-blue-700"></div>
+                          <div class="absolute top-0 left-0 h-full rounded-full bg-blue-700" :style="`width:${this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length }%`" ></div>
                         </div>
                       </div>
                     </div>

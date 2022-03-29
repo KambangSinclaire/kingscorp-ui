@@ -153,6 +153,7 @@
 </template>
 
 <script>
+import { AppActionEvents } from "@/events/app.events";
 import { Options, Vue } from "vue-class-component";
 
 @Options({
@@ -171,6 +172,10 @@ import { Options, Vue } from "vue-class-component";
       this.$store.dispatch("updatePreferences", upDatedPreferences);
     },
   },
+  mounted(){
+    // this.$store.dispatch(AppActionEvents.preference.retrieve);
+    // console.log(this.$store.getters.getAllPrefrences);
+  }
 })
 export default class Preferences extends Vue {
   data() {
