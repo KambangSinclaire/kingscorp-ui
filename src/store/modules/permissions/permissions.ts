@@ -19,6 +19,8 @@
          return state.Permissions.push(payload);
      },
      setPermissions(state: any, payload: any | Iterable<any>) {
+         console.log(payload);
+         
          return state.Permissions = [...payload?.data];
      },
 
@@ -31,7 +33,7 @@
  const actions = {
      getPermissions(ctx: any, payload: any) {
          IPC.ipcRequestTrigger(AppActionEvents.permission.retrieve, payload).then((result) => {             
-            !result && ctx.commit('setPermissions', result);
+            !!result && ctx.commit('setPermissions', result);
          })
      },
  }

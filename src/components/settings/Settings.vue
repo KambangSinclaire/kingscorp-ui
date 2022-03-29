@@ -149,7 +149,7 @@
                   </div>
               </router-link>
                   
-                  <router-link to="/explore/dashboard/settings/permissions">
+                  <router-link to="/explore/dashboard/settings/permissions/1">
                   <div class="flex px-8 py-5 cursor-pointer hover:bg-gray-100 dark:hover:bg-hover ng-star-inserted" style="">
                     <span  class="span notranslate text-hint " aria-hidden="true"  data-span-name="credit-card" >
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

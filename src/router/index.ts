@@ -127,7 +127,7 @@ const routes: Array<RouteRecordRaw> = [
             component: Roles
           },
           {
-            path: "permissions",
+            path: "permissions/:id",
             name: "Permissions",
             component: Permissions
           },
