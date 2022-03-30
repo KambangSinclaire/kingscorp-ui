@@ -19,7 +19,7 @@ const mutations = {
         return state.Categories.push(payload);
     },
     setCategories(state: any, payload: any | Iterable<any>) {
-        console.log(payload);
+        // console.log(payload);
         
         return state.Categories = [...payload?.data];
     },
@@ -39,8 +39,8 @@ const actions = {
         });
     },
     editCategory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.category.edit+`/${payload}`, payload.data).then((data) => {
-            console.log(data, payload);
+        IPC.ipcRequestTrigger(AppActionEvents.category.edit+`/${payload}`, payload?.data).then((data) => {
+            // console.log(data, payload);
             
             ctx.commit('setCategory', data);        
         });

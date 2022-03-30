@@ -25,7 +25,7 @@ const mutations = {
             storageUtils.setToStorageAndEncode(payload?.data?.refresh_token, 'refresh_token')
             return state.Roles = [...payload?.data];
         }else{
-            console.log('empty payload No network :) ');
+            // console.log('empty payload No network :) ');
         }
     },
     deleteRole(state: any, payload: any) {
@@ -45,7 +45,7 @@ const actions = {
         });
     },
     editRole(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.role.edit+`/${payload}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.role.edit+`/${payload}`, payload?.data).then((data) => {
             ctx.commit('setRole', data);
         });
     },

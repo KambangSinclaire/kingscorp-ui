@@ -19,7 +19,7 @@
          return state.Permissions.push(payload);
      },
      setPermissions(state: any, payload: any | Iterable<any>) {
-         console.log(payload);
+         // console.log(payload);
          
          return state.Permissions = [...payload?.data];
      },

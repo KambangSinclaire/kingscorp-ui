@@ -462,7 +462,7 @@ import { Options, Vue } from "vue-class-component";
       this.$emit("closeForm", "closeForm");
     },
     updateResource() {
-      console.log(this.setInputValues);
+      // // console.log(this.setInputValues);
       const id = this.setInputValues.id;
       delete this.setInputValues?.entity;
       delete this.setInputValues?.id;

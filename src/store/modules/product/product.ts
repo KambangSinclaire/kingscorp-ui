@@ -19,12 +19,12 @@ const mutations = {
         return state.products.push(payload);
     },
     setProducts(state: any, payload: any | Iterable<any>) {
-        console.log(payload);
+        // console.log(payload);
         
         return state.products = [...payload.data];
     },
     deleteProduct(state: any, payload: any) {
-        console.log(payload);
+        // console.log(payload);
         
         return state.products.filter((data: any) => data.id !== payload.id);
     },
@@ -41,12 +41,12 @@ const actions = {
         });
     },
     editProduct(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.product.edit+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.product.edit+`/${payload.id}`, payload?.data).then((data) => {
             ctx.commit('setProduct', data);
         });
     },
     deleteProduct(ctx: any, payload: any) {
-        console.log(payload, 'delete products');
+        // console.log(payload, 'delete products');
         
         IPC.ipcRequestTrigger(AppActionEvents.product.delete+`/${payload}`, payload).then((data) => {
             ctx.commit('deleteProduct', data);

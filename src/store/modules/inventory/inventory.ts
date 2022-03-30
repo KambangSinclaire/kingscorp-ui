@@ -37,7 +37,7 @@ const actions = {
         });
     },
     editInventory(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.inventory.edit+`/${payload}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.inventory.edit+`/${payload}`, payload?.data).then((data) => {
             ctx.commit('setInventory', data);
         });
     },

@@ -15,7 +15,7 @@
                         </a>
                       </div>
                       <div class="px-6 mb-6">
-                        <h4 class="text-xl font-bold" data-config-id="header1">{{setup?.title}}</h4>
+                        <h4 class="text-xl font-bold capitalize" data-config-id="header1">{{setup?.title}}</h4>
                         <p class="text-xs text-gray-500" data-config-id="desc1">
                           {{this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length !== 0 ?this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`][this.$store.getters[`get${setup?.title.slice(0,1).toUpperCase()+setup?.title.slice(1)}s`].length - 1]?.description.slice(0,100) : 'No Data Present Please Add Some!'}}
                         </p>

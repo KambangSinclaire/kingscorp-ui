@@ -37,7 +37,7 @@ const actions = {
         });
     },
     editCredit(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.credit.edit+`/${payload}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.credit.edit+`/${payload}`, payload?.data).then((data) => {
             ctx.commit('setCredits', data);
         });
     },

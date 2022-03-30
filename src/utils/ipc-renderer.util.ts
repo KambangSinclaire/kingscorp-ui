@@ -19,7 +19,7 @@ import store from "@/store";
 
 // const ipcResponseHandler = (actionEvent: string, handler: any) => {
 //     ElectronUI.ipcRenderer.on(actionEvent + "-response", handler);
-//     console.log("fetching...");
+//     // console.log("fetching...");
 //     return;
 // }
 
@@ -28,10 +28,10 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
     const isOnline = navigator.onLine;
 
     if (!navigator.onLine) {
-        console.log("offline running...", isOnline);
+        // console.log("offline running...", isOnline);
         
         const response: ResponsePayload = await ElectronUI.ipcRenderer.invoke(actionEvent, payload);
-        console.log("response data...", response);
+        // console.log("response data...", response);
         if (response.status === ResponseStatus.OK) {
             return response.data;
         }
@@ -54,7 +54,7 @@ const ipcRequestTrigger = async (actionEvent: string, payload?: any) => {
         return await webAPICaller(endpoint, method, payload)
     } catch (error) {
 
-        // console.log("error ",error);
+        // // console.log("error ",error);
         return []
     }
 }

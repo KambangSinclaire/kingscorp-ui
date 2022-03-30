@@ -241,7 +241,7 @@ import Toast from "@/components/reusable/toast/toast.vue";
         // this.$store.dispatch(AppActionEvents.user.add, this.register);
         // this.$store.dispatch(AppActionEvents.location.retrieve);
        
-        // console.log(this.register, userLocation);
+        // // console.log(this.register, userLocation);
         let data: any = {
           username: this.login.username,
           password: this.login.password,
@@ -288,7 +288,7 @@ export default class Login extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/Kingscorp.scss';
+@import '@/assets/styles/clickup.scss';
 
 .login-page-new__main-bg {
   position: absolute;

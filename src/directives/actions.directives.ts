@@ -13,7 +13,7 @@ export class ActionDirective {
             if(!p){
                 el.style.display = 'none'
             }
-        // console.log(p, binding.value);
+        // // console.log(p, binding.value);
         
         }
         

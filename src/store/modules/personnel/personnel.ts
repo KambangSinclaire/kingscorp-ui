@@ -32,7 +32,7 @@ const getters = {
 }
 const actions = {
     editPersonnel(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.personnel.edit+`/${payload}`, payload).then((result) => {
+        IPC.ipcRequestTrigger(AppActionEvents.personnel.edit+`/${payload}`, payload?.data).then((result) => {
             ctx.commit('setPersonnel', result);
         })
     },

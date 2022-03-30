@@ -37,7 +37,7 @@ const actions = {
         });
     },
     editGroup(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.group.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.group.edit, payload?.data).then((data) => {
             ctx.commit('setGroup', data);
         });
     },

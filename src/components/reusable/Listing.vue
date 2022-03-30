@@ -421,14 +421,14 @@ import Toast from './toast/toast.vue'
   computed: {
     formatedTitles() {
       let payloadDatas = Object.keys(this.options.inputs ?? {});
-      console.log("these are true ", this.options);
+      // // console.log("these are true ", this.options);
       if (this.options.actionBtns && !this.listingTitles.includes("Action")) {
         // this.listingTitles.push("Action")
         // payloadDatas.push("Action");
-        console.log('this is listing titles', this.listingTitles);
+        // // console.log('this is listing titles', this.listingTitles);
         payloadDatas = this.listingTitles.map((data)=> data.toLowerCase())
       }
-      console.log('this is data', payloadDatas);
+      // // console.log('this is data', payloadDatas);
       return payloadDatas;
     },
     dropdownDetails() {
@@ -445,7 +445,7 @@ import Toast from './toast/toast.vue'
        const message = this.$store.getters?.getToast;
         this.toast = message?.message != '' ? !this.toast : this.toast;
 
-      console.log('popup data displayed here ', message);
+      // // console.log('popup data displayed here ', message);
       
       return message
     },
@@ -476,7 +476,7 @@ import Toast from './toast/toast.vue'
   emits: ["toggleAddNewForm", "fetchDropDownIcons"],
 
   mounted() {
-    console.log("here is the received data ", this.listData);
+    // // console.log("here is the received data ", this.listData);
   },
 })
 export default class Listing extends Vue {

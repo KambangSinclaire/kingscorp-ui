@@ -34,7 +34,7 @@ const mutations = {
 const actions = {
     appRegister(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.add, payload).then((data) => {
-            if(data?.length !== 0){
+            if (data?.length !== 0) {
                 storageUtil.setToStorageAndEncode(data?.data, 'user');
                 ctx.commit('setUser', data);
                 router.push('/explore/dashboard');
@@ -47,7 +47,7 @@ const actions = {
         });
     },
     editUser(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.user.edit, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.user.edit, payload?.data).then((data) => {
             ctx.commit('setUser', data);
         });
     },
@@ -63,7 +63,7 @@ const actions = {
     },
     appLogin(ctx: any, payload: any) {
         IPC.ipcRequestTrigger(AppActionEvents.user.login, payload).then((data) => {
-            if( data?.length !== 0){
+            if (data?.length !== 0) {
                 storageUtil.setToStorageAndEncode(data?.data, 'user');
                 ctx.commit('setUser', data);
                 router.push('/explore/dashboard');

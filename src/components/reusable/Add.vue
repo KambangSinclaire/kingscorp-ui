@@ -265,10 +265,10 @@ import { AppActionEvents } from "../../events/app.events";
     relations() {
       const specialInputs = { ...this.formatInputs.specialInputs };
       const relationalInputs = { ...this.setup.relations };
-      console.log(specialInputs);
+      // // console.log(specialInputs);
       let results = {};
       for (const [key, value] of Object.entries(specialInputs)) {
-        console.log(relationalInputs[key]);
+        // console.log(relationalInputs[key]);
         if (relationalInputs[key]) {
           results[key] = this.$store.getters[`get${relationalInputs[key]}`];
         }
@@ -298,7 +298,7 @@ import { AppActionEvents } from "../../events/app.events";
       
       this.$store.dispatch(this.setup?.actions?.add, payload);
       this.$store.dispatch(this.setup?.actions?.list);
-      console.log(payload);
+      // // console.log(payload);
       this.closeForm();
     },
     pickFile(payload) {

@@ -132,7 +132,7 @@ let storageUtilis = new StorageUtilis()
     this.role = roles
    
    
-    // console.log(roles, !roles, AppActionEvents); 
+    // // console.log(roles, !roles, AppActionEvents); 
     let emptyArray = []
     for(let [key,value] of Object.entries(AppActionEvents)){
       if(key != 'user' && key != 'role' && key != 'permission' && key != 'group' && key != 'preference' && key!="client"  && key!="inventory"  && key!="credit" && key!="notification"   ){
@@ -158,7 +158,7 @@ let storageUtilis = new StorageUtilis()
 
     emptyArray = emptyArray.filter((data) => !!data.description)
   this.cardSetup = emptyArray
-  console.log(this.cardSetup);
+  // // console.log(this.cardSetup);
   }
 
  })

@@ -32,7 +32,7 @@ export const logError = async (error:AxiosError)=>{
                 break;
         }
     } catch (error) {
-     console.log(error);
+     // console.log(error);
     }
     
 

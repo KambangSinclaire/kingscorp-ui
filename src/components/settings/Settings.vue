@@ -158,7 +158,7 @@
                     </span>
                     <div class="ml-3">
                       <div class="font-medium leading-6"> Permissions </div>
-                      <div class="mt-0.5 text-secondary"> Manage all permissions in your organization </div>
+                      <div class="mt-0.5 text-secondary"> Create Roles and assign them certain permissions within your organization </div>
                       </div>
                   </div>
                   </router-link>

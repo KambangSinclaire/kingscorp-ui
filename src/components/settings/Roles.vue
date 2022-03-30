@@ -112,7 +112,7 @@ import { AppActionEvents } from "../../events/app.events";
   computed: {
     roles() {
       const roles = this.$store.getters.getRoles;
-      console.log(roles);
+      // console.log(roles);
       return roles;
     },
   },

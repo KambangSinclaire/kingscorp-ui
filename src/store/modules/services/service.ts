@@ -16,12 +16,12 @@ const state = {
 };
 const mutations = {
     setService(state: any, payload: any) {
-        console.log('this is default payload', payload);
+        // console.log('this is default payload', payload);
         
         return state.Services.push(payload);
     },
     setServices(state: any, payload: any | Iterable<any>) {   
-        console.log( 'this is data payload',payload);             
+        // console.log( 'this is data payload',payload);             
         return state.Services = [...payload?.data];
     },
     deleteService(state: any, payload: any) {
@@ -36,13 +36,13 @@ const actions = {
     },
     getServices(ctx: any) {
         IPC.ipcRequestTrigger(AppActionEvents.service.retrieve).then((data) => {
-            console.log(data);
+            // console.log(data);
             
             ctx.commit('setServices', data);
         });
     },
     editService(ctx: any, payload: any) {
-        console.log('this is edit service payload', payload);
+        // console.log('this is edit service payload', payload);
         
         IPC.ipcRequestTrigger(AppActionEvents.service.edit+`/${payload.id}`, payload?.data).then((data) => {
             ctx.commit('setService', data);

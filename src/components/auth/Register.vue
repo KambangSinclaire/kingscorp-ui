@@ -335,7 +335,7 @@ let storageUtil = new StorageUtilis()
         let userLocation = "";
         
         storageUtil.getFromStorageAndDecode('city') ? userLocation = storageUtil.getFromStorageAndDecode('city') : userLocation
-        // console.log(this.register, userLocation);
+        // // console.log(this.register, userLocation);
         
         let data:User = {
           username: this.register.username,

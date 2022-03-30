@@ -37,7 +37,7 @@ const actions = {
         });
     },
     editInvoice(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.invoice.edit+`/${payload}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.invoice.edit+`/${payload}`, payload?.data).then((data) => {
             ctx.commit('setInvoice', data);
         });
     },

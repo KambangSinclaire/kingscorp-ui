@@ -37,7 +37,7 @@ const actions = {
         });
     },
     editPrefrence(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.preference.edit+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.preference.edit+`/${payload.id}`, payload?.data).then((data) => {
             ctx.commit('setPrefrence', data);
         });
     },

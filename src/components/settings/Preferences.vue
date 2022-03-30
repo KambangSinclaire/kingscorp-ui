@@ -174,7 +174,7 @@ import { Options, Vue } from "vue-class-component";
   },
   mounted(){
     // this.$store.dispatch(AppActionEvents.preference.retrieve);
-    // console.log(this.$store.getters.getAllPrefrences);
+    // // console.log(this.$store.getters.getAllPrefrences);
   }
 })
 export default class Preferences extends Vue {

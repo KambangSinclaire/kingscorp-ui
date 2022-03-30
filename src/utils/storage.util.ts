@@ -15,12 +15,12 @@ export const getFromStorage = (storeName:string) => {
         try {
            element = localStorage.getItem(storeName)
            
-           console.log(element, 'element');
+           // console.log(element, 'element');
            element = atob(element as any)
            element = element && JSON.parse(element)
            return element
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return false
         }
     }
@@ -40,7 +40,7 @@ export class StorageUtilis {
             }
             return true;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
 
     }
@@ -61,7 +61,7 @@ export class StorageUtilis {
             }
             
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 }

@@ -37,7 +37,7 @@ const actions = {
         });
     },
     editStock(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.stock.edit+`/${payload.id}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.stock.edit+`/${payload.id}`, payload?.data).then((data) => {
             ctx.commit('setStock', data);
         });
     },

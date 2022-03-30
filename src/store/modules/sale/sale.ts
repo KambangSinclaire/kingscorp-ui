@@ -37,7 +37,7 @@ const actions = {
         });
     },
     editSale(ctx: any, payload: any) {
-        IPC.ipcRequestTrigger(AppActionEvents.sale.edit+`/${payload}`, payload).then((data) => {
+        IPC.ipcRequestTrigger(AppActionEvents.sale.edit+`/${payload}`, payload?.data).then((data) => {
             ctx.commit('setSale', data);
         });
     },
