@@ -127,7 +127,7 @@
       </div>
   </div> -->
   <div class="flex flex-col flex-auto w-full">
-    <div class="flex flex-wrap w-full max-w-screen-xl mx-auto p-6 md:p-8">
+    <div class="flex flex-wrap w-full max-w-screen-xl mx-auto p-8">
       <div class="flex items-center justify-between w-full">
         <div>
           <div class="text-3xl font-semibold tracking-tight leading-8">
@@ -137,6 +137,7 @@
             Monitor metrics, check reports and review performance
           </div>
         </div>
+        
         <div class="flex items-center ml-6">
           <button
             type="button"
@@ -259,19 +260,18 @@
         </div>
       </div>
 
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-8"
-      >
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-8">
         <div
           class="
             sm:col-span-2
             lg:col-span-3
             dark
             flex flex-col flex-auto
-            bg-gray-800
+            bg-white
             shadow
             rounded-2xl
             overflow-hidden
+            relative 
           "
         >
           <div
@@ -283,7 +283,7 @@
                   mr-4
                   text-2xl
                   md:text-3xl
-                  text-white
+                  text-gray-600
                   font-semibold
                   tracking-tight
                   leading-7
@@ -291,26 +291,37 @@
               >
                 Visitors Overview
               </div>
-              <div class="font-medium text-white text-base">
+              <div class="font-medium text-gray-600 text-base">
                 Number of unique visitors
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col flex-auto h-80">
+          <div class="flex flex-col flex-auto h-80 " style="width:100%;">
             <apexchart
               type="area"
               class="flex-auto w-full h-full"
-              height="100%"
+              height="300"
               ref="chart"
-              width="100%"
+             
               :options="chartOptions"
               :series="series"
             ></apexchart>
           </div>
         </div>
+
+            <Line />
+            <Pie />
+        <!-- <div class="sm:col-span-2 lg:col-span-1 flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden">
+        </div> -->
+       
       </div>
+        <!-- <div class="grid overflow-hidden grid-cols-3 grid-rows-4 w-full mt-8 gap-4">
+          <div class="box" v-for="i of [1,2,3]" :key="i">
+          </div>
+        </div> -->
     </div>
+
   </div>
 </template>
 
@@ -666,7 +677,11 @@ export default class Charts extends Vue {
         chart: {
           id: "area-datetime",
           type: "area",
-          height: 320,
+          height: 300,
+          toolbar:{
+            show:false
+          }
+         
         },
         grid: {
           show: true,
@@ -691,12 +706,13 @@ export default class Charts extends Vue {
             colors: undefined,
             opacity: 0.5,
           },
-          padding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-          },
+            padding:{
+          bottom:-2,
+        },
+        },
+     
+        yaxis:{
+          show: false
         },
         theme: {
           monochrome: {
@@ -729,6 +745,7 @@ export default class Charts extends Vue {
           min: new Date("01 Mar 2012").getTime(),
           tickAmount: 0,
         },
+      
         tooltip: {
           x: {
             format: "dd MMM yyyy",

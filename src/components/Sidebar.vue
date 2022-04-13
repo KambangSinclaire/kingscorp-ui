@@ -2,10 +2,10 @@
 
             <div class="">
               <div class="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"></div>
-              <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-4 pb-8 bg-white border-r overflow-y-auto">
-                <div class="flex justify-between w-full items-center px-6  mb-4 lg:border-b border-gray-100" style="padding-bottom:.7rem;">
+              <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-4/5 lg:w-96 sm:max-w-xs pt-4 pb-8 bg-white border-r overflow-y-auto">
+                <div class="flex justify-between w-full items-center px-6  mb-4 lg:border-b border-gray-100" style="padding-bottom:0rem;">
                  <router-link to="/" class=" w-32 relative">
-                    <a class=" w-32 relative" style="height: 1.8rem;" data-config-id="brand">
+                    <a class=" w-32 relative" style="height: 1.5rem;" data-config-id="brand">
                     <img class="w-full" src="@/assets/logo/logo4-removebg-preview.png" alt="" width="auto">
                   </a>
                  </router-link>
@@ -41,12 +41,12 @@
                       </a>
                       </router-link>
                     </li>
-                      </div>
+                    </div>
                    
                   </ul>
 
                   <div class="pt-8">
-                    <router-link to="/explore/dashboard/settings" v-view="['GROUP', 'ROLE', 'PERMISSIONS', 'PREFERENCES' ]" >
+                    <!-- <router-link to="/explore/dashboard/settings" v-view="['GROUP', 'ROLE', 'PERMISSIONS', 'PREFERENCES' ]" >
                     <a class="flex items-center pl-3 py-2 pr-2 rounded" :class="[{'bg-blue-700':$route?.path.includes('/explore/dashboard/settings')},{'text-white':$route?.path.includes('/explore/dashboard/settings')}, {'hover:bg-indigo-50':!$route?.path.includes('/explore/dashboard/settings')}, {'text-gray-500':!$route?.path.includes('/explore/dashboard/settings')}]">
                       <span class="inline-block mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -56,7 +56,35 @@
                       </span>
                       <span data-config-id="link11">Settings</span>
                     </a>
+                    </router-link> -->
+
+                    <ul class="text-sm font-medium my-2" v-for="i of this.routes[0]?.settings" :key="i" v-view="['GROUP', 'ROLE', 'PERMISSIONS', 'PREFERENCES' ]">
+                      <router-link :to="i?.path">
+                    <li>
+                      <a class="flex items-center pl-3 py-2.5 pr-4 rounded" :class="[{'bg-blue-700':$route?.path == i?.path},{'text-white':$route?.path == i?.path}, {'hover:bg-indigo-50':$route?.path != i?.path}, {'text-gray-500':$route?.path != i?.path}]">
+                        <span class="inline-block mr-3 text-xl"  v-html="i.icon" ></span>
+                        <span data-config-id="link1" class="capitalize">{{i?.name}}</span>
+                        <span class="inline-block ml-auto cursor-pointer text-xl">
+                          <svg class="text-gray-300 w-3 h-3 cursor-pointer transform" @click.prevent="i.opened = !i.opened" :class="[{'rotate-180':!i.opened}]" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-3-2">
+                            <path d="M9.08329 0.666626C8.74996 0.333293 8.24996 0.333293 7.91663 0.666626L4.99996 3.58329L2.08329 0.666626C1.74996 0.333293 1.24996 0.333293 0.916626 0.666626C0.583293 0.999959 0.583293 1.49996 0.916626 1.83329L4.41663 5.33329C4.58329 5.49996 4.74996 5.58329 4.99996 5.58329C5.24996 5.58329 5.41663 5.49996 5.58329 5.33329L9.08329 1.83329C9.41663 1.49996 9.41663 0.999959 9.08329 0.666626Z" fill="currentColor"></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
                     </router-link>
+                    <div v-if="i?.opened" class="bg-gray-50 px-4 line py-2 transition-all reveal rounded-md" >
+                    <li v-for="x of i?.subroute" :key="x" v-view="x?.name.toUpperCase()" class="list-line">
+                    <router-link :to="x?.path">
+                      <a class="flex items-center pl-3 py-2.5 pr-4 rounded" :class="[{'bg-blue-700':$route?.path == x?.path},{'text-white':$route?.path == x?.path}, {'hover:bg-indigo-50':$route?.path != x?.path}, {'text-gray-500':$route?.path != x?.path}]" >
+                        <span class="inline-block mr-3 text-xl"  v-html="x.icon" ></span>
+                        <span data-config-id="link1" class="capitalize">{{x?.name}}s</span>
+                      </a>
+                      </router-link>
+                    </li>
+                    </div>
+                   
+                  </ul>
+
                     <router-link to="/login">
                     <a class="flex items-center pl-3 py-2 pr-2 text-gray-500 hover:bg-indigo-50 rounded" >
                       <span class="inline-block mr-4">
@@ -93,7 +121,7 @@
                       <ul class="pl-4 text-blue-300"><li>URLs that don't change</li><li>Your own custom domains</li><li>and more!</li></ul>
                       <button type="button" class="ant-btn text-white mt-3 shadow border-blue-400 w-full py-2 rounded-md bg-blue-500 ant-btn-block"><a class="flex items-center justify-center text-inherit" href="/billing/plan">Upgrade Now</a></button></div></div>
 
-                  <div class="flex justify-between items-center bottom-0  px-6 fixed bg-white lg:border-t border-gray-100" style="padding-bottom:.7rem; width:inherit;">
+                  <div class="flex justify-between items-center bottom-0  px-6 fixed bg-white lg:border-t border-gray-100" style="padding-bottom:.7rem; width:20rem;">
               
                   <button  class="w-8 h-8 px-2 flex justify-center  items-center mt-2 shadow rounded text-gray-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -232,6 +260,42 @@ export default class Sidebar extends Vue {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>`
           }]
+        }],
+
+        settings:[{
+          name:'Settings',
+          opened:false,
+          path:'/explore/dashboard/settings',
+          icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>`,
+          subroute:[{
+            name:'role',
+            path:'/explore/dashboard/settings',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>`
+          },{
+            name:'preference',
+            path:'/explore/dashboard/settings/preferences',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>`
+          },{
+            name:'permission',
+            path:'/explore/dashboard/settings/permissions/1',
+            icon:`<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      </svg>`
+          },{
+            name:'group',
+            path:'/explore/dashboard/settings/groups',
+            icon:` <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>`
+          },
+         ]
         }]
       }
       ],
