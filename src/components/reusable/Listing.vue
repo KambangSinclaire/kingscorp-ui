@@ -233,7 +233,7 @@
                             border-r border-t border-b
                           "
                         >
-                          {{ title }}
+                          {{ title.replaceAll('_', ' ') }}
                         </th>
                         <th
                           
