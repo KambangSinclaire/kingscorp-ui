@@ -10,4 +10,6 @@ app.use('/', serveStatic(path.join(__dirname, '/dist')))
 app.get('/.*/', function (req, res) {
     res.sendFile(path.join(__dirname, '/dist/index.html'))
 })
-app.listen(port, () => // console.log("Kingscorp frontend running on Port ", port));
+app.listen(port, () => {
+    console.log("Kingscorp frontend running on Port ", port)
+});
