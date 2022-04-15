@@ -33,6 +33,10 @@ import Profile from "../components/auth/Profile.vue";
 import Charts from "../components/reusable/statistics/Charts.vue";
 import Default from '../components/Default.vue'
 import authGuard from "@/guards/auth.guard";
+import Mail from '../components/mail/Mail.vue'
+import Inbox from '../components/mail/Inbox.vue'
+import Compose from '../components/mail/Compose.vue'
+import Read from '../components/mail/Read.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -142,7 +146,29 @@ const routes: Array<RouteRecordRaw> = [
             component: Preferences
           }
         ]
-      }
+      },
+      {
+        path: "mail",
+        name: "Mail",
+        component: Mail,
+        children:[
+          {
+            path: "",
+            name: "Inbox",
+            component: Inbox
+          },
+          {
+            path: "compose",
+            name: "Compose",
+            component: Compose
+          },
+          {
+            path: "read/:id",
+            name: "Read",
+            component: Read
+          },
+        ]
+      },
     ]
   },
   {

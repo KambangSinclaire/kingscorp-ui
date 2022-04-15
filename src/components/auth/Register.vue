@@ -304,9 +304,7 @@ let storageUtil = new StorageUtilis()
     methods: {
     createUser() {
       switch (false) {
-        case /^(?=.{4,20}$)(?:[a-zA-Z\d]+(?:(?:\.|-|_)[a-zA-Z\d])*)+$/.test(
-          this.register.username
-        ):
+        case this.register.username.trim().length == 0 :
           this.errorMessage = "User name is badly formated";
           this.isError = true;
           break;
@@ -323,13 +321,13 @@ let storageUtil = new StorageUtilis()
           this.isError = true;
           break;
 
-        case /^\+(?:[0-9] ?){6,14}[0-9]$/.test(this.register.phone_number):
+        case this.register.phone_number.trim().length == 0:
           this.errorMessage = "phone number must have country code";
           this.isError = true;
           break;
       }
 
-      if(!this.errorMessage){
+      if(!this.isError  || !this.errorMessage){
         this.isError = false;
          this.$store.dispatch(AppActionEvents.location.retrieve);
         let userLocation = "";
@@ -338,7 +336,7 @@ let storageUtil = new StorageUtilis()
         // console.log(this.register, userLocation);
         
         let data:User = {
-          username: this.register.username,
+          username: this.register.username.trim(),
           email: this.register.email,
           password: this.register.password,
           phone_number: this.register.phone_number,
@@ -346,6 +344,8 @@ let storageUtil = new StorageUtilis()
           last_login: new Date(Date.now()),
         };
         this.$store.dispatch(AppActionEvents.user.add, data);
+        // console.log(data);
+        
       }
 
     },

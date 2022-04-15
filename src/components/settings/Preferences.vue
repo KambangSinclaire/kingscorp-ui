@@ -3,39 +3,20 @@
       
 <div class="xCPtuxM4_gihvpPwv9bX Nu4HUn5EQpnNJ1itNkrd RZmKBZs1E1eXw8vkE6jY mlwbuv_bMkMhzTA3msA3 sIk4Wc5VFaQpncPF5Sx4 AWLGIryfLKwkSeUZd4O6 h8KYXnua2NT4kTVzieom">
     <div class="EWLTGduHCjFnjN6tLCXV hD0sTTDgbxakubcHVW2X QzGxlDe4W0Kn6V1Dkd6r">
-        <nav class="YRrCJSr_j5nopfm4duUc Td37IMFwOi4Zt3Vhv3cT" aria-label="Breadcrumb">
-            <ol class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2 R0X5VtiZIoV7IjvrxBJ_ hPWJir4VhLurUkdR8iyI">
-              <li class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
-                <a href="#" class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2 rYHHksRBEMl_guI3q0UQ ZnBoTVi7VOJdCLSSU62n EJIoL6514Ry8r7nh011L dMTOiA3mf3FTjlHu6DqW">
-                  <svg class="ADSeKHR1DvUUA48Chci_ rxe6apEJoEk8r75xaVNG T1qzIiYBzxDgBnL9ISMF" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-                  Home
-                </a>
-              </li>
-              <li>
-                <div class="YRrCJSr_j5nopfm4duUc Q_jg_EPdNf9eDMn1mLI2">
-                  <svg class="YIUegm7fh_CpJbivTu6B MnxxlQlR1H0xJuMEE8Yr _JmTNv5EiHqK2A1jcQSf" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                  <a href="#" class="c2LzVf9SsdSEMBrRjNwS c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe rYHHksRBEMl_guI3q0UQ ZnBoTVi7VOJdCLSSU62n EbR_B0tHyczsKYnc0ktU EJIoL6514Ry8r7nh011L dMTOiA3mf3FTjlHu6DqW">Users</a>
-                </div>
-              </li>
-              <li>
-                <div class="YRrCJSr_j5nopfm4duUc Q_jg_EPdNf9eDMn1mLI2">
-                  <svg class="YIUegm7fh_CpJbivTu6B MnxxlQlR1H0xJuMEE8Yr _JmTNv5EiHqK2A1jcQSf" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                  <span class="c2LzVf9SsdSEMBrRjNwS c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe _JmTNv5EiHqK2A1jcQSf EbR_B0tHyczsKYnc0ktU qIT6vrYn0Fr1U3wlPXaS" aria-current="page">Settings</span>
-                </div>
-              </li>
-            </ol>
-        </nav>
+        
         <h1 class="vyo_A8gnQD1QWDPglr3h yM_AorRf2jSON3pDsdrz __9sbu0yrzdhGIkLWNXl NdexIDe6BTJXjtSnppoV OyABRrnTV_kvHV7dJ0uE">User settings</h1>
     </div>
     <!-- Right Content -->
     <div class="EWLTGduHCjFnjN6tLCXV Atl0coQVHTfJeIp5DBNr">
         <div class="_Ybd3WwuTVljUT4vEaM3 mngKhi_Rv06PF57lblDI mveJTCIb2WII7J4sY22F _wYiJGbRZyFZeCc8y7Sf _YxZw_O8dWkTljptcO7z SWDELhWFjL8JxEtm91_o _1jTZ8KXRZul60S6czNi hD0sTTDgbxakubcHVW2X">
             <div class="Q_jg_EPdNf9eDMn1mLI2 rvdRhGyExrNYTA6euxsF xu6Xcz2CnxX04u4eQAne _Zd6CFkEZSNEHC9TBkyE SQf297smyJVNzzOO3iQL LvH1cgobxEYMRPVAp8WW fxDO_pTRQLZKehDay_Tf">
-                <img class="hD0sTTDgbxakubcHVW2X IxVXJAn2ZWxXpcIHvPnh nRgpYtDXPa8Sk01AYTQr mveJTCIb2WII7J4sY22F tkZo48dB4RhnHSlDXzoe RO6axy6tLw1YpZ9T54F_ _5qVeTKgUlNIvLfYDjop" src="https://flowbite.com/application-ui/demo/images/users/jese-leos-2x.png" alt="Jese picture">
+                <!-- <img class="hD0sTTDgbxakubcHVW2X IxVXJAn2ZWxXpcIHvPnh nRgpYtDXPa8Sk01AYTQr mveJTCIb2WII7J4sY22F tkZo48dB4RhnHSlDXzoe RO6axy6tLw1YpZ9T54F_ _5qVeTKgUlNIvLfYDjop" src="https://flowbite.com/application-ui/demo/images/users/jese-leos-2x.png" alt="Jese picture"> -->
+                  <div class="TR_P65x9ie7j6uxFo_Cs XO0Hd72IH1CH2AVjcbWM v2F5G_Fm6X1wxdNJdQlJ mveJTCIb2WII7J4sY22F bg-blue-700 flex items-center justify-center"><h1 class="text-3xl text-white font-bold"> 
+                      {{profileInfo?.username.charAt().toUpperCase()}} </h1></div>
                 <div>
-                    <h3 class="Z3N7I2IDDsoXK6xJ1cSW q1oXbofRCOhVhOSB8tiU IOPhczRgtphv6NdNBDjj __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Jese Leos</h3>
+                    <h3 class="Z3N7I2IDDsoXK6xJ1cSW q1oXbofRCOhVhOSB8tiU IOPhczRgtphv6NdNBDjj __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">{{profileInfo?.username}}</h3>
                     <div class="hD0sTTDgbxakubcHVW2X d3C8uAdJKNl1jzfE9ynq _43MO1gcdi2Y0RJW1uHL PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">
-                        Software Engineer
+                        {{profileInfo?.role}}
                     </div>
                     <a href="#" class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2 b9aD6g2qw84oyZNsMO8j _Cj_M6jt2eLjDgkBBNgI c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe ijrOHNoSVGATsWYKl4Id y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY mveJTCIb2WII7J4sY22F YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM">
                         <svg class="fhCwost7CSNRc2WSHLFW ZEPNZzATe5nPnS0shmrF E9GV5sZJIbfO_GEQ_moc _o2IXcpM0qnG3JPReKus" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path><path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path></svg>
@@ -50,12 +31,7 @@
                 <label for="settings-language" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Select language</label>
                 <select id="settings-language" name="countries" class="jtAJHOc7mn7b4IKRO59D vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5">
                     <option>English (US)</option>
-                    <option>Italiano</option>
                     <option>Français (France)</option>
-                    <option>正體字</option>
-                    <option>Español (España)</option>
-                    <option>Deutsch</option>
-                    <option>Português (Brasil)</option>
                 </select>
             </div>
             <div class="EyjJPKD7jgGRBhaLpRVI">
@@ -128,8 +104,11 @@
                                 </span>
                             </div>
                             <div class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
-                                <a href="#" class="b9aD6g2qw84oyZNsMO8j _Cj_M6jt2eLjDgkBBNgI R9nujHypnXyuHrBww9QK _hpGev6RXFut0Jm_iRgf c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe ijrOHNoSVGATsWYKl4Id y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY mveJTCIb2WII7J4sY22F YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM">Connect</a>
+                                <a href="#" class="b9aD6g2qw84oyZNsMO8j _Cj_M6jt2eLjDgkBBNgI R9nujHypnXyuHrBww9QK _hpGev6RXFut0Jm_iRgf c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe ijrOHNoSVGATsWYKl4Id __9sbu0yrzdhGIkLWNXl _Ybd3WwuTVljUT4vEaM3 mveJTCIb2WII7J4sY22F pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk _7KA5gD55t2lxf9Jkj20 _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T _1jTZ8KXRZul60S6czNi XIIs8ZOri3wm8Wnj9N_y Mmx5lX7HVdrWCgh3EpTP dMTOiA3mf3FTjlHu6DqW OPrb_iG5WDy_7F05BDOX">Disconnect</a>
                             </div>
+                            <!-- <div class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
+                                <a href="#" class="b9aD6g2qw84oyZNsMO8j _Cj_M6jt2eLjDgkBBNgI R9nujHypnXyuHrBww9QK _hpGev6RXFut0Jm_iRgf c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe ijrOHNoSVGATsWYKl4Id y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY mveJTCIb2WII7J4sY22F YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM">Connect</a>
+                            </div> -->
                         </div>
                     </li>
                     <li class="p_2EXc_a2sDA_h41l8QU gyULXFQVgjg7SZF8X3HH">
@@ -145,8 +124,11 @@
                                     Not connected
                                 </span>
                             </div>
-                            <div class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
+                            <!-- <div class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
                                 <a href="#" class="b9aD6g2qw84oyZNsMO8j _Cj_M6jt2eLjDgkBBNgI R9nujHypnXyuHrBww9QK _hpGev6RXFut0Jm_iRgf c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe ijrOHNoSVGATsWYKl4Id y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY mveJTCIb2WII7J4sY22F YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM">Connect</a>
+                            </div> -->
+                            <div class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
+                                <a href="#" class="b9aD6g2qw84oyZNsMO8j _Cj_M6jt2eLjDgkBBNgI R9nujHypnXyuHrBww9QK _hpGev6RXFut0Jm_iRgf c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe ijrOHNoSVGATsWYKl4Id __9sbu0yrzdhGIkLWNXl _Ybd3WwuTVljUT4vEaM3 mveJTCIb2WII7J4sY22F pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk _7KA5gD55t2lxf9Jkj20 _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T _1jTZ8KXRZul60S6czNi XIIs8ZOri3wm8Wnj9N_y Mmx5lX7HVdrWCgh3EpTP dMTOiA3mf3FTjlHu6DqW OPrb_iG5WDy_7F05BDOX">Disconnect</a>
                             </div>
                         </div>
                     </li>
@@ -164,25 +146,12 @@
             <form action="#">
                 <div class="xCPtuxM4_gihvpPwv9bX xcwgeeZbzBfzbYbc32HH Bcw8VuwRWYxPGjWjS6Ig">
                     <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="first-name" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">First Name</label>
+                        <label for="first-name" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Username</label>
                         <input type="text" name="first-name" id="first-name" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="Bonnie" required="">
                     </div>
-                    <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="last-name" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Last Name</label>
-                        <input type="text" name="last-name" id="last-name" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="Green" required="">
-                    </div>
-                    <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="country" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Country</label>
-                        <input type="text" name="country" id="country" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="United States" required="">
-                    </div>
-                    <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="city" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">City</label>
-                        <input type="text" name="city" id="city" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="e.g. San Francisco" required="">
-                    </div>
-                    <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="address" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Address</label>
-                        <input type="text" name="address" id="address" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="e.g. California" required="">
-                    </div>
+                    
+                    
+                  
                     <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
                         <label for="email" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Email</label>
                         <input type="email" name="email" id="email" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="example@company.com" required="">
@@ -196,19 +165,13 @@
                         <input type="number" name="birthday" id="birthday" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="15/08/1990" required="">
                     </div>
                     <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="organization" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Organization</label>
+                        <label for="organization" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Organization Name</label>
                         <input type="text" name="organization" id="organization" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="Company Name" required="">
                     </div>
+                    
+                    
                     <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="role" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Role</label>
-                        <input type="text" name="role" id="role" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="React Developer" required="">
-                    </div>
-                    <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="department" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Department</label>
-                        <input type="text" name="department" id="department" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="Development" required="">
-                    </div>
-                    <div class="_P4crYcwEj3d10LO5o8N DlUdveMmz1SkMYd217vD">
-                        <label for="zip-code" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Zip/postal code</label>
+                        <label for="zip-code" class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Zip/postal code (optional) </label>
                         <input type="number" name="zip-code" id="zip-code" class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5" placeholder="123456" required="">
                     </div>
                     <div class="_P4crYcwEj3d10LO5o8N sm:col-full">
@@ -237,10 +200,10 @@
                         <div class="c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe OyABRrnTV_kvHV7dJ0uE">Password requirements:</div>
                         <div class="Z3N7I2IDDsoXK6xJ1cSW c8dCx6gnV43hTOLV6ks5 _43MO1gcdi2Y0RJW1uHL PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">Ensure that these requirements are met:</div>
                         <ul class="LTEDJh4s7gPtSmaVhWcH wezTbYJgxYJp5ZDqX67N PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">
-                            <li class="gMXmdpOPfqG_3CKkL0VD _43MO1gcdi2Y0RJW1uHL">At least 10 characters (and up to 100 characters)</li>
-                            <li class="gMXmdpOPfqG_3CKkL0VD _43MO1gcdi2Y0RJW1uHL">At least one lowercase character</li>
+                            <li class="gMXmdpOPfqG_3CKkL0VD _43MO1gcdi2Y0RJW1uHL">At least 8 characters (and up to 100 characters)</li>
+                            <!-- <li class="gMXmdpOPfqG_3CKkL0VD _43MO1gcdi2Y0RJW1uHL">At least one lowercase character</li>
                             <li class="gMXmdpOPfqG_3CKkL0VD _43MO1gcdi2Y0RJW1uHL">Inclusion of at least one special character, e.g., ! @ # ?</li>
-                            <li class="gMXmdpOPfqG_3CKkL0VD _43MO1gcdi2Y0RJW1uHL">Some text here zoltan</li>
+                            <li class="gMXmdpOPfqG_3CKkL0VD _43MO1gcdi2Y0RJW1uHL">Some text here zoltan</li> -->
                         </ul>
                     </div>
                     <div class="_P4crYcwEj3d10LO5o8N sm:col-full">
@@ -260,10 +223,10 @@
                         </div>
                         <div class="_74lpPUMEtHf6F0_fjLe G4dLHP1O7x3gaD0_p7Kc">
                             <p class="d3C8uAdJKNl1jzfE9ynq yM_AorRf2jSON3pDsdrz __9sbu0yrzdhGIkLWNXl vfNYjqjYMlN1XskEucCt OyABRrnTV_kvHV7dJ0uE">
-                                California 123.123.123.123
+                                {{profileInfo?.city}} {{profileInfo?.ip}}
                             </p>
                             <p class="c8dCx6gnV43hTOLV6ks5 _43MO1gcdi2Y0RJW1uHL PeR2JZ9BZHYIH8Ea3F36 vfNYjqjYMlN1XskEucCt XIIs8ZOri3wm8Wnj9N_y">
-                                Chrome on macOS
+                                Chrome on Ubuntu
                             </p>
                         </div>
                         <div class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
@@ -308,7 +271,7 @@
                 <div class="YRrCJSr_j5nopfm4duUc sJNGKHxFYdN5Nzml5J2j Q_jg_EPdNf9eDMn1mLI2 _9igzqn_6D3Qq5Hcwkfk">
                     <div class="YRrCJSr_j5nopfm4duUc e8VqoQNK0mbkRFDL3LMV POuUxRn_2mImkG0xUuUT">
                         <div class="y0nOgdpiqOUaFDbjAxwD yM_AorRf2jSON3pDsdrz __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Company News</div>
-                        <div class="d3C8uAdJKNl1jzfE9ynq _43MO1gcdi2Y0RJW1uHL PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">Get Themesberg news, announcements, and product updates</div>
+                        <div class="d3C8uAdJKNl1jzfE9ynq _43MO1gcdi2Y0RJW1uHL PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">Get Recent news, announcements, and product updates</div>
                     </div>
                     <label for="company-news" class="YRrCJSr_j5nopfm4duUc ahOqFrhzLjivRe8a1kX_ Q_jg_EPdNf9eDMn1mLI2 SA5DoMHfwOFtY4h_qzuM">
                         <input type="checkbox" id="company-news" class="_DVAfiyo21kM68EUVzEQ">
@@ -417,6 +380,7 @@
 <script>
 import { AppActionEvents } from "@/events/app.events";
 import { Options, Vue } from "vue-class-component";
+import {StorageUtilis} from './../../utils/storage.util'
 
 @Options({
   methods: {
@@ -440,6 +404,23 @@ import { Options, Vue } from "vue-class-component";
   }
 })
 export default class Preferences extends Vue {
+    storageUtils = new StorageUtilis()
+    profileInfo = {
+    username: this.storageUtils.getFromStorageAndDecode('username'),
+    email:this.storageUtils.getFromStorageAndDecode('email'),
+    country:this.storageUtils.getFromStorageAndDecode('country'),
+    role:this.storageUtils.getFromStorageAndDecode('role')?.name,
+    region:this.storageUtils.getFromStorageAndDecode('region'),
+    city: this.storageUtils.getFromStorageAndDecode('city'),
+    phone_number:this.storageUtils.getFromStorageAndDecode('phone_number'),
+    timezone: this.storageUtils.getFromStorageAndDecode('timezone'),
+    languages: this.storageUtils.getFromStorageAndDecode('languages'),
+    createdAt: this.storageUtils.getFromStorageAndDecode('created_At'),
+    org: this.storageUtils.getFromStorageAndDecode('org'),
+    latitude: this.storageUtils.getFromStorageAndDecode('latitude'),
+    id: this.storageUtils.getFromStorageAndDecode('id'),
+    ip: this.storageUtils.getFromStorageAndDecode('ip'),
+  }
   data() {
     return {
       sideBarPreferences: {

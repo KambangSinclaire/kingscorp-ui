@@ -1,7 +1,12 @@
 <template>
 <div class="bg-white">
       <!-- welcome screen here -->
+      <!-- stats -->
+      <!-- stats -->
       <div class="p-4">
+      <Stats />
+      <br><br>
+
       <div style="background:rgb(227, 243, 240);" :class="{'h-24':this.toogleShowCard}" class="w-full reveal rounded relative pl-10 pr-6 py-4 overflow-hidden ">
         <button @click.prevent="this.toogleShowCard = !this.toogleShowCard" class="h-8 w-8 rounded bg-blue-50 absolute left-0 top-0 flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,7 +76,7 @@
                     </svg>
                   </span>
                   <div>
-                    <h2 class="mb-1 text-2xl font-bold" data-config-id="header">ROI Analytics Dashboard</h2>
+                    <h2 class="mb-1 text-2xl font-bold" data-config-id="header">Analytics Dashboard</h2>
                     <p class="text-sm text-gray-500 font-medium" data-config-id="desc">Manage your business. Achieve your goals and increase profits.</p>
                   </div>
                 </div>
@@ -122,10 +127,11 @@ import { StorageUtilis } from '@/utils/storage.util';
 import {Vue,Options} from 'vue-class-component';
 import InfoCard from './reusable/Info-Card.vue';
 import Spinner from './reusable/loaders/spinner.vue'
+import Stats from './Stats.vue'
 let storageUtilis = new StorageUtilis()
  @Options({
    components: {
-    InfoCard,Spinner
+    InfoCard,Spinner, Stats
   },
   mounted(){
     let roles = this.$store.getters?.getRoles;
@@ -176,6 +182,7 @@ export default class Default extends Vue{
 </script>
 
 <style lang="scss" scoped>
+
 *, *::after, *::before{
   transition: all ease-in-out 0.6s !important;
 }

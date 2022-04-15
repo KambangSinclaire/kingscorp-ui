@@ -73,7 +73,7 @@
                     id="signup-form-username-row"
                     class="cu-form__row"
                   >
-                    <div class="cu-form__label">Username</div>
+                    <div class="cu-form__label">Email </div>
                     <div class="cu-form__field">
                       <div
                         aria-hidden="true"
@@ -86,9 +86,9 @@
                       <input
                         cuautofocus=""
                         id="signup-username-input"
-                        placeholder="username..."
+                        placeholder="email@xample.com"
                         v-model="this.login.username"
-                        type="username"
+                        type="email"
                         maxlength="76"
                         pattern="[A-Za-z]{3,}" title="More Than Three letter"
                         class="cu-form__input"
@@ -237,7 +237,7 @@ import Toast from "@/components/reusable/toast/toast.vue";
       if (!this.login.username.trim() || !this.login.password.trim()) {
         // this.$router.push("/explore/dashboard");
         this.isError = true;
-        this.errorMessage = "invalid username or password";
+        this.errorMessage = "invalid email or password";
       }
        else {
         // this.$store.dispatch(AppActionEvents.user.add, this.register);
