@@ -64,15 +64,42 @@
                 </div>
 
                   <div class="grid grid-cols-6 gap-6" >
-                  <div class="col-span-6 sm:col-span-3 "   
+                  <div class="col-span-6 sm:col-span-6 cursor-text"   
                   v-for="(inputType, inputName) of formatInputs.specialInputs"
                   :key="inputName" :class="{ 'hidden':inputType !== 'file', 'hidden':inputType === 'textarea' }">
-                    <label class="block text-sm font-medium text-gray-700 capitalize"
-                     :for="inputName"
-                      >{{inputName}}</label
-                    >
+                    
+<div>
+  <label :id="inputName"  :for="inputName" class="block text-sm font-medium text-gray-700"> {{inputName}} </label>
+  <div class="mt-1 relative">
+    <input v-model="formatInputs.specialInputs[inputName]" class="relative cursor-text w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="select one or many....">
+      <span class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg"  class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </span>
 
-                    <select
+
+    <ul class="absolute hidden z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+
+      <li v-for="(data, index) of relations[inputName]" :value="data.id" :key="index" class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9" id="listbox-option-0" role="option">
+        <div class="flex items-center">
+          <span class="font-normal ml-3 block truncate">{{data?.name}}</span>
+        </div>
+
+        <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </li>
+
+  
+    </ul>
+  </div>
+</div>
+
+                  <!-- <select
                       class="
                         mt-1
                         block
@@ -88,9 +115,10 @@
                         focus:border-indigo-500
                         sm:text-sm
                       "
-                       v-model="formatInputs.specialInputs[inputName]"
+                      value="select one"
+                      v-model="formatInputs.specialInputs[inputName]"
                     >
-                      <!-- <option selected>{{ inputName }}</option> -->
+                    
                       <option
                           v-for="(data, index) of relations[inputName]"
                           :value="data.id"
@@ -98,7 +126,7 @@
                           >
                           {{ data?.name }}
                       </option>
-                    </select>
+                    </select>  -->
                   </div>
 
                   </div>
@@ -238,6 +266,7 @@ import { AppActionEvents } from "../../events/app.events";
     setup: Object,
   },
 
+
   computed: {
     formatInputs() {
       const inputs = { ...this.setup.inputs };
@@ -318,7 +347,8 @@ import { AppActionEvents } from "../../events/app.events";
     let relations = [];
     for (const [key, value] of Object.entries(relationalInputs)) {
       relations.push(`${key}`);
-      this.$store.dispatch(AppActionEvents[key].retrieve, { relations });
+      if( AppActionEvents[key] !== undefined && AppActionEvents[key].retrieve !== undefined)
+        this.$store.dispatch(AppActionEvents[key].retrieve, { relations });
     }
   },
 })
@@ -332,12 +362,14 @@ export default class Add extends Vue {
         textarea: true,
       },
       previewImage: null,
+      selectsFilters:[]
     };
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import './../../assets/styles/primevue.scss';
 input:focus,
 textarea:focus {
   outline: 1px solid blue;
@@ -429,5 +461,29 @@ textarea:focus {
   100% {
     transform: translateX(0px);
   }
+
 }
+
+::v-deep(.multiselect-custom) {
+    .p-multiselect-label:not(.p-placeholder) {
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+    }
+
+    .country-item-value {
+        padding: .25rem .5rem;
+        border-radius: 3px;
+        display: inline-flex;
+        margin-right: .5rem;
+        // background-color: var(--primary-color);
+        // color: var(--primary-color-text);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .p-multiselect {
+        width: 100%;
+    }
+}
+
 </style>

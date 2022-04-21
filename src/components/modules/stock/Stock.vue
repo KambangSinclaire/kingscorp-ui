@@ -1,7 +1,7 @@
 <template>
   <Listing
     :listData="stock"
-    :options="{ actionBtns: true, inputs, entity, actions }"
+    :options="{ actionBtns: true, inputs, entity, actions, relations }"
     :listingTitles="titles"
   />
 </template>
@@ -26,6 +26,7 @@ import Listing from "../../reusable/Listing.vue";
 
   mounted() {
     this.$store.dispatch(AppActionEvents.stock.retrieve);
+    this.$store.dispatch(AppActionEvents.product.retrieve);
   },
 })
 export default class Stock extends Vue {
@@ -52,6 +53,11 @@ export default class Stock extends Vue {
         name: "text",
       },
       entity: "Stock",
+      relations: {
+        // category: "Categories",
+        products: "Products",
+        // inventory: "Inventories",
+      },
       actions: {
         add: AppActionEvents.stock.add,
         edit: AppActionEvents.stock.edit,
