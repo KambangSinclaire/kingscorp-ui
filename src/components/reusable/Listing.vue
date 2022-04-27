@@ -106,8 +106,7 @@
           </svg>
           </button>
           <button
-          class="
-            w-8
+          class=" w-8
             h-8
             border
             px-2
@@ -257,19 +256,15 @@
                      <SkeletonLoader :dataCol="listingTitles" v-if="this.$store.getters.getLoader?.type == 'skeleton' && this.$store.getters.getLoader?.loading"/> 
                        
                       <tr v-for="(data, index) of listData" :key="index" :class="{'hidden':this.$store.getters.getLoader?.loading}" >
-                        <td
-                          v-for="(entry, index2) in formatedTitles"
-                          :key="index2"
-                          class="px-6 py-4 text-left capitalize border"
-                        >
-                      
-                          {{
-                            (typeof data[entry] === "string" &&
+                        <td v-for="(entry, index2) in formatedTitles" :key="index2"  class="px-6 py-4 text-left capitalize border" >
+                      <!-- {{ (typeof data[entry] === "string" &&
                               !data[entry].trim().endsWith(".svg")) ||
                             typeof data[entry] === "number"
-                              ? data[entry]
+                              ? data[entry.toLowerCase().replaceAll(' ', '_')]
                               : ""
-                          }}
+                          }} -->
+                           {{  data[entry.toLowerCase().replaceAll(' ', '_')] }}
+                          
                           
                           {{
                             typeof data[entry] === "object"

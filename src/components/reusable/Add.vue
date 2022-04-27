@@ -44,9 +44,9 @@
                           </svg>
                         </span>
                         
-                        <span :class="{'hidden':selectsFilters?.length == 0}" v-for="i of this.selectsFilters" :key="i" class="bg-blue-700 text-white mt-1 mx-0.5 justify-between rounded-md inset-y-0 left-0 flex items-center h-9 w-28 px-2 ">
-                            <small class="truncate text-center">{{i?.text}}</small>
-                          <a class="cursor-pointer" @click.prevent="delSelect(i?.id)">
+                        <span :class="{'hidden':!this.selectsFilters}" v-for="i of this.selectsFilters[inputName]" :key="i" class="bg-blue-700 text-white mt-1 mx-0.5 justify-between rounded-md inset-y-0 left-0 flex items-center h-9 w-28 px-2 ">
+                            <small class="truncate text-center">{{i?.name}}</small>
+                          <a class="cursor-pointer" @click.prevent="delSelect(i?.dataId, inputName)">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
@@ -65,7 +65,7 @@
 
                         </span>
 
-                        <li v-for="(data, index) of relations[inputName]" :value="data.id" :key="index" class="text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-blue-600 hover:text-white group" @click.prevent="addSelect(data?.name, inputName)">
+                        <li v-for="(data, index) of relations[inputName]" :value="data.id" :key="index" class="text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-blue-600 hover:text-white group" @click.prevent="addSelect(data, inputName)">
                           <div class="flex items-center">
                             <span class="font-normal ml-3 block truncate">{{data?.name}}</span>
                           </div>
@@ -178,10 +178,10 @@ import { AppActionEvents } from "../../events/app.events";
     relations() {
       const specialInputs = { ...this.formatInputs.specialInputs };
       const relationalInputs = { ...this.setup.relations };
-      console.log(specialInputs);
+ 
       let results = {};
       for (const [key, value] of Object.entries(specialInputs)) {
-        console.log(relationalInputs[key]);
+        
         if (relationalInputs[key]) {
           results[key] = this.$store.getters[`get${relationalInputs[key]}`];
         }
@@ -195,11 +195,20 @@ import { AppActionEvents } from "../../events/app.events";
       this.$emit("closeForm", "closeForm");
     },
     addSelect(data, inputName){
-      this.selectsFilters?.push({id:this.selectsFilters.length + 1, text:data, inputName})
+      let empArr = []
+      let {id, name} = data
+      
+      if(this.selectsFilters[`${inputName}`] === null || this.selectsFilters[`${inputName}`] === undefined){
+        empArr.push({id, name, dataId:1})
+        this.selectsFilters[`${inputName}`] = empArr
+      }else{
+        this.selectsFilters[`${inputName}`].push({id, name, dataId : this.selectsFilters[`${inputName}`].length + 1})
+      }
       console.log(this.selectsFilters);
+
     },
-    delSelect(id){
-      this.selectsFilters = this.selectsFilters.filter(a => a?.id !== id)
+    delSelect(id, inputName){
+      this.selectsFilters[`${inputName}`]=this.selectsFilters[`${inputName}`].filter(x => x.dataId !== id)
     },
     saveData() {
       const payload = {
@@ -214,17 +223,17 @@ import { AppActionEvents } from "../../events/app.events";
          payload['profile_image']='asdfkal;kdl;fk'
         // payload['profile_image']=btoa(this.previewImage)
       }
-      if(this.selectsFilters.length !== 0){
 
-        for (let i of this.selectsFilters) {
-         let arr = [], name = i.inputName;
-         arr = arr.push(i); 
-          payload[name] = []; 
+      if(this.selectsFilters.length !== 0){
+        for (let [key] of Object.entries(this.selectsFilters)) {
+          this.selectsFilters[`${key}`] = this.selectsFilters[`${key}`].map(x => x.id)
         }
+         payload['relations'] = this.selectsFilters
+         
       }
-      // this.$store.dispatch(this.setup?.actions?.add, payload);
-      // this.$store.dispatch(this.setup?.actions?.list);
-      console.log(payload, this.selectsFilters);
+      this.$store.dispatch(this.setup?.actions?.add, payload);
+      this.$store.dispatch(this.setup?.actions?.list);
+   
       this.closeForm();
 
     },
@@ -261,7 +270,7 @@ export default class Add extends Vue {
       },
       list:false,
       previewImage: null,
-      selectsFilters:[],
+      selectsFilters:{},
     };
   }
 }

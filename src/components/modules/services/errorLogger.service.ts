@@ -1,3 +1,4 @@
+import router from "@/router";
 import store from "@/store"
 import { AxiosError } from "axios"
 
@@ -18,9 +19,10 @@ export const logError = async (error:AxiosError)=>{
             case 401:
                 store.dispatch('getToast',{
                     type: 'ERROR',
-                    message: error?.response?.data?.message,
+                    message:'Session Expired! You Would Be Redirected Back To Login',
                     status: error?.response?.status ?? 0,
                 })
+                setTimeout(() => router.push('/login') , 3000);
                 break;
         
             default:
