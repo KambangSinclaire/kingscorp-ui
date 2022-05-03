@@ -27,6 +27,7 @@ export interface User{
     x_api_key?: string;
     refresh_token?: string;
     category_Id?: string;
+    organization?:any;
 }
 
 export interface LoginUser {

@@ -1,7 +1,7 @@
 <template>
   <Listing
     :listData="invoices"
-    :options="{ actionBtns: true, inputs, entity, actions }"
+    :options="{ actionBtns: true, inputs, entity, actions, relations }"
     :listingTitles="titles"
   />
 </template>
@@ -25,6 +25,7 @@ import { AppActionEvents } from "../../../events/app.events";
 
   mounted() {
     this.$store.dispatch(AppActionEvents.invoice.retrieve);
+    this.$store.dispatch(AppActionEvents.product.retrieve);
   },
 })
 export default class Invoice extends Vue {
@@ -42,7 +43,7 @@ export default class Invoice extends Vue {
       ],
       inputs: {
         "total_amount": "number",
-        items: "text",
+        items: "select",
         status: "text",
         description: "textarea",
         "expected_date": "date",
@@ -51,6 +52,11 @@ export default class Invoice extends Vue {
         "expiry_date": "date",
       },
       entity: "Invoice",
+       relations: {
+        // category: "Categories",
+        items: "Products",
+        // inventory: "Inventories",
+      },
       actions: {
         add: AppActionEvents.invoice.add,
         edit: AppActionEvents.invoice.edit,

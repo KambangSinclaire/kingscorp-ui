@@ -23,6 +23,7 @@ import './index.scss';
 import {ActionDirective} from './directives/actions.directives'
 import VueApexCharts from 'vue3-apexcharts'
 
+
 let directive = new ActionDirective()
 // added some weird info
 library.add(fas, fab, far);

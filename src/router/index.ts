@@ -37,6 +37,7 @@ import Mail from '../components/mail/Mail.vue'
 import Inbox from '../components/mail/Inbox.vue'
 import Compose from '../components/mail/Compose.vue'
 import Read from '../components/mail/Read.vue'
+import OnboardDefualt from "../components/auth/on_boarding/Default.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -188,6 +189,18 @@ const routes: Array<RouteRecordRaw> = [
     component: Login,
     beforeEnter: () => alert('welcome back :) ')
   },
+  {
+    path: "/onBoard",
+    name:"Onboard",
+    component:OnboardDefualt,
+    children:[
+      {
+        path:"",
+        name:'OnboardDefualt',
+        component:OnboardDefualt
+      }
+    ]
+  }
  
   
 ];
