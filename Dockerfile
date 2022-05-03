@@ -10,7 +10,7 @@ COPY . ./
 
 RUN npm run build 
 
-EXPOSE 3000
+EXPOSE 7000
 
 VOLUME [ "./:/usr/src/app" ]
 
